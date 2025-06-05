@@ -198,7 +198,94 @@ class NeutrinoTimingPattern(ParticleTimingPattern):
             "propagation_efficiency": 0.99,
             "matter_transparency": 0.98
         }
-
+@dataclass
+class PhotonTimingPattern(ParticleTimingPattern):
+    """Photon as electromagnetic timing disturbance propagating through space"""
+    
+    def __post_init__(self):
+        self.particle_type = ParticleType.PHOTON
+        self.stability_level = ParticleStabilityLevel.STABLE
+        self.core_timing_rate = 1.5  # High energy propagation
+        
+        # Photon timing pattern: electromagnetic disturbance with propagation front
+        self.pattern_nodes = [
+            # Central electromagnetic disturbance
+            NodePattern((0, 0, 0), timing_rate=1.5, role="electromagnetic_core"),
+            
+            # Propagation front (8-connectivity optimized)
+            NodePattern((1, 0, 0), timing_rate=1.2, role="propagation_front"),
+            NodePattern((-1, 0, 0), timing_rate=1.2, role="propagation_front"),
+            NodePattern((0, 1, 0), timing_rate=1.2, role="propagation_front"),
+            NodePattern((0, -1, 0), timing_rate=1.2, role="propagation_front"),
+            NodePattern((0, 0, 1), timing_rate=1.2, role="propagation_front"),
+            NodePattern((0, 0, -1), timing_rate=1.2, role="propagation_front"),
+            
+            # Edge propagation (utilizing 8-connectivity)
+            NodePattern((1, 1, 0), timing_rate=1.0, role="edge_propagation"),
+            NodePattern((-1, -1, 0), timing_rate=1.0, role="edge_propagation"),
+            NodePattern((1, -1, 0), timing_rate=1.0, role="edge_propagation"),
+            NodePattern((-1, 1, 0), timing_rate=1.0, role="edge_propagation"),
+            
+            # Extended propagation for space-time coordination
+            NodePattern((2, 0, 0), timing_rate=0.8, role="extended_propagation"),
+            NodePattern((-2, 0, 0), timing_rate=0.8, role="extended_propagation"),
+            NodePattern((0, 2, 0), timing_rate=0.8, role="extended_propagation"),
+            NodePattern((0, -2, 0), timing_rate=0.8, role="extended_propagation"),
+        ]
+        
+        # Photon stability metrics
+        self.stability_metrics = {
+            "electromagnetic_coherence": 0.99,
+            "propagation_efficiency": 0.98,
+            "space_traversal": 0.99,
+            "interaction_capability": 0.95,
+            "orbital_coupling": 0.90,  # Can interact with electron orbitals
+            "energy_conservation": 0.99
+        }
+        
+        self.cosmological_viable = True  # Photons traverse all space
+        
+        # Photon-specific properties
+        self.frequency: float = 1.0  # Default frequency
+        self.wavelength: float = 1.0  # Default wavelength
+        self.energy_content: float = 0.0  # Will be calculated
+        
+    def set_photon_energy(self, energy_ev: float):
+        """Set photon energy and calculate corresponding frequency/wavelength"""
+        self.energy_content = energy_ev
+        # Using E = hf relationship (simplified for ETM)
+        self.frequency = energy_ev / 4.136e-15  # Approximate conversion
+        # Using c = λf relationship  
+        self.wavelength = 3e8 / self.frequency if self.frequency > 0 else 1.0
+        
+        # Adjust timing rate based on energy
+        self.core_timing_rate = 1.0 + (energy_ev / 13.6)  # Scale with energy
+        
+    def calculate_orbital_interaction_strength(self, electron_pattern: 'ElectronTimingPattern') -> float:
+        """Calculate interaction strength with electron orbital"""
+        if not electron_pattern:
+            return 0.0
+            
+        # Interaction strength based on orbital compatibility
+        orbital_compatibility = electron_pattern.stability_metrics.get('orbital_compatibility', 0.0)
+        photon_coupling = self.stability_metrics.get('orbital_coupling', 0.0)
+        
+        # Energy matching factor (resonance)
+        energy_factor = min(self.energy_content / 13.6, 2.0) if self.energy_content > 0 else 1.0
+        
+        interaction_strength = orbital_compatibility * photon_coupling * energy_factor * 0.5
+        
+        return min(interaction_strength, 1.0)
+    
+    def can_be_absorbed_by(self, electron_pattern: 'ElectronTimingPattern') -> bool:
+        """Check if this photon can be absorbed by the electron"""
+        interaction_strength = self.calculate_orbital_interaction_strength(electron_pattern)
+        return interaction_strength > 0.3  # Threshold for absorption
+    
+    def can_be_emitted_by(self, electron_pattern: 'ElectronTimingPattern') -> bool:
+        """Check if this photon can be emitted by the electron"""
+        interaction_strength = self.calculate_orbital_interaction_strength(electron_pattern)
+        return interaction_strength > 0.2  # Lower threshold for emission
 # =============================================================================
 # COMPOSITE PARTICLE ARCHITECTURE - Your Nucleon Internal Structure Achievement
 # =============================================================================
@@ -480,7 +567,23 @@ class ParticleFactory:
         neutron.initialize_constituents(proton, electron, neutrino)
         
         return neutron
+    
+    @staticmethod
+    def create_photon(energy_ev: float = 13.6) -> PhotonTimingPattern:
+        """Create photon with specified energy"""
+        photon = PhotonTimingPattern()
+        photon.set_photon_energy(energy_ev)
+        return photon
 
+    @staticmethod  
+    def create_hydrogen_photon() -> PhotonTimingPattern:
+        """Create photon with hydrogen ionization energy"""
+        return ParticleFactory.create_photon(13.6)  # Hydrogen ground state energy
+
+    @staticmethod
+    def create_visible_photon() -> PhotonTimingPattern:
+        """Create visible light photon"""
+        return ParticleFactory.create_photon(2.5)  # ~500nm visible light
 # =============================================================================
 # TEST FUNCTION - Verify particles module works
 # =============================================================================

@@ -122,6 +122,26 @@ def test_particles_module():
     result = tester.test_particle_stability(proton, "agn_ejection")
     print(f"✓ Stability testing: {result['overall_stability']:.3f}")
     
+    # Test photon creation
+    photon = ParticleFactory.create_photon(13.6)
+    print(f"✓ Photon created: energy={photon.energy_content:.1f} eV")
+
+    # Test photon-electron interaction (create electron first)
+    electron = ParticleFactory.create_electron()  # <-- ADD THIS LINE
+    interaction_strength = photon.calculate_orbital_interaction_strength(electron)
+    can_absorb = photon.can_be_absorbed_by(electron)
+    print(f"✓ Photon-electron interaction: {interaction_strength:.3f} strength, absorption: {can_absorb}")
+
+    # Test different photon energies
+    visible_photon = ParticleFactory.create_visible_photon()
+    hydrogen_photon = ParticleFactory.create_hydrogen_photon()
+    print(f"✓ Photon varieties: visible ({visible_photon.energy_content:.1f} eV), hydrogen ({hydrogen_photon.energy_content:.1f} eV)")
+
+    # Test different photon energies
+    visible_photon = ParticleFactory.create_visible_photon()
+    hydrogen_photon = ParticleFactory.create_hydrogen_photon()
+    print(f"✓ Photon varieties: visible ({visible_photon.energy_content:.1f} eV), hydrogen ({hydrogen_photon.energy_content:.1f} eV)")
+
     # More realistic thresholds for modular version
     agn_success = agn_survival >= 0.90  # 90% is excellent AGN survival
     neutron_success = len(neutron.constituent_patterns) >= 3
