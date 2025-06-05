@@ -1,0 +1,81 @@
+# ETM Framework Modularization Project - Phase 1
+
+## Project Overview
+I have a working Euclidean Timing Mechanics (ETM) physics framework (currently ~3000 lines) that successfully models:
+- Validated Model B detection-triggered conflict resolution
+- Calibrated energy calculations achieving <1% accuracy vs quantum mechanics  
+- Enhanced proton patterns with >95% AGN survival
+- **Nucleon internal structure with working beta decay: n → p + e⁻ + ν̄ₑ**
+
+The framework has grown too large for efficient development in Claude chats. I need to break it into a modular architecture.
+
+## Current Status - COMPLETE WORKING SYSTEM
+✅ **Foundation validated**: Trial 070 Model B confirmation maintained
+✅ **Energy calibrated**: 129,818x improvement in accuracy  
+✅ **Nucleon physics working**: Neutron internal structure and beta decay functional
+✅ **Backward compatibility**: All historical trials preserved
+
+## Modularization Goals
+
+### **Target Architecture:**
+```
+etm_framework/
+├── etm_core.py          # Core ETM physics engine (axioms, rules, basic classes)
+├── etm_particles.py     # All particle timing patterns (proton, neutron, electron, etc.)
+├── etm_trials.py        # Trial builders for different experiments
+├── etm_analysis.py      # Energy calculations, validation, JSON output
+├── etm_interface.py     # User interface for trial selection
+├── etm_runner.py        # Main orchestrator that imports and runs everything
+└── etm_config.py        # Global configuration management
+```
+
+### **Interface Requirements:**
+The interface should ask users:
+1. **What type of trial/simulation?** (photon propagation, electron orbitals, beta decay, etc.)
+2. **What environment?** (empty space, hydrogen atom, nuclear, etc.)  
+3. **What output format?** (full results, compact JSON for Claude upload)
+4. **Which modules needed?** (auto-suggest based on trial type)
+
+### **Example Trial Types to Support:**
+- Photon propagating through empty space
+- Electron stability in empty space
+- Electron in hydrogen atom orbitals (1s, 2p, etc.)
+- Photon absorption/emission with orbital transitions
+- Beta decay in nucleus: n → p + e⁻ + ν̄ₑ  
+- Positron-electron annihilation
+- Multi-nucleon systems
+- Weak interaction processes
+
+### **Critical Requirements:**
+1. **100% backward compatibility** - all existing trials must continue working
+2. **Preserve all validated parameters** exactly (connectivity=8, calibrated energy scales, etc.)
+3. **Maintain production quality** - no functionality loss during modularization
+4. **Clear separation of concerns** - each module has distinct responsibility
+5. **Easy to extend** - new particle types and trials can be added cleanly
+
+## Request for This Chat
+
+Please analyze my current framework and create a **detailed modularization plan** including:
+
+1. **Exact file structure** with what goes in each module
+2. **Import/dependency map** showing how modules connect
+3. **Interface design** for trial selection
+4. **Step-by-step implementation plan** for breaking apart the monolith
+5. **Validation strategy** to ensure nothing breaks during transition
+
+## Files Uploaded
+- `etm_framework.py` - Complete current working framework (3 parts assembled)  
+- `research_context.txt` - ETM theoretical background and achievements
+- `recent_results.json` - Proof of working nucleon physics
+
+## Success Criteria
+After modularization:
+- ✅ All existing trials run identically 
+- ✅ New trial types can be added easily
+- ✅ Future Claude chats can work on individual modules
+- ✅ No knowledge loss from previous discoveries
+- ✅ Clean, maintainable codebase for continued research
+
+The goal is to transform my working monolithic framework into a clean modular system that preserves all achievements while enabling efficient future development.
+
+Please provide a comprehensive modularization strategy that maintains the scientific rigor and production quality of the current system.
