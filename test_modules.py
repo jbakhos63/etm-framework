@@ -101,6 +101,38 @@ def test_integration():
     
     return True
 
+def test_particles_module():
+    """Test the particles module"""
+    print("\nTesting Particles Module...")
+    print("-" * 40)
+    
+    from etm.particles import ParticleFactory, ParticleStabilityTester
+    
+    # Test enhanced proton
+    proton = ParticleFactory.create_enhanced_proton()
+    agn_survival = proton.calculate_agn_survival_probability()
+    print(f"✓ Enhanced proton: {agn_survival:.3f} AGN survival")
+    
+    # Test neutron composite  
+    neutron = ParticleFactory.create_neutron()
+    print(f"✓ Neutron composite: {len(neutron.constituent_patterns)} constituents")
+    
+    # Test stability testing
+    tester = ParticleStabilityTester()
+    result = tester.test_particle_stability(proton, "agn_ejection")
+    print(f"✓ Stability testing: {result['overall_stability']:.3f}")
+    
+    # More realistic thresholds for modular version
+    agn_success = agn_survival >= 0.90  # 90% is excellent AGN survival
+    neutron_success = len(neutron.constituent_patterns) >= 3
+    stability_success = result['overall_stability'] > 0.1  # Stability test working
+
+    print(f"✓ AGN survival: {'✅' if agn_success else '❌'} {agn_survival:.1%} (target: ≥90%)")
+    print(f"✓ Neutron structure: {'✅' if neutron_success else '❌'} {len(neutron.constituent_patterns)} constituents")
+    print(f"✓ Stability testing: {'✅' if stability_success else '❌'} {result['overall_stability']:.3f}")
+
+    return agn_success and neutron_success and stability_success
+
 if __name__ == "__main__":
     print("ETM Module Testing")
     print("=" * 50)
@@ -110,13 +142,17 @@ if __name__ == "__main__":
         config_ok = test_config_module()
         core_ok = test_core_module() 
         integration_ok = test_integration()
+        particles_ok = test_particles_module()  # ADD this line
         
-        if config_ok and core_ok and integration_ok:
+        if config_ok and core_ok and integration_ok and particles_ok:  # UPDATE this line
             print("\n🎉 ALL TESTS PASSED!")
             print("✅ Configuration module working")
             print("✅ Core module working") 
             print("✅ Module integration working")
-            print("\nReady for next step: Extract particles module")
+            print("✅ Particles module working")  # ADD this line
+            print("✅ Enhanced proton AGN survival achieved")  # ADD this line
+            print("✅ Nucleon internal structure functional")  # ADD this line
+            print("\nReady for next step: Extract trials and analysis modules")  # UPDATE this line
         else:
             print("\n❌ Some tests failed")
             
