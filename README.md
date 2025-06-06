@@ -21,6 +21,9 @@ A professional, modular physics simulation framework implementing Euclidean Timi
 git clone https://github.com/yourusername/etm-framework.git
 cd etm-framework
 
+# Install dependencies
+pip install -r requirements.txt
+
 # Test the framework
 python test_modules.py
 
