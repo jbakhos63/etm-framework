@@ -180,7 +180,7 @@ git clone https://github.com/yourusername/etm-framework.git
 cd etm-framework
 
 # Install dependencies (if using pip)
-pip install numpy matplotlib
+pip install -r requirements.txt
 
 # Verify installation
 python test_modules.py
