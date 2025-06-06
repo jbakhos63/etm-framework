@@ -49,3 +49,4 @@ The electron-type timing pattern models the discrete temporal rhythm associated 
 ---
 
 When extending this subsection or refining the stability metrics, it may be helpful to rerun the existing electron orbital simulations (`ETMEngine` with `ElectronTimingPattern`) and share updated statistics such as coherence strength and binding energy. These results can then be incorporated into the documentation to strengthen the empirical foundation of the pattern.
+
