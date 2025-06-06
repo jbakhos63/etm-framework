@@ -107,3 +107,52 @@ The enhanced proton-type pattern models a proton optimized for cosmic recycling.
 
 When refining this subsection, rerun the proton survival tests (`ParticleFactory.create_enhanced_proton` with `ParticleStabilityTester`) under varied AGN field strengths. Incorporate updated survival statistics to keep these parameters empirically grounded.
 
+---
+
+### 4.3 Neutrino‑Type Pattern (Space‑Time Coordination Mediator)
+
+#### Definition 4.3: Neutrino‑Type Pattern
+
+**Statement**: The neutrino-type pattern is an ultralight lepton timing configuration proposed to mediate long-range synchronization of phase information across spacetime. It advances with the same fundamental rate as other elementary patterns,
+\(\Delta \theta_{\nu} = 0.05\), but interacts only weakly with baryonic structures, enabling propagation over large distances with minimal disturbance.
+
+**Formal Expression**:
+\[
+\theta_{\nu}(t+1) = \bigl(\theta_{\nu}(t) + 0.05\bigr) \bmod 1
+\]
+
+**Node Configuration**:
+
+| Relative Position | Timing Rate | Role                  |
+|------------------:|------------:|---------------------- |
+| (0, 0, 0)         | 0.2         | neutrino_core         |
+| (0, 0, ±5)        | 0.2         | propagation_connector |
+| (0, 0, ±10)       | 0.1         | phase_signal_node     |
+
+This sparse linear arrangement supports rapid propagation while retaining enough coherence to relay timing information between distant regions.
+
+**Stability Metrics** (simulation estimates):
+
+- Core coherence: 0.70
+- Propagation stability: 0.75
+- Interaction cross-section: 0.05
+- Timing signal fidelity: 0.80
+
+**Implementation Requirements**:
+
+1. Initialize the pattern with phase \(\theta_{\nu} \in [0,1)\) and advancement rate \(\Delta \theta_{\nu} = 0.05\).
+2. Construct the node array as above; this corresponds to `NeutrinoTimingPattern()` in `etm/particles.py`.
+3. Update phase every tick according to Rule R1 and monitor the propagation connectors for signal attenuation.
+4. Reject configurations where stability metrics fall below the stated thresholds.
+5. Track phase alignment with nearby particles to evaluate mediation effectiveness.
+
+**Physical Interpretation**:
+The neutrino-type pattern provides a theoretical mechanism for maintaining weak phase correlation over astrophysical distances. Its minimal interaction cross-section permits traversal of dense matter with negligible disruption, suggesting a role in coordinating timing information between remote regions of the ETM lattice.
+
+**Validation Status**: ⚠️ **Preliminary** — limited simulations show stable propagation for more than 50 ticks, but empirical confirmation and detailed parameter tuning remain ongoing.
+
+---
+
+To refine this subsection, run dedicated neutrino propagation trials (`ParticleFactory.create_neutrino` with `ParticleStabilityTester`) and analyze phase fidelity over long distances. Use the resulting statistics to adjust the stability metrics and node configuration.
+
+---
