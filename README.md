@@ -179,8 +179,10 @@ default_conflict_resolution = SYMBOLIC_MUTATION  # Model B validated
 git clone https://github.com/yourusername/etm-framework.git
 cd etm-framework
 
-# Install dependencies (if using pip)
-pip install numpy matplotlib
+# Install dependencies
+./setup.sh
+# Or install manually
+pip install -r requirements.txt
 
 # Verify installation
 python test_modules.py
