@@ -182,6 +182,9 @@ default_conflict_resolution = SYMBOLIC_MUTATION  # Model B validated
 git clone https://github.com/yourusername/etm-framework.git
 cd etm-framework
 
+
+# Install dependencies (if using pip)
+=======
 # Install dependencies
 ./setup.sh
 # Or install manually

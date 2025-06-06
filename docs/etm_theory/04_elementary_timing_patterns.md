@@ -156,3 +156,50 @@ The neutrino-type pattern provides a theoretical mechanism for maintaining weak 
 To refine this subsection, run dedicated neutrino propagation trials (`ParticleFactory.create_neutrino` with `ParticleStabilityTester`) and analyze phase fidelity over long distances. Use the resulting statistics to adjust the stability metrics and node configuration.
 
 ---
+
+### 4.4 Anti-Pattern Structures (Phase-Conjugated Patterns)
+
+#### Definition 4.4: Anti-Pattern Structures
+
+**Statement**: An anti-pattern is the phase-conjugated counterpart of a timing pattern. Each node advances with the same fundamental rate as the corresponding pattern but with a half-cycle phase offset, yielding destructive interference when directly superimposed. Anti-pattern structures serve as theoretical models for antimatter timing configurations and phase-cancellation phenomena.
+
+**Formal Expression**:
+\[
+\bar{\theta}(t+1) = \bigl(\bar{\theta}(t) + \Delta\theta\bigr) \bmod 1, \qquad \bar{\theta}(t) = \bigl(\theta(t) + 0.5\bigr) \bmod 1
+\]
+where \(\theta(t)\) is the phase of the base pattern and \(\Delta\theta\) its advancement rate (typically 0.05).
+
+**Node Configuration**:
+
+| Relative Position | Timing Rate | Role                     |
+|------------------:|------------:|------------------------- |
+| (0, 0, 0)         | same as base| anti_core                |
+| (\*mirror base\*) | same as base| phase_conjugated_nodes   |
+
+Anti-pattern nodes mirror the spatial arrangement of the original pattern. Each node maintains a phase offset of 0.5 relative to its counterpart.
+
+**Stability Metrics** (simulation estimates):
+
+- Phase cancellation efficacy: 0.95
+- Mirror coherence: 0.85
+- Interaction cross-section with base pattern: 0.90
+- Residual timing drift: 0.05
+
+**Implementation Requirements**:
+
+1. Generate the anti-pattern by cloning the base pattern’s node list and shifting all phases by 0.5.
+2. Ensure phase advancement is synchronized with the base pattern’s \(\Delta\theta\).
+3. During simulation, monitor pair interactions for annihilation events when an anti-pattern overlaps its base pattern.
+4. Reject configurations where mirror coherence falls below 0.8 or drift exceeds 0.1 per 50 ticks.
+5. Track energy release metrics when anti-patterns annihilate with their counterparts.
+
+**Physical Interpretation**:
+Anti-pattern structures model antiparticles or phase-conjugated waveforms within ETM. When superimposed with their corresponding patterns, the half-cycle offset leads to destructive interference, effectively canceling the timing signal and releasing energy into the surrounding lattice.
+
+**Validation Status**: ⚠️ **Preliminary** — initial simulations demonstrate expected phase cancellation, but comprehensive tests of annihilation dynamics are ongoing.
+
+---
+
+For further refinement, run pair-annihilation simulations (`ParticleFactory.create_antipattern_pair` with `ParticleStabilityTester`) to measure energy release and drift behavior. Incorporate updated statistics to solidify the stability metrics and interaction parameters.
+
+---
