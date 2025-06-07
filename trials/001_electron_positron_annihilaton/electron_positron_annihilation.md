@@ -27,3 +27,26 @@ This trial proposes a minimal ETM simulation of an electron and a positron initi
 - Insight into how ETM constructs photon identities from timing strain reorganization, informing further development of the photon model.
 
 Documenting this trial will guide improvements to the ETM particle interaction rules and support future derivations of electromagnetic constants from first principles.
+
+## Results
+
+The preliminary script `run_trial.py` was executed from this directory using the
+validated foundation configuration. Electron and positron identities were moved
+toward each other one lattice step per tick. Annihilation was detected when both
+occupied the lattice center at tick 2. A summary JSON file `annihilation_results.json`
+was generated with the following contents:
+
+```json
+{
+  "events": [
+    {"tick": 2, "event": "annihilation", "position": [3, 3, 3]}
+  ],
+  "history_length": 2
+}
+```
+
+These preliminary results confirm that the framework can track particle movement
+and record annihilation events. The current script uses a simplified motion model
+and does not yet account for timing-strain energy or photon generation, so future
+iterations should integrate these aspects directly into the ETM engine.
+

@@ -1,0 +1,14 @@
+{
+  "events": [
+    {
+      "tick": 2,
+      "event": "annihilation",
+      "position": [
+        3,
+        3,
+        3
+      ]
+    }
+  ],
+  "history_length": 2
+}
