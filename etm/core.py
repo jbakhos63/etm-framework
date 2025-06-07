@@ -265,6 +265,10 @@ class ETMEngine:
         
         # Results storage (preserved)
         self.results_history: List[Dict] = []
+
+        # Energy bookkeeping for each tick
+        self.current_tick_energy_before: float = 0.0
+        self.current_tick_energy_after: float = 0.0
         
         # Initialize echo fields (preserved)
         self._initialize_echo_fields()
@@ -409,10 +413,16 @@ class ETMEngine:
     def advance_tick(self):
         """Execute one complete ETM simulation tick - Enhanced with nucleon processes"""
         self.tick += 1
-        
+
         # 1-4. All existing steps preserved exactly
         self.advance_phases()
         self.apply_echo_decay()
+
+        # Record total timing-strain energy before any interactions this tick
+        self.current_tick_energy_before = sum(
+            i.calculate_particle_energy(self.center, self.echo_fields, self.config)
+            for i in self.identities
+        )
         
         return_results = []
         for identity in self.identities:
@@ -436,15 +446,95 @@ class ETMEngine:
         
         if self.config.enable_weak_interactions:
             self.process_weak_interactions()
-        
+
         # 7-8. Preserved exactly
         self.apply_echo_inheritance()
+
+        # Record total timing-strain energy after interactions and inheritance
+        self.current_tick_energy_after = sum(
+            i.calculate_particle_energy(self.center, self.echo_fields, self.config)
+            for i in self.identities
+        )
         self.record_tick_results(return_results)
     
     def process_detection_events(self):
-        """Process all detection events for this tick - PRESERVED EXACTLY"""
-        # Simplified for compatibility - full detection system in particles module
-        pass
+        """Process detection events including annihilation energy tracking"""
+        # Import here to avoid circular dependency during module initialization
+        try:
+            from .particles import ParticleFactory
+        except Exception:
+            from particles import ParticleFactory
+        position_map: Dict[Tuple[int, int, int], List[Identity]] = {}
+        for identity in self.identities:
+            if identity.position is not None:
+                position_map.setdefault(identity.position, []).append(identity)
+
+        events_to_remove = []
+
+        for position, ids in position_map.items():
+            if len(ids) < 2:
+                continue
+
+            # Check all pairs for antiparticle annihilation
+            for i in range(len(ids)):
+                for j in range(i + 1, len(ids)):
+                    a, b = ids[i], ids[j]
+                    if (
+                        a.is_antiparticle and a.antiparticle_of == b.unique_id
+                    ) or (
+                        b.is_antiparticle and b.antiparticle_of == a.unique_id
+                    ):
+                        energy_a = a.calculate_particle_energy(
+                            self.center, self.echo_fields, self.config
+                        )
+                        energy_b = b.calculate_particle_energy(
+                            self.center, self.echo_fields, self.config
+                        )
+                        total_energy = energy_a + energy_b
+
+                        photon_id = None
+                        detection = DetectionEvent(
+                            event_type=DetectionEventType.PARTICLE_COLLISION,
+                            position=position,
+                            tick=self.tick,
+                            triggering_particle=a,
+                            affected_identities=[b],
+                            resolution_method=ConflictResolutionMethod.EXCLUSION,
+                            mutation_results={"energy_released": total_energy},
+                        )
+                        self.detection_events.append(detection)
+
+                        # Create a photon carrying the released energy
+                        try:
+                            photon_pattern = ParticleFactory.create_photon(total_energy)
+                            photon_identity = Identity(
+                                module_tag="PHOTON",
+                                ancestry="photon",
+                                theta=0.0,
+                                delta_theta=photon_pattern.core_timing_rate,
+                                position=position,
+                            )
+                            photon_identity.fundamental_particle = photon_pattern
+                            self.identities.append(photon_identity)
+                            photon_id = photon_identity.unique_id
+                            detection.mutation_results["photon_id"] = photon_id
+                            detection.mutation_results["photon_energy"] = getattr(photon_pattern, "energy_content", total_energy)
+                        except Exception:
+                            pass
+                        self.conflict_resolutions.append(
+                            {
+                                "tick": self.tick,
+                                "position": position,
+                                "method": "annihilation",
+                                "energy_released": total_energy,
+                            }
+                        )
+                        events_to_remove.extend([a, b])
+
+        # Remove annihilated identities
+        for identity in events_to_remove:
+            if identity in self.identities:
+                self.identities.remove(identity)
     
     def process_nucleon_physics(self):
         """Process nucleon internal structure dynamics - Placeholder for particles module"""
@@ -466,7 +556,11 @@ class ETMEngine:
             "coexistence_registry": {},
             "conflict_resolutions": [],
             "composite_particles": len(self.composite_particles),
-            "pattern_reorganizations": len(self.pattern_reorganization_events)
+            "pattern_reorganizations": len(self.pattern_reorganization_events),
+            "energy_before": self.current_tick_energy_before,
+            "energy_after": self.current_tick_energy_after,
+            "energy_released_total": 0.0,
+            "photon_energy_total": 0.0,
         }
         
         # Convert coexistence registry tuple keys to strings for JSON compatibility
@@ -495,7 +589,26 @@ class ETMEngine:
                 "return_allowed": result["return_allowed"],
                 "evaluation": result["evaluation"]
             })
-        
+
+        for event in self.detection_events:
+            tick_data["detection_events"].append({
+                "event_type": event.event_type.value,
+                "position": event.position,
+                "tick": event.tick,
+                "trigger_id": event.triggering_particle.unique_id if event.triggering_particle else None,
+                "affected_ids": [i.unique_id for i in event.affected_identities],
+                "energy_released": event.mutation_results.get("energy_released"),
+                "photon_id": event.mutation_results.get("photon_id"),
+                "photon_energy": event.mutation_results.get("photon_energy"),
+            })
+            tick_data["energy_released_total"] += event.mutation_results.get("energy_released", 0.0)
+            tick_data["photon_energy_total"] += event.mutation_results.get("photon_energy", 0.0)
+        tick_data["conflict_resolutions"] = self.conflict_resolutions.copy()
+
+        # Clear events after recording
+        self.detection_events.clear()
+        self.conflict_resolutions.clear()
+
         self.results_history.append(tick_data)
     
     def run_simulation(self) -> Dict:

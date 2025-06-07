@@ -1,0 +1,25 @@
+{
+  "events": [
+    {
+      "event_type": "particle_collision",
+      "position": [
+        3,
+        3,
+        3
+      ],
+      "tick": 2,
+      "trigger_id": "64bb0484",
+      "affected_ids": [
+        "e1906ed2"
+      ],
+      "energy_released": -168.0024,
+      "photon_id": "594d0150",
+      "photon_energy": -168.0024
+    }
+  ],
+  "history_length": 2,
+  "energy_before": -168.0024,
+  "energy_after": -11512.478606588234,
+  "energy_released_total": -168.0024,
+  "photon_energy_total": -168.0024
+}
