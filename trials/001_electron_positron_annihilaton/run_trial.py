@@ -60,7 +60,8 @@ def run_trial():
         if events:
             break
 
-    with open("annihilation_results.json", "w") as f:
+    results_path = os.path.join(os.path.dirname(__file__), "annihilation_results.json")
+    with open(results_path, "w") as f:
         json.dump({"events": events, "history_length": len(engine.results_history)}, f, indent=2)
 
     print(json.dumps({"events": events, "history_length": len(engine.results_history)}, indent=2))
