@@ -253,6 +253,8 @@ $$\theta_k(t+1) = (\theta_k(t) + \Delta\theta_k) \bmod 1.$$
 
 ---
 
+=======
+
 ### 4.5 Pattern Interactions
 
 In ETM the state of the lattice evolves exclusively through deterministic interactions among timing patterns. These interactions exchange timing information, redistribute energy, and often reconfigure the ancestry or orientation of the patterns involved. Three principal classes of interactions are defined below.
@@ -328,3 +330,65 @@ with the hybrid inheriting selected tags and stability metrics from its constitu
 - Long simulations monitor mutation history to evaluate transformation rates.
 
 ---
+
+### 4.6 Stability and Survivability
+
+Stability metrics quantify how long a timing pattern persists under normal and extreme conditions. Survivability reflects the probability that a pattern remains intact when exposed to intense echo fields or large phase disturbances. ETM defines explicit measures to evaluate these aspects for each identity.
+
+#### Definition 4.16: Pattern Lifetime Metric
+
+**Statement**: The **pattern lifetime metric** $L(P)$ of a timing pattern $P$ is the expected number of ticks before $P$ undergoes transformation or decay. For a stability score $s\in[0,1]$ produced by `ParticleStabilityTester.test_particle_stability`, the lifetime metric is
+\[
+  L(P)=\frac{s}{1-s}\,T_0,
+\]
+where $T_0$ is a base timescale set by `beta_decay_lifetime_ticks` or other configuration parameters.
+
+**Properties**:
+- **Monotonicity**: Higher stability scores yield longer lifetimes. If $s\geq s'$, then $L(P)\geq L'(P)$.
+- **Finite bound**: With $s<1$ the lifetime metric remains finite, ensuring eventual transformation.
+- **Implementation link**: Composite structures obtain $s$ from `ParticleStabilityTester._assess_stability_level` which maps numerical scores to `ParticleStabilityLevel` enums.
+
+**Implementation Notes**:
+- `ParticleTimingPattern.calculate_stability_score` computes the base stability component using echo field strength.
+- The lifetime metric supports reproducible decay simulations by providing a deterministic expectancy for decay events.
+
+---
+
+#### Definition 4.17: Extreme Environment Survival
+
+**Statement**: **Extreme environment survival** describes the probability $S_{\text{ext}}(P,E)$ that a pattern $P$ remains stable when subjected to conditions $E$ beyond ordinary echo field strength. Typical environments include active galactic nuclei (AGN) or cosmological high-radiation zones. Formally,
+\[
+  S_{\text{ext}}(P,E)=P\bigl(P\ \text{stable}\mid E\bigr),
+\]
+where stability is assessed by `ParticleTimingPattern.test_cosmological_survival` under the specified parameters.
+
+**Properties**:
+- **Stress dependence**: Survival probability decreases with increasing `agn_field_strength` and field variation parameters.
+- **Pattern specificity**: Enhanced proton patterns compute $S_{\text{ext}}$ via `calculate_agn_survival_probability`, achieving values above $0.95$ for AGN conditions.
+- **Cosmological viability**: Patterns with $S_{\text{ext}}>0.90$ set `cosmological_viable=True` and are considered recyclable in the simulated universe.
+
+**Implementation Notes**:
+- Extreme environment parameters are supplied via `ParticleStabilityTester.test_conditions` such as `agn_ejection` or `cosmological_extreme`.
+- Stability levels are updated according to the resulting probability, ensuring consistent classification across simulations.
+
+---
+
+#### Definition 4.18: Interaction Strength Levels
+
+**Statement**: **Interaction strength levels** categorize the magnitude of timing pattern interactions. For an interaction between patterns $P_i$ and $P_j$ with calculated strength $\sigma_{ij}\in[0,1]$, ETM defines three qualitative levels:
+1. **Weak** if $0\leq\sigma_{ij}<0.3$;
+2. **Moderate** if $0.3\leq\sigma_{ij}<0.7$;
+3. **Strong** if $0.7\leq\sigma_{ij}\leq1.0$.
+The value $\sigma_{ij}$ is typically returned by methods such as `PhotonTimingPattern.calculate_orbital_interaction_strength`.
+
+**Properties**:
+- **Deterministic thresholds**: Absorption or emission events require at least moderate strength ($\sigma_{ij}>0.3$) unless overridden by configuration.
+- **Environment modulation**: Echo field intensity may scale $\sigma_{ij}$ through the `weak_coupling_constant` or similar factors in `ETMConfig`.
+- **History tracking**: Interaction strength levels are recorded in detection events for later analysis of reaction pathways.
+
+**Implementation Notes**:
+- Interaction strengths support reproducible simulations by providing numeric criteria for scattering and absorption algorithms.
+- The thresholds facilitate classification of forces within ETM without invoking traditional field potentials.
+
+---
+=======
