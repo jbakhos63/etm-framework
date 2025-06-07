@@ -184,10 +184,6 @@ cd etm-framework
 
 
 # Install dependencies (if using pip)
-=======
-# Install dependencies
-./setup.sh
-# Or install manually
 pip install -r requirements.txt
 
 # Verify installation
