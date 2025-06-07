@@ -89,3 +89,45 @@ The following predictions highlight unique experimental signatures of Euclidean 
 
 **Test Protocol**: Observe distant AGN jets for heavy element signatures inconsistent with standard cosmic-ray survival models. Compare spectral lines with ETM engine outputs using validated AGN survival parameters from `etm/particles.py`.
 
+### 9.3 Cosmological and Large-Scale Implications
+
+The discrete timing foundations of ETM extend naturally from particle-scale
+phenomena to cosmological structure.  The following implications describe how
+large-scale observations can be reinterpreted within the timing-mechanics
+framework.
+
+#### Implication 9.9: Emergent Large-Scale Structure from Timing Networks
+
+**Statement**: Galaxy formation and clustering result from long-range phase
+correlation in recruiter networks (Rules&nbsp;R10–R17) seeded by primordial
+fluctuations (Definition&nbsp;4.21).  Massive structures arise where echo-field
+reinforcement produces stable timing patterns over cosmic timescales.
+
+**Consequence**: Dark-matter halos are interpreted as regions of dense,
+undetected timing activity rather than unseen particles.  Simulations must track
+recruiter coupling across megaparsec scales using lattice tiling to predict
+galaxy distribution statistics.
+
+#### Implication 9.10: Cosmic Element Recycling via Enhanced Proton Patterns
+
+**Statement**: Enhanced protons (Definition&nbsp;4.17) survive active galactic
+nucleus ejection with high probability, enabling metal-rich outflows to seed new
+star formation across intergalactic distances.
+
+**Consequence**: Element abundance gradients observed in deep-field surveys can
+be reproduced by running cosmological ETM simulations with validated AGN
+survival parameters.  This provides a deterministic alternative to stochastic
+feedback models in standard cosmology.
+
+#### Implication 9.11: CMB Anisotropies from Lattice Boundary Conditions
+
+**Statement**: The cosmic microwave background (CMB) temperature fluctuations
+arise from boundary-induced phase shifts in the early-universe lattice
+(Mathematical Framework&nbsp;7.1) rather than quantum inflationary noise.
+
+**Consequence**: Predicted multipole spectra depend sensitively on the global
+lattice dimensions and tick resolution.  By adjusting these parameters within
+ETM simulations, CMB anisotropy patterns can be matched without invoking
+inflation.
+
+
