@@ -31,108 +31,59 @@ Folder PATH listing for volume Windows
 Volume serial number is 2C83-F64F
 C:.
 |   .gitignore
-|   check_photon_physics.py
 |   LICENSE
 |   README.md
+|   check_photon_physics.py
+|   etm_theory_foundation_outline.txt
+|   my operating system.txt
+|   requirements.txt
 |   run_etm.py
+|   setup.sh
 |   test_modules.py
+|
++---before_modules
+|   |   # Essential ETM nucleon Research Plan Secti.txt
+|   |   Deriving 3D Euclidean space from th.txt
+|   |   etm_framework.py
+|   |   etm_ontology_summary.md
+|   |   etm_trial_070_model_b_validation_nucleon_compatible_compact_10ticks.json
+|   |   etm_trial_beta_decay_validation_compact_100ticks.json
+|   |   etm_trial_neutron_internal_structure_compact_200ticks.json
 |
 +---current_monolith
 |   |   # Essential ETM nucleon Research Plan Secti.txt
 |   |   Deriving 3D Euclidean space from th.txt
 |   |   etm_framework.py
-|   |   etm_logic_notebook.pdf
-|   |   etm_logic_notebook.tex
+|   |   etm_ontology_summary.md
 |   |   etm_trial_070_model_b_validation_nucleon_compatible_compact_10ticks.json
 |   |   etm_trial_beta_decay_validation_compact_100ticks.json
 |   |   etm_trial_neutron_internal_structure_compact_200ticks.json
-|   |   EUCLIDEAN TIMING MECHANICS (ETM) RESEARCH DEVELOPMENT PLAN.txt
+|
++---docs
+|   |   AI_DEVELOPER_GUIDE.md
+|   |   QUICK_REFERENCE.md
 |   |
-|   \---versions
-|       +---001
-|       |   |   corrected_trial_070.py
-|       |   |   etm_framework.py
-|       |   |   etm_ontology_summary.md
-|       |   |   etm_trial_070_compact_summary_10ticks.json
-|       |   |   EUCLIDEAN TIMING MECHANICS (ETM) RE.txt
-|       |   |   updated_corrected_trial_070.py
-|       |   |
-|       |   \---earlier results
-|       |           command prompt.txt
-|       |           corrected_trial_070.py
-|       |           etm_enhanced_trial_070_enhanced_dual_identity_coexistence_5ticks.json
-|       |           etm_enhanced_trial_070_properly_corrected_coexistence_10ticks.json
-|       |           etm_enhanced_trial_coexistence_stability_50ticks.json
-|       |           etm_enhanced_trial_detection_triggered_mutation_10ticks.json
-|       |
-|       +---002
-|       |   |   etm_framework.py
-|       |   |   etm_ontology_summary.md
-|       |   |   etm_trial_070_model_b_validation_compact_10ticks.json
-|       |   |   etm_trial_phase2_hydrogen_proper_compact_100ticks.json
-|       |   |   EUCLIDEAN TIMING MECHANICS (ETM) RESEARCH DEVELOPMENT PLAN.txt
-|       |   |   fixing the py file.txt
-|       |   |
-|       |   \---older
-|       |           etm_framework.py
-|       |           etm_trial_070_model_b_validation_compact_10ticks.json
-|       |           etm_trial_phase2_hydrogen_foundation_compact_50ticks.json
-|       |           EUCLIDEAN TIMING MECHANICS (ETM).txt
-|       |
-|       +---003
-|       |   |   etm_framework.py
-|       |   |   etm_trial_070_model_b_validation_compact_10ticks.json
-|       |   |   etm_trial_phase2a_particle_stability_compact_50ticks.json
-|       |   |   etm_trial_phase2_hydrogen_proper_compact_100ticks.json
-|       |   |   EUCLIDEAN TIMING MECHANICS (ETM) RESEARCH DEVELOPMENT PLAN.txt
-|       |   |   This is what appeared in my command.txt
-|       |   |
-|       |   \---older
-|       |           etm_trial_070_model_b_validation_compact_10ticks.json
-|       |
-|       +---004
-|       |   |   # ETM Nucleon Modeling Project - Tr.txt
-|       |   |   etm_framework.py
-|       |   |   etm_trial_070_model_b_validation_calibrated_compact_10ticks.json
-|       |   |   etm_trial_phase2a_particle_stability_enhanced_compact_50ticks.json
-|       |   |   etm_trial_phase2_hydrogen_calibrated_compact_100ticks.json
-|       |   |
-|       |   \---try diagostics
-|       |       |   etm_framework.py
-|       |       |   etm_trial_070_model_b_validation_calibrated_compact_10ticks.json
-|       |       |   etm_trial_phase2a_particle_stability_enhanced_compact_50ticks.json
-|       |       |   etm_trial_phase2_hydrogen_calibrated_compact_100ticks.json
-|       |       |
-|       |       \---older
-|       |               etm_trial_070_model_b_validation_calibrated_compact_10ticks.json
-|       |               etm_trial_phase2a_particle_stability_enhanced_compact_50ticks.json
-|       |               etm_trial_phase2_hydrogen_calibrated_compact_100ticks.json
-|       |
-|       +---005
-|       |       # Essential ETM nucleon Research Plan Secti.txt
-|       |       Deriving 3D Euclidean space from th.txt
-|       |       etm_framework.py
-|       |       etm_trial_070_model_b_validation_nucleon_compatible_compact_10ticks.json
-|       |       etm_trial_beta_decay_validation_compact_100ticks.json
-|       |       etm_trial_neutron_internal_structure_compact_200ticks.json
-|       |       EUCLIDEAN TIMING MECHANICS (ETM) RESEARCH DEVELOPMENT PLAN.txt
-|       |
-|       \---006
-|               modularization_request.txt
+|   \---etm_theory
+|       |   01_fundamental_definitions.md
+|       |   02_foundational_axioms.md
+|       |   03_fundamental_rules.md
+|       |   04_elementary_timing_patterns.md
+|       |   04_elementary_timing_patterns_outline.txt
+|       |   05_composite_timing_structures.md
+|       |   06_emergent_physical_phenomena.md
+|       |   07_mathematical_formalism.md
+|       |   08_correspondence_with_observations.md
+|       |   09_predictions_and_implications.md
+|       |   ETM_THEORY.md
 |
 \---etm
+    |   __init__.py
     |   analysis.py
     |   config.py
     |   core.py
     |   interface.py
     |   particles.py
     |   trials.py
-    |   __init__.py
-    |
-    \---__pycache__
-            config.cpython-313.pyc
-            core.cpython-313.pyc
-            particles.cpython-313.pyc
 
 
 Here is the result of the last test that I ran:
