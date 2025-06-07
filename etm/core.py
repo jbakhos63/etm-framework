@@ -270,11 +270,9 @@ class ETMEngine:
         
         # Results storage (preserved)
         self.results_history: List[Dict] = []
-
-        # NEW: pending annihilations and energy tracking
-        self.pending_annihilations: List[Tuple[Identity, Identity, Tuple[int, int, int], int]] = []
-        self.last_total_energy: float = 0.0
-        
+        # Energy bookkeeping for each tick
+        self.current_tick_energy_before: float = 0.0
+        self.current_tick_energy_after: float = 0.0        
         # Initialize echo fields (preserved)
         self._initialize_echo_fields()
     
@@ -418,10 +416,16 @@ class ETMEngine:
     def advance_tick(self):
         """Execute one complete ETM simulation tick - Enhanced with nucleon processes"""
         self.tick += 1
-        
+
         # 1-4. All existing steps preserved exactly
         self.advance_phases()
         self.apply_echo_decay()
+
+        # Record total timing-strain energy before any interactions this tick
+        self.current_tick_energy_before = sum(
+            i.calculate_particle_energy(self.center, self.echo_fields, self.config)
+            for i in self.identities
+        )
         
         return_results = []
         for identity in self.identities:
@@ -445,9 +449,15 @@ class ETMEngine:
         
         if self.config.enable_weak_interactions:
             self.process_weak_interactions()
-        
+
         # 7-8. Preserved exactly
         self.apply_echo_inheritance()
+
+        # Record total timing-strain energy after interactions and inheritance
+        self.current_tick_energy_after = sum(
+            i.calculate_particle_energy(self.center, self.echo_fields, self.config)
+            for i in self.identities
+        )
         self.record_tick_results(return_results)
     
     def process_detection_events(self):
@@ -484,6 +494,7 @@ class ETMEngine:
                             self.center, self.echo_fields, self.config
                         )
                         total_energy = energy_a + energy_b
+                        photon_id = None
                         detection = DetectionEvent(
                             event_type=DetectionEventType.PARTICLE_COLLISION,
                             position=position,
@@ -508,6 +519,7 @@ class ETMEngine:
                             self.identities.append(photon_identity)
                             photon_id = photon_identity.unique_id
                             detection.mutation_results["photon_id"] = photon_id
+                            detection.mutation_results["photon_energy"] = getattr(photon_pattern, "energy_content", total_energy)
                         except Exception:
                             pass
                         self.conflict_resolutions.append(
@@ -546,9 +558,10 @@ class ETMEngine:
             "conflict_resolutions": [],
             "composite_particles": len(self.composite_particles),
             "pattern_reorganizations": len(self.pattern_reorganization_events),
-            "total_energy": 0.0,
-            "energy_change": 0.0,
-            "emitted_photons": []
+            "energy_before": self.current_tick_energy_before,
+            "energy_after": self.current_tick_energy_after,
+            "energy_released_total": 0.0,
+            "photon_energy_total": 0.0,
         }
         
         # Convert coexistence registry tuple keys to strings for JSON compatibility
@@ -586,7 +599,11 @@ class ETMEngine:
                 "trigger_id": event.triggering_particle.unique_id if event.triggering_particle else None,
                 "affected_ids": [i.unique_id for i in event.affected_identities],
                 "energy_released": event.mutation_results.get("energy_released"),
+                "photon_id": event.mutation_results.get("photon_id"),
+                "photon_energy": event.mutation_results.get("photon_energy"),
             })
+            tick_data["energy_released_total"] += event.mutation_results.get("energy_released", 0.0)
+            tick_data["photon_energy_total"] += event.mutation_results.get("photon_energy", 0.0)
         tick_data["conflict_resolutions"] = self.conflict_resolutions.copy()
 
         # Clear events after recording

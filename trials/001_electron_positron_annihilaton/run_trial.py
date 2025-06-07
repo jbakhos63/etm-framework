@@ -60,11 +60,21 @@ def run_trial():
         if events:
             break
 
+    tick_data = engine.results_history[-1] if engine.results_history else {}
+    summary = {
+        "events": events,
+        "history_length": len(engine.results_history),
+        "energy_before": tick_data.get("energy_before"),
+        "energy_after": tick_data.get("energy_after"),
+        "energy_released_total": tick_data.get("energy_released_total"),
+        "photon_energy_total": tick_data.get("photon_energy_total"),
+    }
+
     results_path = os.path.join(os.path.dirname(__file__), "annihilation_results.json")
     with open(results_path, "w") as f:
-        json.dump({"events": events, "history_length": len(engine.results_history)}, f, indent=2)
+        json.dump(summary, f, indent=2)
 
-    print(json.dumps({"events": events, "history_length": len(engine.results_history)}, indent=2))
+    print(json.dumps(summary, indent=2))
 
 if __name__ == "__main__":
     run_trial()

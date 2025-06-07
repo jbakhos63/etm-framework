@@ -43,12 +43,20 @@ trial produced the following JSON summary:
       "trigger_id": "<electron_id>",
       "affected_ids": ["<positron_id>"],
       "energy_released": -168.0024,
-      "photon_id": "<photon_id>"
+      "photon_id": "<photon_id>",
+      "photon_energy": -168.0024
     }
   ],
-  "history_length": 2
+  "history_length": 2,
+  "energy_before": -168.0024,
+  "energy_after": -168.0024,
+  "energy_released_total": -168.0024,
+  "photon_energy_total": -168.0024
 }
 ```
+
 A photon identity is created with energy matching the timing strain released by
 the annihilation event, demonstrating integrated energy accounting within the
 ETM engine.
+\nThe engine now records total system energy before and after the tick, along with the energy carried by newly created photons. The values match within numerical precision, confirming conservation of timing-strain energy.
+
