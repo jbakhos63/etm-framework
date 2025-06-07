@@ -172,6 +172,19 @@ etm_theory_foundation_outline
 - Theorem 6.17: Uncertainty-Like Relations from Discrete Timing Constraints
 - Theorem 6.18: Interference-Like Effects from Phase Coordination
 - Theorem 6.19: Entanglement-Like Effects from Synchronized Timing
+=======
+
+### 6.4 Force-Like Effects from Timing Coordination
+- Theorem 6.11: Electromagnetic-Like Effects from Echo Field Dynamics
+- Theorem 6.12: Weak Interaction-Like Effects from Pattern Reorganization
+- Theorem 6.13: Strong Binding-Like Effects from Nuclear Timing Coordination
+- Theorem 6.14: Gravitational-Like Effects from Large-Scale Timing Patterns
+
+### 6.5 Quantum-Like Phenomena from Information Processing
+- Theorem 6.15: Wave-Particle Duality from Timing Pattern Propagation
+- Theorem 6.16: Uncertainty-Like Relations from Discrete Timing Constraints
+- Theorem 6.17: Interference-Like Effects from Phase Coordination
+- Theorem 6.18: Entanglement-Like Effects from Synchronized Timing
 
 ## 7. Mathematical Formalism
 
