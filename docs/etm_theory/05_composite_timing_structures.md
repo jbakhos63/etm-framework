@@ -380,3 +380,10 @@ If the stability condition fails for any recruiter, the composite undergoes deco
 **Physical Interpretation**: Decomposition mirrors particle decay or dissociation in standard physics. Timing coordination fails, recruiters lose coherence, and constituents depart with their own phase evolution.
 
 ---
+### Recent Validation Trials (2025)
+
+The following trials provide additional confirmation for the composite timing structures described in this chapter:
+
+1. **Trial 001 – Electron–Positron Annihilation**: Demonstrated that a two-pattern system rapidly decomposes and converts timing-strain energy into photons when conflicting ancestry tags collide, validating the decomposition rule.
+2. **Trial 002 – Energy Calculation**: Confirmed that a bound electron pattern maintains calibrated energy around a recruiter center, supporting the hydrogen-type composite definitions.
+3. **Trial 003 – Photon Propagation**: Showed that isolated photon identities move independently of recruiter networks, establishing reference behavior for environment coupling.
