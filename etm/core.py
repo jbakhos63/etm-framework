@@ -451,6 +451,7 @@ class ETMEngine:
         self.record_tick_results(return_results)
     
     def process_detection_events(self):
+
         """Process detection events including staged annihilation"""
 
         from .particles import ParticleFactory
@@ -516,12 +517,12 @@ class ETMEngine:
         self.pending_annihilations = remaining_pending
 
         # 2. Detect new collisions leading to annihilation
+
         position_map: Dict[Tuple[int, int, int], List[Identity]] = {}
         for identity in self.identities:
             if identity.position is None:
                 continue
             position_map.setdefault(identity.position, []).append(identity)
-
         for pos, ids in position_map.items():
             if len(ids) < 2:
                 continue

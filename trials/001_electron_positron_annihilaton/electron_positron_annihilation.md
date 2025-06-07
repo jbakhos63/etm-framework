@@ -50,6 +50,7 @@ following `annihilation_results.json`:
 }
 ```
 
+
 The output now reports the energy released by the annihilation and the
 identifiers of both emitted photons. Energy accounting uses the ETM timing–
 strain calculation and confirms conservation through the transformation.
