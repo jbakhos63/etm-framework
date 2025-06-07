@@ -92,22 +92,35 @@ etm_theory_foundation_outline
 
 ## 4. Elementary Timing Patterns
 
-### 4.1 Stable Individual Patterns
-- Definition 4.1: Electron-Type Timing Pattern
-- Definition 4.2: Enhanced Proton-Type Timing Pattern (AGN-survivable)
-- Definition 4.3: Neutrino-Type Pattern (space-time coordination mediator)
-- Definition 4.4: Anti-Pattern Structures (phase-conjugated patterns)
+### 4.1 Concept of Timing Patterns
+- Definition 4.1: Timing Pattern
+- Definition 4.2: Phase Configuration
+- Definition 4.3: Cycle Frequency
 
-### 4.2 Propagating Patterns
-- Definition 4.5: Photon-Type Traveling Patterns
-- Definition 4.6: Information-Carrying Wave Patterns
-- Definition 4.7: Detection-Triggering Mobile Patterns
+### 4.2 Identity Attributes and Classification
+- Definition 4.4: Charge-Like Tag
+- Definition 4.5: Spin-Like Orientation
+- Definition 4.6: Mass-Like Timing Inertia
 
-### 4.3 Pattern Stability and Survivability
-- Definition 4.8: Pattern Stability Metrics
-- Definition 4.9: Extreme Environment Survival (AGN conditions)
-- Definition 4.10: Pattern Detection Signatures
-- Definition 4.11: Pattern Interaction Strengths
+### 4.3 Stable Individual Patterns
+- Definition 4.7: Electron-Type Pattern
+- Definition 4.8: Proton-Type Pattern
+- Definition 4.9: Neutrino-Type Pattern
+
+### 4.4 Propagating Patterns
+- Definition 4.10: Photon-Type Pattern
+- Definition 4.11: Wave Packet Propagation
+- Definition 4.12: Detection-Triggering Event
+
+### 4.5 Pattern Interactions
+- Definition 4.13: Scattering Interaction
+- Definition 4.14: Pattern Emission and Absorption
+- Definition 4.15: Transformation and Mixing
+
+### 4.6 Stability and Survivability
+- Definition 4.16: Pattern Lifetime Metric
+- Definition 4.17: Extreme Environment Survival
+- Definition 4.18: Interaction Strength Levels
 
 ## 5. Composite Timing Structures
 
