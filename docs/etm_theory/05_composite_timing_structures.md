@@ -273,3 +273,4 @@ where \(N\) denotes the central nucleon-type composite (or nucleus), \(P_{e,k}\)
 **Validation Status**: ✅ **Supported** by small-molecule simulations matching known bond energies within calibrated accuracy. Multi-electron atoms reproduce spectral line patterns consistent with quantum mechanical predictions.
 
 ---
+=======
