@@ -209,3 +209,4 @@ Mutation equivalence classes characterize stable particles that undergo symbolic
 **Physical Interpretation**:  Mutation equivalence formalizes how particles maintain identity through symbolic changes.  It provides a rigorous notion of "same timing pattern" despite interactions that alter tags or recruiter attachments.
 
 **Validation Status**:  ✅ **Implemented**—`core.Identity` uses ancestry mutation while phase histories remain intact, matching the above equivalence definition.
+
