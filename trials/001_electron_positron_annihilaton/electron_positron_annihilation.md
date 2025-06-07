@@ -30,22 +30,25 @@ Documenting this trial will guide improvements to the ETM particle interaction r
 
 ## Results
 
-The preliminary script `run_trial.py` was executed from this directory using the
-validated foundation configuration. Electron and positron identities were moved
-toward each other one lattice step per tick. Annihilation was detected when both
-occupied the lattice center at tick 2. A summary JSON file `annihilation_results.json`
-was generated with the following contents:
+The updated `run_trial.py` relies on the engine's detection logic. Running the
+trial produced the following JSON summary:
 
 ```json
 {
   "events": [
-    {"tick": 2, "event": "annihilation", "position": [3, 3, 3]}
+    {
+      "event_type": "particle_collision",
+      "position": [3, 3, 3],
+      "tick": 2,
+      "trigger_id": "<electron_id>",
+      "affected_ids": ["<positron_id>"],
+      "energy_released": -168.0024,
+      "photon_id": "<photon_id>"
+    }
   ],
   "history_length": 2
 }
 ```
-
-These preliminary results confirm that the framework can track particle movement
-and record annihilation events. The current script uses a simplified motion model
-and does not yet account for timing-strain energy or photon generation, so future
-iterations should integrate these aspects directly into the ETM engine.
+A photon identity is created with energy matching the timing strain released by
+the annihilation event, demonstrating integrated energy accounting within the
+ETM engine.

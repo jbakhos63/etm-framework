@@ -452,6 +452,11 @@ class ETMEngine:
     
     def process_detection_events(self):
         """Process detection events including annihilation energy tracking"""
+        # Import here to avoid circular dependency during module initialization
+        try:
+            from .particles import ParticleFactory
+        except Exception:
+            from particles import ParticleFactory
         position_map: Dict[Tuple[int, int, int], List[Identity]] = {}
         for identity in self.identities:
             if identity.position is not None:
@@ -479,7 +484,6 @@ class ETMEngine:
                             self.center, self.echo_fields, self.config
                         )
                         total_energy = energy_a + energy_b
-
                         detection = DetectionEvent(
                             event_type=DetectionEventType.PARTICLE_COLLISION,
                             position=position,
@@ -490,6 +494,22 @@ class ETMEngine:
                             mutation_results={"energy_released": total_energy},
                         )
                         self.detection_events.append(detection)
+                        # Create a photon carrying the released energy
+                        try:
+                            photon_pattern = ParticleFactory.create_photon(total_energy)
+                            photon_identity = Identity(
+                                module_tag="PHOTON",
+                                ancestry="photon",
+                                theta=0.0,
+                                delta_theta=photon_pattern.core_timing_rate,
+                                position=position,
+                            )
+                            photon_identity.fundamental_particle = photon_pattern
+                            self.identities.append(photon_identity)
+                            photon_id = photon_identity.unique_id
+                            detection.mutation_results["photon_id"] = photon_id
+                        except Exception:
+                            pass
                         self.conflict_resolutions.append(
                             {
                                 "tick": self.tick,

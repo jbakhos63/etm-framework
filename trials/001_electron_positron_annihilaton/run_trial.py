@@ -8,6 +8,7 @@ sys.path.insert(0, ROOT_DIR)
 
 from etm.config import ConfigurationFactory
 from etm.core import ETMEngine, Identity, Recruiter
+from etm.particles import ParticleFactory
 
 
 def run_trial():
@@ -15,7 +16,6 @@ def run_trial():
     config = ConfigurationFactory.validated_foundation_config("electron_positron_annihilation")
     config.max_ticks = 6
     config.lattice_size = (7, 7, 7)
-
     engine = ETMEngine(config)
 
     # Create recruiters across lattice so evaluation functions work
@@ -30,7 +30,7 @@ def run_trial():
         delta_theta=0.05,
         position=(center[0]-2, center[1], center[2])
     )
-
+    electron.fundamental_particle = ParticleFactory.create_electron()
     positron = Identity(
         module_tag="POSITRON",
         ancestry="pos",
@@ -40,19 +40,24 @@ def run_trial():
         is_antiparticle=True,
         antiparticle_of=electron.unique_id
     )
-
+    positron.fundamental_particle = ParticleFactory.create_electron()
     engine.identities.extend([electron, positron])
 
     events = []
     for _ in range(config.max_ticks):
-        engine.advance_tick()
-        # Move both identities one step toward each other along x-axis
-        if electron.position[0] < positron.position[0]:
-            electron.position = (electron.position[0]+1, electron.position[1], electron.position[2])
-            positron.position = (positron.position[0]-1, positron.position[1], positron.position[2])
+        # Move both identities one step toward each other along x-axis before advancing
+        if electron.position and positron.position and electron.position[0] < positron.position[0]:
+            electron.position = (electron.position[0] + 1, electron.position[1], electron.position[2])
+            positron.position = (positron.position[0] - 1, positron.position[1], positron.position[2])
 
-        if electron.position == positron.position:
-            events.append({"tick": engine.tick, "event": "annihilation", "position": electron.position})
+        engine.advance_tick()
+
+        # Check detection events for annihilation
+        for event in engine.results_history[-1]["detection_events"]:
+            if event["event_type"] == "particle_collision":
+                events.append(event)
+                break
+        if events:
             break
 
     with open("annihilation_results.json", "w") as f:

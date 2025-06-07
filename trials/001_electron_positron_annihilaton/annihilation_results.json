@@ -1,13 +1,19 @@
 {
   "events": [
     {
-      "tick": 2,
-      "event": "annihilation",
+      "event_type": "particle_collision",
       "position": [
         3,
         3,
         3
-      ]
+      ],
+      "tick": 2,
+      "trigger_id": "0f4f4e02",
+      "affected_ids": [
+        "af34a8db"
+      ],
+      "energy_released": -168.0024,
+      "photon_id": "06124192"
     }
   ],
   "history_length": 2
