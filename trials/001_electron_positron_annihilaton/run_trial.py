@@ -45,14 +45,24 @@ def run_trial():
 
     events = []
     for _ in range(config.max_ticks):
-        engine.advance_tick()
-        # Move both identities one step toward each other along x-axis
-        if electron.position[0] < positron.position[0]:
-            electron.position = (electron.position[0]+1, electron.position[1], electron.position[2])
-            positron.position = (positron.position[0]-1, positron.position[1], positron.position[2])
+        # Move both identities one step toward each other unless annihilation started
+        if not electron.annihilation_pending and not positron.annihilation_pending:
+            if electron.position[0] < positron.position[0]:
+                electron.position = (electron.position[0]+1, electron.position[1], electron.position[2])
+                positron.position = (positron.position[0]-1, positron.position[1], positron.position[2])
 
-        if electron.position == positron.position:
-            events.append({"tick": engine.tick, "event": "annihilation", "position": electron.position})
+        engine.advance_tick()
+
+        for event in engine.detection_events:
+            if event.mutation_results.get("annihilation_complete"):
+                events.append({
+                    "tick": event.tick,
+                    "released_energy": event.mutation_results["released_energy"],
+                    "photon_ids": event.mutation_results["photon_ids"],
+                    "position": event.position,
+                })
+                break
+        if events:
             break
 
     with open("annihilation_results.json", "w") as f:
