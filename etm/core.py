@@ -132,6 +132,11 @@ class Identity:
     creation_tick: int = 0
     is_decay_product: bool = False
     parent_decay_event: Optional[str] = None
+
+    # NEW: Annihilation tracking
+    annihilation_pending: bool = False
+    pending_partner_id: Optional[str] = None
+    annihilation_initiated_tick: int = -1
     
     def update_phase(self):
         """Implement R2: Phase Advancement Rule - PRESERVED EXACTLY"""
@@ -265,6 +270,10 @@ class ETMEngine:
         
         # Results storage (preserved)
         self.results_history: List[Dict] = []
+
+        # NEW: pending annihilations and energy tracking
+        self.pending_annihilations: List[Tuple[Identity, Identity, Tuple[int, int, int], int]] = []
+        self.last_total_energy: float = 0.0
         
         # Initialize echo fields (preserved)
         self._initialize_echo_fields()
@@ -475,8 +484,6 @@ class ETMEngine:
                             self.center, self.echo_fields, self.config
                         )
                         total_energy = energy_a + energy_b
-
-                        photon_id = None
                         detection = DetectionEvent(
                             event_type=DetectionEventType.PARTICLE_COLLISION,
                             position=position,
@@ -487,7 +494,6 @@ class ETMEngine:
                             mutation_results={"energy_released": total_energy},
                         )
                         self.detection_events.append(detection)
-
                         # Create a photon carrying the released energy
                         try:
                             photon_pattern = ParticleFactory.create_photon(total_energy)
@@ -539,7 +545,10 @@ class ETMEngine:
             "coexistence_registry": {},
             "conflict_resolutions": [],
             "composite_particles": len(self.composite_particles),
-            "pattern_reorganizations": len(self.pattern_reorganization_events)
+            "pattern_reorganizations": len(self.pattern_reorganization_events),
+            "total_energy": 0.0,
+            "energy_change": 0.0,
+            "emitted_photons": []
         }
         
         # Convert coexistence registry tuple keys to strings for JSON compatibility
@@ -561,7 +570,7 @@ class ETMEngine:
                 "is_composite_constituent": identity.is_composite_constituent,
                 "is_decay_product": identity.is_decay_product
             })
-        
+
         for result in return_results:
             tick_data["return_results"].append({
                 "identity_id": result["identity"].unique_id,
@@ -577,14 +586,12 @@ class ETMEngine:
                 "trigger_id": event.triggering_particle.unique_id if event.triggering_particle else None,
                 "affected_ids": [i.unique_id for i in event.affected_identities],
                 "energy_released": event.mutation_results.get("energy_released"),
-                "photon_id": event.mutation_results.get("photon_id"),
             })
         tick_data["conflict_resolutions"] = self.conflict_resolutions.copy()
 
         # Clear events after recording
         self.detection_events.clear()
         self.conflict_resolutions.clear()
-
         self.results_history.append(tick_data)
     
     def run_simulation(self) -> Dict:

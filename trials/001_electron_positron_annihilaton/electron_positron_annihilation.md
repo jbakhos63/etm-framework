@@ -49,7 +49,6 @@ trial produced the following JSON summary:
   "history_length": 2
 }
 ```
-
 A photon identity is created with energy matching the timing strain released by
 the annihilation event, demonstrating integrated energy accounting within the
 ETM engine.
