@@ -526,3 +526,4 @@ An information-carrying wave pattern provides a mechanism for transmitting symbo
 ---
 
 Further refinement requires dedicated simulations (`WavePatternFactory.create_information_wave`) to evaluate noise resilience and throughput under varied environmental conditions. Incorporate these results to adjust phase offset encoding strategies and stability metrics.
+
