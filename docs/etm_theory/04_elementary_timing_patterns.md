@@ -252,6 +252,7 @@ $$\theta_k(t+1) = (\theta_k(t) + \Delta\theta_k) \bmod 1.$$
 - Detection events are essential for reproducing measurement-dependent phenomena while maintaining deterministic propagation prior to detection.
 
 ---
+
 ### 4.5 Pattern Interactions
 
 In ETM the state of the lattice evolves exclusively through deterministic interactions among timing patterns. These interactions exchange timing information, redistribute energy, and often reconfigure the ancestry or orientation of the patterns involved. Three principal classes of interactions are defined below.
