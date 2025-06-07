@@ -15,8 +15,7 @@ def run_trial():
     # Configure engine
     config = ConfigurationFactory.validated_foundation_config("electron_positron_annihilation")
     config.max_ticks = 6
-    config.lattice_size = (7, 7, 7)
-
+    config.lattice_size = (7, 7, 7)n
     engine = ETMEngine(config)
 
     # Create recruiters across lattice so evaluation functions work
@@ -33,7 +32,6 @@ def run_trial():
         velocity=(1, 0, 0)
     )
     electron.fundamental_particle = ParticleFactory.create_electron()
-
     positron = Identity(
         module_tag="POSITRON",
         ancestry="pos",
@@ -45,7 +43,6 @@ def run_trial():
         antiparticle_of=electron.unique_id
     )
     positron.fundamental_particle = ParticleFactory.create_electron()
-
     engine.identities.extend([electron, positron])
 
     events = []

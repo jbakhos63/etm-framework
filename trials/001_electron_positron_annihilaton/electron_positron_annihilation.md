@@ -34,7 +34,6 @@ Documenting this trial will guide improvements to the ETM particle interaction r
 The updated `run_trial.py` relies on the engine's detection logic. Running the
 trial produced the following JSON summary:
 
-
 ```json
 {
   "events": [

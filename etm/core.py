@@ -133,6 +133,11 @@ class Identity:
     creation_tick: int = 0
     is_decay_product: bool = False
     parent_decay_event: Optional[str] = None
+
+    # NEW: Annihilation tracking
+    annihilation_pending: bool = False
+    pending_partner_id: Optional[str] = None
+    annihilation_initiated_tick: int = -1
     
     def update_phase(self):
         """Implement R2: Phase Advancement Rule - PRESERVED EXACTLY"""
@@ -270,7 +275,6 @@ class ETMEngine:
         # Energy bookkeeping for each tick
         self.current_tick_energy_before: float = 0.0
         self.current_tick_energy_after: float = 0.0
-        
         # Initialize echo fields (preserved)
         self._initialize_echo_fields()
     
@@ -508,7 +512,6 @@ class ETMEngine:
                             self.center, self.echo_fields, self.config
                         )
                         total_energy = energy_a + energy_b
-
                         photon_id = None
                         detection = DetectionEvent(
                             event_type=DetectionEventType.PARTICLE_COLLISION,
@@ -520,7 +523,6 @@ class ETMEngine:
                             mutation_results={"energy_released": total_energy},
                         )
                         self.detection_events.append(detection)
-
                         # Create a photon carrying the released energy
                         try:
                             photon_pattern = ParticleFactory.create_photon(total_energy)
@@ -599,7 +601,7 @@ class ETMEngine:
                 "is_composite_constituent": identity.is_composite_constituent,
                 "is_decay_product": identity.is_decay_product
             })
-        
+
         for result in return_results:
             tick_data["return_results"].append({
                 "identity_id": result["identity"].unique_id,
@@ -625,7 +627,6 @@ class ETMEngine:
         # Clear events after recording
         self.detection_events.clear()
         self.conflict_resolutions.clear()
-
         self.results_history.append(tick_data)
     
     def run_simulation(self) -> Dict:
