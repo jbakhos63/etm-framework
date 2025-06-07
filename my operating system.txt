@@ -125,7 +125,7 @@ C:.
     |   interface.py
     |   particles.py
     |   trials.py
-    |   _init_.py
+    |   __init__.py
     |
     \---__pycache__
             config.cpython-313.pyc
