@@ -442,9 +442,59 @@ class ETMEngine:
         self.record_tick_results(return_results)
     
     def process_detection_events(self):
-        """Process all detection events for this tick - PRESERVED EXACTLY"""
-        # Simplified for compatibility - full detection system in particles module
-        pass
+        """Process detection events including annihilation energy tracking"""
+        position_map: Dict[Tuple[int, int, int], List[Identity]] = {}
+        for identity in self.identities:
+            if identity.position is not None:
+                position_map.setdefault(identity.position, []).append(identity)
+
+        events_to_remove = []
+
+        for position, ids in position_map.items():
+            if len(ids) < 2:
+                continue
+
+            # Check all pairs for antiparticle annihilation
+            for i in range(len(ids)):
+                for j in range(i + 1, len(ids)):
+                    a, b = ids[i], ids[j]
+                    if (
+                        a.is_antiparticle and a.antiparticle_of == b.unique_id
+                    ) or (
+                        b.is_antiparticle and b.antiparticle_of == a.unique_id
+                    ):
+                        energy_a = a.calculate_particle_energy(
+                            self.center, self.echo_fields, self.config
+                        )
+                        energy_b = b.calculate_particle_energy(
+                            self.center, self.echo_fields, self.config
+                        )
+                        total_energy = energy_a + energy_b
+
+                        detection = DetectionEvent(
+                            event_type=DetectionEventType.PARTICLE_COLLISION,
+                            position=position,
+                            tick=self.tick,
+                            triggering_particle=a,
+                            affected_identities=[b],
+                            resolution_method=ConflictResolutionMethod.EXCLUSION,
+                            mutation_results={"energy_released": total_energy},
+                        )
+                        self.detection_events.append(detection)
+                        self.conflict_resolutions.append(
+                            {
+                                "tick": self.tick,
+                                "position": position,
+                                "method": "annihilation",
+                                "energy_released": total_energy,
+                            }
+                        )
+                        events_to_remove.extend([a, b])
+
+        # Remove annihilated identities
+        for identity in events_to_remove:
+            if identity in self.identities:
+                self.identities.remove(identity)
     
     def process_nucleon_physics(self):
         """Process nucleon internal structure dynamics - Placeholder for particles module"""
@@ -495,7 +545,22 @@ class ETMEngine:
                 "return_allowed": result["return_allowed"],
                 "evaluation": result["evaluation"]
             })
-        
+
+        for event in self.detection_events:
+            tick_data["detection_events"].append({
+                "event_type": event.event_type.value,
+                "position": event.position,
+                "tick": event.tick,
+                "trigger_id": event.triggering_particle.unique_id if event.triggering_particle else None,
+                "affected_ids": [i.unique_id for i in event.affected_identities],
+                "energy_released": event.mutation_results.get("energy_released"),
+            })
+        tick_data["conflict_resolutions"] = self.conflict_resolutions.copy()
+
+        # Clear events after recording
+        self.detection_events.clear()
+        self.conflict_resolutions.clear()
+
         self.results_history.append(tick_data)
     
     def run_simulation(self) -> Dict:
