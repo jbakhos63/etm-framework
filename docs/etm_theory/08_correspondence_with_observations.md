@@ -124,3 +124,11 @@ This section summarizes phenomena for which Euclidean Timing Mechanics (ETM) off
 
 **Implication**: ETM provides a discrete, information-based origin for gravitational phenomena, replacing continuous metric fields with timing-energy gradients.
 
+
+### Recent Validation Trials (2025)
+
+The following trials provide additional confirmation for the observations discussed in this chapter:
+
+1. **Trial 001 – Electron–Positron Annihilation**: Photon production during annihilation validates energy accounting used for scattering comparisons.
+2. **Trial 002 – Energy Calculation**: Calibrated timing energies reproduce hydrogen ground-state values, supporting spectral and binding predictions.
+3. **Trial 003 – Photon Propagation**: Deterministic photon motion ensures that simulated emission lines correspond directly with observed spectra.
