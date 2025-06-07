@@ -77,4 +77,61 @@ For rational \(\Delta\theta=p/q\), the period is \(q\) ticks and \(f=p/q\) cycle
 
 ---
 
+### 4.2 Identity Attributes and Classification
+
+Identities in ETM are distinguished not only by their phase dynamics but also by a finite set of attributes that encode charge-like, spin-like, and mass-like behavior. These attributes are realized symbolically using the ancestry and module tags within each `Identity` instance. They enable classification of timing patterns into categories analogous to elementary particle species.
+
+#### Definition 4.4: Charge-Like Tag
+
+**Statement**: A charge-like tag \(q\) is a symbolic marker appended to an identity's ancestry string indicating its interaction phase preference. Formally, let \(\Sigma_q\) be the set of allowable charge symbols. An identity with ancestry string \(a\) possesses charge \(q\in\Sigma_q\) if and only if
+\[
+  a = a_0 \oplus q,
+\]
+where \(\oplus\) denotes string concatenation.
+
+**Properties**:
+- **Conservation under propagation**: Charge-like tags persist through phase updates unless a detection-triggered mutation explicitly alters them.
+- **Interaction mediation**: The echo field coupling strength is modulated by compatibility of charge-like tags between patterns.
+
+**Implementation Notes**:
+- In `etm/core.py` the ancestry string stores charge tags such as `"+"`, `"-"`, or neutral `"0"`.
+- Detection events may invoke symbolic mutation to append or remove charge tags while preserving phase continuity.
+
+---
+
+#### Definition 4.5: Spin-Like Orientation
+
+**Statement**: The spin-like orientation \(s\) of a timing pattern is a binary or integer label describing the orientation of its phase progression relative to the lattice. Let \(S=\{-1, +1\}\) represent two allowed orientations. A pattern has spin \(s\in S\) if its phase update rule obeys
+\[
+  \theta(t+1) = (\theta(t) + s\,\Delta\theta) \bmod 1.
+\]
+
+**Properties**:
+- **Orientation reversal**: Interactions that flip spin correspond to multiplying \(s\) by \(-1\) while leaving \(\Delta\theta\) unchanged.
+- **Composite coupling**: Stable bound states require net spin balance among constituent patterns.
+
+**Implementation Notes**:
+- The `Identity` class records spin using the field `orientation` with values `+1` or `-1`.
+- Spin flipping during scattering is implemented in `ParticleFactory` helper functions.
+
+---
+
+#### Definition 4.6: Mass-Like Timing Inertia
+
+**Statement**: Mass-like timing inertia \(m\) quantifies resistance of a timing pattern to phase perturbation. It is defined by the inverse of the allowed fractional change in \(\Delta\theta\) per detection event:
+\[
+  m = \Bigl(\frac{\delta\Delta\theta}{\Delta\theta}\Bigr)^{-1}.
+\]
+Here \(\delta\Delta\theta\) is the maximal change in advancement rate permitted by the current environment.
+
+**Properties**:
+- **Energy correspondence**: Greater mass-like inertia implies larger energy content as computed by `Identity.calculate_particle_energy`.
+- **Stability indicator**: Patterns with high inertia resist timing disruptions and are more likely to survive in extreme echo environments.
+
+**Implementation Notes**:
+- Configuration parameters such as `kinetic_scale_factor` calibrate the numerical value of \(m\).
+- Simulation scripts may adjust `delta_theta` within bounds derived from \(m\) when modeling interactions or composite formation.
+
+---
+=======
 =======
