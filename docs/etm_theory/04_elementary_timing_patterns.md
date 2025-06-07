@@ -178,3 +178,5 @@ Anti-pattern nodes mirror the spatial arrangement of the original pattern. Each 
 **Validation Status**: ⚠️ **Preliminary** — initial simulations demonstrate expected phase cancellation, but comprehensive tests of annihilation dynamics are ongoing.
 
 ---
+=======
+
