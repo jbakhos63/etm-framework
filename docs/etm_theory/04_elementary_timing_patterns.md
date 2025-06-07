@@ -194,4 +194,61 @@ Neutrino-type patterns carry the ancestry tag `ν` and propagate efficiently thr
 - Detection and interaction modules consult the ancestry tag `ν` to apply weak scattering rules.
 
 ---
-=======
+
+### 4.4 Propagating Patterns
+
+Propagating timing patterns transmit energy and information across the ETM lattice. Their dynamics are characterized by coordinated phase advancement and spatial translation. This section formalizes the photon-type pattern as the canonical propagating identity and defines the mechanics of wave packet propagation and detection-triggering events.
+
+#### Definition 4.10: Photon-Type Pattern
+
+**Statement**: A photon-type pattern is an electromagnetic timing disturbance that propagates through space via an expanding front of high-rate nodes. Let $C$ denote the core node with timing rate $1.5$ and $F(t)$ the set of propagation-front nodes at tick $t$. Initially
+$$F(0)=\{f_i\mid r(f_i)=1.2\}.$$
+Propagation proceeds by shifting each $f_i$ one lattice step per tick along the 8-connected directions while preserving relative phase. Edge nodes $E(t)$ with rate $1.0$ and extended nodes $X(t)$ with rate $0.8$ maintain coherence at larger radius. The ancestry tag contains the symbol `ph`.
+
+**Properties**:
+- **Electromagnetic coherence**: `PhotonTimingPattern.stability_metrics` report values near $0.99$ for electromagnetic coherence and propagation efficiency.
+- **Space traversal**: Photons are cosmologically viable and traverse the lattice without mass-like inertia.
+- **Orbital coupling**: The metric `orbital_coupling` describes interaction strength with electron orbitals.
+
+**Implementation Notes**:
+- `ParticleFactory.create_photon()` instantiates this pattern and calls `set_photon_energy` to adjust frequency and wavelength.
+- The pattern nodes and timing rates are defined in `etm/particles.py` under `PhotonTimingPattern`.
+- Photon identities use `ParticleType.PHOTON` and remain `STABLE` under normal conditions.
+
+---
+
+#### Definition 4.11: Wave Packet Propagation
+
+**Statement**: Wave packet propagation is the coordinated translation of a set of timing nodes $\{n_k(t)\}$ such that for each tick
+$$n_k(t+1)=n_k(t)+\delta p_k,$$
+where $\delta p_k$ is a lattice displacement chosen from the engine's 8-connected neighbor set. The phase state at each node advances according to its $\Delta\theta$ while maintaining the ordering of phases across the packet.
+
+**Formal Algorithm**:
+1. For each node $n_k$ with position $p_k(t)$ compute neighbor positions via `ETMEngine.get_neighbors`.
+2. Select $\delta p_k$ that maximizes echo reinforcement in the direction of propagation.
+3. Update $p_k(t+1)=p_k(t)+\delta p_k$ and apply the phase update rule
+$$\theta_k(t+1) = (\theta_k(t) + \Delta\theta_k) \bmod 1.$$
+4. Repeat for all nodes in the packet.
+
+**Implementation Notes**:
+- Photon propagation uses this mechanism with front nodes moving outward every tick.
+- Composite patterns may propagate by coupling multiple wave packets.
+- The engine stores positions in `Identity.position` and updates them during `advance_tick`.
+
+---
+
+#### Definition 4.12: Detection-Triggering Event
+
+**Statement**: A detection-triggering event occurs when a propagating pattern interacts with another identity or a boundary such that conflict resolution must be invoked. Formally a `DetectionEvent` instance $(e,\,p,\,t)$ is recorded with event type $e$ (e.g., `PHOTON_INTERACTION`), position $p$, and tick $t$. The event references the triggering particle and the affected identities.
+
+**Properties**:
+- **Model B behavior**: Detection events activate resolution methods specified by `ConflictResolutionMethod`, such as `SYMBOLIC_MUTATION`.
+- **State mutation**: Affected identities may alter ancestry, phase, or spin based on the selected resolution.
+- **Information recording**: Events are appended to `ETMEngine.detection_events` for later analysis.
+
+**Implementation Notes**:
+- The configuration flag `enable_detection_events` in `ETMConfig` controls whether events are logged.
+- Photon absorption by an electron triggers a `PHOTON_INTERACTION` event resulting in phase reconfiguration.
+- Detection events are essential for reproducing measurement-dependent phenomena while maintaining deterministic propagation prior to detection.
+
+---
