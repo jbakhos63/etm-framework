@@ -28,7 +28,8 @@ def run_trial():
         ancestry="neg",
         theta=0.0,
         delta_theta=0.05,
-        position=(center[0]-2, center[1], center[2])
+        position=(center[0]-2, center[1], center[2]),
+        velocity=(1, 0, 0)
     )
     electron.fundamental_particle = ParticleFactory.create_electron()
     positron = Identity(
@@ -37,6 +38,7 @@ def run_trial():
         theta=0.5,
         delta_theta=0.05,
         position=(center[0]+2, center[1], center[2]),
+        velocity=(-1, 0, 0),
         is_antiparticle=True,
         antiparticle_of=electron.unique_id
     )
@@ -45,11 +47,6 @@ def run_trial():
 
     events = []
     for _ in range(config.max_ticks):
-        # Move both identities one step toward each other along x-axis before advancing
-        if electron.position and positron.position and electron.position[0] < positron.position[0]:
-            electron.position = (electron.position[0] + 1, electron.position[1], electron.position[2])
-            positron.position = (positron.position[0] - 1, positron.position[1], positron.position[2])
-
         engine.advance_tick()
 
         # Check detection events for annihilation
@@ -59,7 +56,6 @@ def run_trial():
                 break
         if events:
             break
-
     tick_data = engine.results_history[-1] if engine.results_history else {}
     summary = {
         "events": events,

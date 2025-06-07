@@ -98,6 +98,7 @@ class Identity:
     delta_theta: float
     tick_memory: int = 0
     position: Optional[Tuple[int, int, int]] = None
+    velocity: Optional[Tuple[int, int, int]] = None
     return_status: ReturnStatus = ReturnStatus.PENDING
     
     # Identity tracking (preserved)
@@ -270,9 +271,11 @@ class ETMEngine:
         
         # Results storage (preserved)
         self.results_history: List[Dict] = []
+
         # Energy bookkeeping for each tick
         self.current_tick_energy_before: float = 0.0
-        self.current_tick_energy_after: float = 0.0        
+        self.current_tick_energy_after: float = 0.0
+
         # Initialize echo fields (preserved)
         self._initialize_echo_fields()
     
@@ -383,6 +386,21 @@ class ETMEngine:
         """Apply echo decay to all fields - PRESERVED EXACTLY"""
         for echo_field in self.echo_fields.values():
             echo_field.apply_decay(self.config.decay_factor)
+
+    def move_identities(self):
+        """Move identities according to optional velocity attribute"""
+        for identity in self.identities:
+            if identity.position is None:
+                continue
+            velocity = getattr(identity, "velocity", None)
+            if velocity:
+                new_pos = [identity.position[i] + velocity[i] for i in range(3)]
+                # Constrain within lattice bounds
+                new_pos = [
+                    max(0, min(self.lattice_shape[i] - 1, new_pos[i]))
+                    for i in range(3)
+                ]
+                identity.position = tuple(new_pos)
     
     def apply_echo_inheritance(self):
         """Apply echo inheritance from neighbors - PRESERVED EXACTLY"""
@@ -420,6 +438,7 @@ class ETMEngine:
         # 1-4. All existing steps preserved exactly
         self.advance_phases()
         self.apply_echo_decay()
+        self.move_identities()
 
         # Record total timing-strain energy before any interactions this tick
         self.current_tick_energy_before = sum(

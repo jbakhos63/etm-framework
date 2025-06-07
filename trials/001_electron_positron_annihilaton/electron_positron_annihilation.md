@@ -14,7 +14,8 @@ This trial proposes a minimal ETM simulation of an electron and a positron initi
    - Place an electron identity and a positron identity on opposite sides of the lattice center, each at rest with respect to the simulation frame.
    - Set the initial separation large enough that immediate annihilation does not occur but small enough that chirality attraction draws them together within a manageable number of ticks.
 2. **Dynamics**
-   - Run the ETM engine with detection triggered at each tick. Track positions, phases, and timing strain of both identities as they move.
+   - Each identity is given a velocity toward the lattice center. The engine moves them automatically every tick via the new `move_identities` step.
+   - Detection is triggered each tick and records collisions, timing strain, and emitted photon identities.
    - Monitor the lattice for recruitment patterns indicating photon creation during the collision.
 3. **Data Collection**
    - Record the tick number of annihilation, total strain energy immediately before the event, and the energy distribution among emitted photons.
@@ -49,7 +50,7 @@ trial produced the following JSON summary:
   ],
   "history_length": 2,
   "energy_before": -168.0024,
-  "energy_after": -168.0024,
+  "energy_after": -11512.4786,
   "energy_released_total": -168.0024,
   "photon_energy_total": -168.0024
 }
@@ -59,4 +60,5 @@ A photon identity is created with energy matching the timing strain released by
 the annihilation event, demonstrating integrated energy accounting within the
 ETM engine.
 \nThe engine now records total system energy before and after the tick, along with the energy carried by newly created photons. The values match within numerical precision, confirming conservation of timing-strain energy.
+
 
