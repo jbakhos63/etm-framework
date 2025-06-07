@@ -91,43 +91,63 @@ The following predictions highlight unique experimental signatures of Euclidean 
 
 ### 9.3 Cosmological and Large-Scale Implications
 
-The discrete timing foundations of ETM extend naturally from particle-scale
-phenomena to cosmological structure.  The following implications describe how
-large-scale observations can be reinterpreted within the timing-mechanics
-framework.
+The deterministic timing framework introduced in Chapters&nbsp;1–7 applies not
+only to particle dynamics but also to the evolution of the Universe as a
+whole.  Because ETM treats energy as localized timing strain and all forces as
+emergent recruiter interactions, large-scale structure follows directly from the
+same update rules that govern microscopic behavior.  The implications below are
+formulated so that cosmological simulations can be constructed directly from the
+ETM engine described in `etm/core.py`.
 
 #### Implication 9.9: Emergent Large-Scale Structure from Timing Networks
 
-**Statement**: Galaxy formation and clustering result from long-range phase
-correlation in recruiter networks (Rules&nbsp;R10–R17) seeded by primordial
-fluctuations (Definition&nbsp;4.21).  Massive structures arise where echo-field
-reinforcement produces stable timing patterns over cosmic timescales.
+**Statement**: Galaxy formation and clustering arise from long-range phase
+correlations in recruiter networks (Rules&nbsp;R10–R17) seeded by primordial
+fluctuations (Definition&nbsp;4.21).  Regions where echo-field reinforcement is
+constructive form gravitationally bound systems over cosmic timescales.
 
-**Consequence**: Dark-matter halos are interpreted as regions of dense,
-undetected timing activity rather than unseen particles.  Simulations must track
-recruiter coupling across megaparsec scales using lattice tiling to predict
-galaxy distribution statistics.
+**Consequence**: Dark-matter halos correspond to volumes of high recruiter
+activity that remain largely undetected due to limited local phase alignment.
+Cosmological simulations must therefore tile the ETM lattice over megaparsec
+scales and explicitly propagate recruiter links to reproduce observed galaxy
+correlation functions.
 
 #### Implication 9.10: Cosmic Element Recycling via Enhanced Proton Patterns
 
-**Statement**: Enhanced protons (Definition&nbsp;4.17) survive active galactic
-nucleus ejection with high probability, enabling metal-rich outflows to seed new
-star formation across intergalactic distances.
+**Statement**: Enhanced proton timing patterns (Definition&nbsp;4.17) are
+predicted to survive active galactic nucleus (AGN) ejection with high
+probability.  These long-lived patterns transport heavy elements far from their
+origin galaxies before decaying or reintegrating into new structures.
 
-**Consequence**: Element abundance gradients observed in deep-field surveys can
-be reproduced by running cosmological ETM simulations with validated AGN
-survival parameters.  This provides a deterministic alternative to stochastic
-feedback models in standard cosmology.
+**Consequence**: Deep-field abundance gradients can be modeled by injecting
+validated enhanced proton parameters into large-scale ETM simulations.  This
+approach replaces stochastic feedback prescriptions with deterministic timing
+rules, offering precise predictions for metal enrichment of the intergalactic
+medium.
 
 #### Implication 9.11: CMB Anisotropies from Lattice Boundary Conditions
 
-**Statement**: The cosmic microwave background (CMB) temperature fluctuations
-arise from boundary-induced phase shifts in the early-universe lattice
-(Mathematical Framework&nbsp;7.1) rather than quantum inflationary noise.
+**Statement**: Temperature variations in the cosmic microwave background (CMB)
+originate from boundary-induced phase shifts of the primordial ETM lattice
+(Mathematical Framework&nbsp;7.1) rather than from stochastic inflationary
+fluctuations.
 
-**Consequence**: Predicted multipole spectra depend sensitively on the global
-lattice dimensions and tick resolution.  By adjusting these parameters within
-ETM simulations, CMB anisotropy patterns can be matched without invoking
-inflation.
+**Consequence**: The predicted multipole spectrum is a direct function of the
+global lattice dimensions and tick resolution.  By tuning these simulation
+parameters, ETM reproduces observed CMB anisotropies without invoking an
+inflationary epoch.
+
+#### Implication 9.12: Expansion as Global Phase Drift
+
+**Statement**: Cosmic expansion corresponds to a uniform drift in lattice phase
+offsets driven by cumulative timing strain energy (Rules&nbsp;R7–R9).  The
+observed Hubble parameter reflects the rate of this global phase divergence
+rather than motion through a continuous space.
+
+**Consequence**: ETM predicts subtle departures from standard expansion models
+when large-scale timing strain is perturbed, for example by massive recruiter
+networks.  Accurate cosmological simulations must therefore couple local timing
+strain evolution to global phase drift when computing redshift–distance
+relations.
 
 
