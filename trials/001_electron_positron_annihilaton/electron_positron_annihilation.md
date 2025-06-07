@@ -49,3 +49,4 @@ These preliminary results confirm that the framework can track particle movement
 and record annihilation events. The current script uses a simplified motion model
 and does not yet account for timing-strain energy or photon generation, so future
 iterations should integrate these aspects directly into the ETM engine.
+
