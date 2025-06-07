@@ -33,6 +33,11 @@ etm_theory_foundation_outline
 - Definition 1.19: Information-Triggered State Changes
 - Definition 1.20: Recruiter Entities and Rhythm Locking
 
+### Recent Validation Trials (2025)
+- Trial 001 – Electron–Positron Annihilation
+- Trial 002 – Energy Calculation
+- Trial 003 – Photon Propagation
+
 ## 2. Foundational Axioms
 
 ### 2.1 Temporal Foundation Axioms
@@ -60,6 +65,11 @@ etm_theory_foundation_outline
 - Axiom A14: Composite Pattern Formation
 - Axiom A15: Pattern Reorganization Conservation
 - Axiom A16: Emergent Force Effects from Timing Coordination
+
+### Recent Validation Trials (2025)
+- Trial 001 – Electron–Positron Annihilation
+- Trial 002 – Energy Calculation
+- Trial 003 – Photon Propagation
 
 ## 3. Fundamental Rules
 
@@ -89,6 +99,11 @@ etm_theory_foundation_outline
 - Rule R15: Charge Conservation
 - Rule R16: Lepton Number Conservation
 - Rule R17: Baryon Number Conservation
+
+### Recent Validation Trials (2025)
+- Trial 001 – Electron–Positron Annihilation
+- Trial 002 – Energy Calculation
+- Trial 003 – Photon Propagation
 
 ## 4. Elementary Timing Patterns
 
@@ -122,6 +137,11 @@ etm_theory_foundation_outline
 - Definition 4.17: Extreme Environment Survival
 - Definition 4.18: Interaction Strength Levels
 
+### Recent Validation Trials (2025)
+- Trial 001 – Electron–Positron Annihilation
+- Trial 002 – Energy Calculation
+- Trial 003 – Photon Propagation
+
 ## 5. Composite Timing Structures
 
 ### 5.1 Two-Pattern Bound Systems
@@ -141,6 +161,11 @@ etm_theory_foundation_outline
 - Definition 5.10: Composite Pattern Lifetimes
 - Definition 5.11: Reorganization Thresholds and Triggers
 - Definition 5.12: Decay Product Formation and Separation
+
+### Recent Validation Trials (2025)
+- Trial 001 – Electron–Positron Annihilation
+- Trial 002 – Energy Calculation
+- Trial 003 – Photon Propagation
 
 ## 6. Emergent Physical Phenomena
 
@@ -173,6 +198,11 @@ etm_theory_foundation_outline
 - Theorem 6.18: Interference-Like Effects from Phase Coordination
 - Theorem 6.19: Entanglement-Like Effects from Synchronized Timing
 
+### Recent Validation Trials (2025)
+- Trial 001 – Electron–Positron Annihilation
+- Trial 002 – Energy Calculation
+- Trial 003 – Photon Propagation
+
 ## 7. Mathematical Formalism
 
 ### 7.1 ETM State Space Mathematics
@@ -192,6 +222,11 @@ etm_theory_foundation_outline
 - Mathematical Framework 7.10: Optimization-Based Geometry Emergence
 - Mathematical Framework 7.11: Information-Theoretic Conflict Resolution
 - Mathematical Framework 7.12: Stability Analysis of Pattern Structures
+
+### Recent Validation Trials (2025)
+- Trial 001 – Electron–Positron Annihilation
+- Trial 002 – Energy Calculation
+- Trial 003 – Photon Propagation
 
 ## 8. Correspondence with Observed Phenomena
 
@@ -213,6 +248,11 @@ etm_theory_foundation_outline
 - Alternative 8.11: Dark Matter Effects from Large-Scale Timing Coordination
 - Alternative 8.12: Quantum Measurement from Detection-Triggered State Changes
 
+### Recent Validation Trials (2025)
+- Trial 001 – Electron–Positron Annihilation
+- Trial 002 – Energy Calculation
+- Trial 003 – Photon Propagation
+
 ## 9. ETM's Novel Predictions and Implications
 
 ### 9.1 Fundamental Physics Implications
@@ -232,3 +272,8 @@ etm_theory_foundation_outline
 - Implication 9.10: Alternative Explanations for Dark Matter/Energy Effects
 - Implication 9.11: Cosmic Evolution from Timing Pattern Development
 - Implication 9.12: Information-Based Cosmological Principle
+
+### Recent Validation Trials (2025)
+- Trial 001 – Electron–Positron Annihilation
+- Trial 002 – Energy Calculation
+- Trial 003 – Photon Propagation
