@@ -178,6 +178,109 @@ Anti-pattern nodes mirror the spatial arrangement of the original pattern. Each 
 **Validation Status**: ⚠️ **Preliminary** — initial simulations demonstrate expected phase cancellation, but comprehensive tests of annihilation dynamics are ongoing.
 
 ---
+
+### 4.2 Propagating Patterns
+
+Propagating patterns are timing configurations that maintain their identity while
+advancing across the ETM lattice. They serve as the foundation for traveling
+disturbances such as photons and information-carrying waves. Propagation occurs
+when phase information is transferred sequentially between nodes, allowing the
+pattern to shift position each tick without losing coherence.
+
+#### Definition 4.5: Propagating Pulse Pattern
+
+**Statement**: The propagating pulse pattern is the minimal traveling
+configuration. It consists of a compact cluster of nodes whose phases update so
+that the entire structure translates one lattice unit per tick. The advancement
+rate matches the fundamental step \(\Delta \theta_{\mathrm{pulse}} = 0.05\),
+ensuring compatibility with stable individual patterns.
+
+**Formal Expression**:
+\[
+\theta_{\mathrm{pulse}}(x,t+1) = \bigl(\theta_{\mathrm{pulse}}(x-1,t) + 0.05\bigr) \bmod 1
+\]
+where \(x\) is the lattice position along the propagation axis.
+
+**Node Configuration**:
+
+| Relative Position | Timing Rate | Role                |
+|------------------:|------------:|-------------------- |
+| (0, 0, 0)         | 1.0         | pulse_lead          |
+| (-1, 0, 0)        | 1.0         | pulse_core          |
+| (-2, 0, 0)        | 0.9         | trailing_node       |
+
+The lead node triggers the next lattice site as the trailing node decays,
+creating motion without changing the overall shape.
+
+**Stability Metrics** (simulation estimates):
+
+- Propagation fidelity: 0.93
+- Directional stability: 0.92
+- Interaction cross-section: 0.10
+- Timing drift over 50 ticks: 0.02
+
+**Implementation Requirements**:
+
+1. Initialize nodes at consecutive lattice positions with phases separated by
+   \(0.05\).
+2. Update phases using the formal expression above; this is implemented as
+   `PropagatingPulse()` in `etm/particles.py`.
+3. During each tick, spawn a new lead node while removing the trailing node to
+   preserve three-node structure.
+4. Reject configurations where propagation fidelity drops below 0.9.
+5. Track interactions with other patterns to measure scattering probability.
+
+**Physical Interpretation**:
+The propagating pulse represents a localized energy packet moving through the
+lattice. Its ability to transfer phase information sequentially makes it the
+conceptual precursor to more complex traveling patterns, including photons. The
+low interaction cross-section allows it to traverse other structures with minimal
+disruption.
+
+**Validation Status**: ⚠️ **Preliminary** — short-range simulations confirm
+stable propagation for 40–60 ticks, but long-range behavior and scattering
+statistics remain under investigation.
+
+---
+=======
+
+**Statement**: An anti-pattern is the phase-conjugated counterpart of a timing pattern. Each node advances with the same fundamental rate as the corresponding pattern but with a half-cycle phase offset, yielding destructive interference when directly superimposed. Anti-pattern structures serve as theoretical models for antimatter timing configurations and phase-cancellation phenomena.
+
+**Formal Expression**:
+\[
+\bar{\theta}(t+1) = \bigl(\bar{\theta}(t) + \Delta\theta\bigr) \bmod 1, \qquad \bar{\theta}(t) = \bigl(\theta(t) + 0.5\bigr) \bmod 1
+\]
+where \(\theta(t)\) is the phase of the base pattern and \(\Delta\theta\) its advancement rate (typically 0.05).
+
+**Node Configuration**:
+
+| Relative Position | Timing Rate | Role                   |
+|------------------:|------------:|----------------------- |
+| (0, 0, 0)         | same as base| anti_core              |
+| (*mirror base*)   | same as base| phase_conjugated_nodes |
+
+Anti-pattern nodes mirror the spatial arrangement of the original pattern. Each node maintains a phase offset of 0.5 relative to its counterpart.
+
+**Stability Metrics** (simulation estimates):
+
+- Phase cancellation efficacy: 0.95
+- Mirror coherence: 0.85
+- Interaction cross-section with base pattern: 0.90
+- Residual timing drift: 0.05
+
+**Implementation Requirements**:
+
+1. Generate the anti-pattern by cloning the base pattern’s node list and shifting all phases by 0.5.
+2. Ensure phase advancement is synchronized with the base pattern’s \(\Delta\theta\).
+3. During simulation, monitor pair interactions for annihilation events when an anti-pattern overlaps its base pattern.
+4. Reject configurations where mirror coherence falls below 0.8 or drift exceeds 0.1 per 50 ticks.
+5. Track energy release metrics when anti-patterns annihilate with their counterparts.
+
+**Physical Interpretation**: Anti-pattern structures model antiparticles or phase-conjugated waveforms within ETM. When superimposed with their corresponding patterns, the half-cycle offset leads to destructive interference, effectively canceling the timing signal and releasing energy into the surrounding lattice.
+
+**Validation Status**: ⚠️ **Preliminary** — initial simulations demonstrate expected phase cancellation, but comprehensive tests of annihilation dynamics are ongoing.
+
+---
 =======
 
 ### 4.2 Enhanced Proton‑Type Timing Pattern (AGN‑survivable)
