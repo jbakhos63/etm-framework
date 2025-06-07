@@ -1,0 +1,33 @@
+# Outline - Chapter 4: Elementary Timing Patterns
+
+This outline summarizes the planned structure for Chapter 4 of the ETM theory documentation. Each numbered definition introduces a key concept describing how fundamental timing patterns behave.
+
+## 4.1 Concept of Timing Patterns
+- Definition 4.1: Timing Pattern
+- Definition 4.2: Phase Configuration
+- Definition 4.3: Cycle Frequency
+
+## 4.2 Identity Attributes and Classification
+- Definition 4.4: Charge-Like Tag
+- Definition 4.5: Spin-Like Orientation
+- Definition 4.6: Mass-Like Timing Inertia
+
+## 4.3 Stable Individual Patterns
+- Definition 4.7: Electron-Type Pattern
+- Definition 4.8: Proton-Type Pattern
+- Definition 4.9: Neutrino-Type Pattern
+
+## 4.4 Propagating Patterns
+- Definition 4.10: Photon-Type Pattern
+- Definition 4.11: Wave Packet Propagation
+- Definition 4.12: Detection-Triggering Event
+
+## 4.5 Pattern Interactions
+- Definition 4.13: Scattering Interaction
+- Definition 4.14: Pattern Emission and Absorption
+- Definition 4.15: Transformation and Mixing
+
+## 4.6 Stability and Survivability
+- Definition 4.16: Pattern Lifetime Metric
+- Definition 4.17: Extreme Environment Survival
+- Definition 4.18: Interaction Strength Levels
