@@ -252,3 +252,79 @@ $$\theta_k(t+1) = (\theta_k(t) + \Delta\theta_k) \bmod 1.$$
 - Detection events are essential for reproducing measurement-dependent phenomena while maintaining deterministic propagation prior to detection.
 
 ---
+
+### 4.5 Pattern Interactions
+
+In ETM the state of the lattice evolves exclusively through deterministic interactions among timing patterns. These interactions exchange timing information, redistribute energy, and often reconfigure the ancestry or orientation of the patterns involved. Three principal classes of interactions are defined below.
+
+#### Definition 4.13: Scattering Interaction
+
+**Statement**: A **scattering interaction** occurs when two timing patterns occupy adjacent or identical lattice nodes so that their phase configurations overlap. Let $P_1=(\theta_1,\Delta\theta_1)$ and $P_2=(\theta_2,\Delta\theta_2)$ be the participating patterns with positions $p_1(t)$ and $p_2(t)$. A scattering event at tick $t_s$ exists when
+\[
+  p_1(t_s)=p_2(t_s) \;\text{or}\; d(p_1(t_s),p_2(t_s))=1,
+\]
+where $d$ is the lattice distance metric. Both patterns register a `PARTICLE_COLLISION` detection event and update their phases according to
+\[
+  \theta_i(t_s^+)=\theta_i(t_s)+\delta\theta_i,\qquad i=1,2,
+\]
+with the increments $\delta\theta_i$ determined by the configured conflict resolution method.
+
+**Properties**:
+- **Momentum transfer**: Spatial displacements $\delta p_i$ following the event conserve the vector sum $\delta p_1+\delta p_2$ according to the phase--momentum correspondence defined in the pattern conservation rules.
+- **Spin flipping**: Resolution methods may require orientation reversal, resulting in $s_i\mapsto -s_i$.
+- **History recording**: The detection history of each identity is appended with a `PARTICLE_COLLISION` entry documenting the event parameters.
+
+**Implementation Notes**:
+- Collision checks occur in `ETMEngine.advance_tick`. Overlap triggers creation of a `DetectionEvent` instance processed by `process_detection_event`.
+- The active `ConflictResolutionMethod` (see `etm/config.py`) determines how $\delta\theta_i$ and orientation changes are computed.
+- Helper functions in `test_modules.py` evaluate interaction strengths for validation.
+
+---
+
+#### Definition 4.14: Pattern Emission and Absorption
+
+**Statement**: **Emission** is the creation of a propagating pattern from a parent identity, while **absorption** merges a propagating pattern into an absorber. Emission at tick $t_e$ is represented by the mapping
+\[
+  P_{\text{parent}}(t_e)\longrightarrow\bigl(P_{\text{parent}}',P_{\text{emit}}\bigr),
+\]
+where $P_{\text{emit}}$ is typically a photon- or neutrino-type pattern instantiated by `ParticleFactory`. The inverse mapping describes absorption when the propagating child aligns with the absorber's phase and ancestry.
+
+**Properties**:
+- **Energy bookkeeping**: Advancement rates satisfy
+  \[
+    \Delta\theta_{\text{parent}}'+\Delta\theta_{\text{emit}}=\Delta\theta_{\text{parent}},
+  \]
+  with an analogous identity for absorption.
+- **Selection rules**: Methods `PhotonTimingPattern.can_be_emitted_by` and `can_be_absorbed_by` enforce resonance conditions so that only energy-matched transitions occur.
+- **Detection linkage**: Both processes generate `ENERGY_TRANSITION` detection events for later analysis.
+
+**Implementation Notes**:
+- Emissions create new patterns via `ParticleFactory.create_photon` or `create_neutrino`.
+- Absorptions are detected during collision handling; the child pattern is removed from `ETMEngine.identities`, and the absorber mutates its phase configuration accordingly.
+- Example tests appear in `test_modules.py` under photon--electron interaction checks.
+
+---
+
+#### Definition 4.15: Transformation and Mixing
+
+**Statement**: **Transformation** modifies a timing pattern's classification through symbolic mutation or phase reconfiguration. **Mixing** combines aspects of several identities into a single hybrid pattern. Formally a transformation is
+\[
+  P\xrightarrow{\text{mut}}P',
+\]
+where `mut` specifies changes in ancestry, orientation, or timing parameters. Mixing of $n$ patterns results in
+\[
+  \{P_i\}_{i=1}^n \xrightarrow{\text{mix}} P_{\text{hyb}},
+\]
+with the hybrid inheriting selected tags and stability metrics from its constituents.
+
+**Properties**:
+- **Conservation constraints**: The total phase advancement is conserved modulo symbolic adjustments dictated by the resolution method.
+- **Weak-interaction coupling**: When `participates_in_weak_interactions` is true, mixing probabilities follow the enumerations in `WeakInteractionType`.
+- **Record keeping**: All mutation steps are appended to `Identity.mutation_history` for reproducibility.
+
+**Implementation Notes**:
+- Symbolic mutation is performed by `Identity.apply_symbolic_mutation`. Orientation mixing may require recruiter synchronization algorithms in `ETMEngine`.
+- Composite structures such as nucleons are built through mixing; see `CompositeParticlePattern` in `etm/particles.py`.
+- Long simulations monitor mutation history to evaluate transformation rates.
+
+---
