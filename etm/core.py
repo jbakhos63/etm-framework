@@ -442,9 +442,78 @@ class ETMEngine:
         self.record_tick_results(return_results)
     
     def process_detection_events(self):
-        """Process all detection events for this tick - PRESERVED EXACTLY"""
-        # Simplified for compatibility - full detection system in particles module
-        pass
+        """Process all detection events for this tick including annihilation"""
+
+        from .particles import ParticleFactory
+
+        # Reset list for this tick
+        self.detection_events = []
+
+        # Map lattice positions to identities located there
+        position_map: Dict[Tuple[int, int, int], List[Identity]] = {}
+        for identity in self.identities:
+            if identity.position is None:
+                continue
+            position_map.setdefault(identity.position, []).append(identity)
+
+        # Check for matter/antimatter pairs occupying the same node
+        annihilations: List[Tuple[Identity, Identity, Tuple[int, int, int]]] = []
+        for pos, ids in position_map.items():
+            if len(ids) < 2:
+                continue
+            for i in range(len(ids)):
+                for j in range(i + 1, len(ids)):
+                    a, b = ids[i], ids[j]
+                    # Identify antiparticle pairs via unique_id references
+                    pair_match = (
+                        a.is_antiparticle and a.antiparticle_of == b.unique_id
+                    ) or (
+                        b.is_antiparticle and b.antiparticle_of == a.unique_id
+                    )
+                    if pair_match:
+                        annihilations.append((a, b, pos))
+                        break
+
+        for particle_a, particle_b, position in annihilations:
+            energy_a = particle_a.calculate_particle_energy(self.center, self.echo_fields, self.config)
+            energy_b = particle_b.calculate_particle_energy(self.center, self.echo_fields, self.config)
+            total_energy = energy_a + energy_b
+
+            photon_pattern = ParticleFactory.create_photon(total_energy)
+            photon_identity = Identity(
+                module_tag="PHOTON",
+                ancestry="annihilation_product",
+                theta=0.0,
+                delta_theta=self.config.delta_theta_default,
+                position=position,
+                fundamental_particle=photon_pattern,
+                creation_tick=self.tick,
+                is_decay_product=True,
+            )
+
+            # Remove annihilated particles
+            if particle_a in self.identities:
+                self.identities.remove(particle_a)
+            if particle_b in self.identities:
+                self.identities.remove(particle_b)
+
+            # Add photon identity
+            self.identities.append(photon_identity)
+
+            event = DetectionEvent(
+                event_type=DetectionEventType.PARTICLE_COLLISION,
+                position=position,
+                tick=self.tick,
+                triggering_particle=None,
+                affected_identities=[particle_a, particle_b, photon_identity],
+                mutation_results={
+                    "annihilation": True,
+                    "released_energy": total_energy,
+                    "photon_id": photon_identity.unique_id,
+                },
+            )
+
+            self.detection_events.append(event)
     
     def process_nucleon_physics(self):
         """Process nucleon internal structure dynamics - Placeholder for particles module"""
@@ -488,14 +557,25 @@ class ETMEngine:
                 "is_composite_constituent": identity.is_composite_constituent,
                 "is_decay_product": identity.is_decay_product
             })
-        
+
         for result in return_results:
             tick_data["return_results"].append({
                 "identity_id": result["identity"].unique_id,
                 "return_allowed": result["return_allowed"],
                 "evaluation": result["evaluation"]
             })
-        
+
+        # Record detection events including energy releases
+        for event in self.detection_events:
+            tick_data["detection_events"].append({
+                "event_type": event.event_type.value,
+                "position": event.position,
+                "tick": event.tick,
+                "affected_ids": [id.unique_id for id in event.affected_identities],
+                "resolution_method": event.resolution_method.value if event.resolution_method else None,
+                "mutation_results": event.mutation_results,
+            })
+
         self.results_history.append(tick_data)
     
     def run_simulation(self) -> Dict:
