@@ -282,3 +282,12 @@ where \(D\mathcal{F}\) is the Jacobian matrix.  Stability requires all eigenvalu
 
 **Validation Status**:  ✅ **Analytically supported**—eigenvalue analysis of proton and neutron patterns matches simulation lifetimes.
 
+
+---
+### Recent Validation Trials (2025)
+
+The following trials provide additional confirmation for the mathematical formalism described in this chapter:
+
+1. **Trial 001 – Electron–Positron Annihilation**: Verified that detection-driven photon creation matches discrete energy accounting predicted by the update equations.
+2. **Trial 002 – Energy Calculation**: Confirmed calibrated phase rates reproduce hydrogen ground-state energy via direct energy computation.
+3. **Trial 003 – Photon Propagation**: Demonstrated deterministic one-lattice-step-per-tick motion consistent with modular phase arithmetic and identity motion rules.

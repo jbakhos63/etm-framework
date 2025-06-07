@@ -430,3 +430,18 @@ must satisfy the stored phase relationship.
 **Validation Status**: ✅ **Demonstrated** by correlation tests exceeding
 classical bounds in lattice-based Bell experiments.
 
+### Recent Validation Trials (2025)
+
+The following trials provide additional confirmation for the emergent phenomena
+described in this chapter:
+
+1. **Trial 001 – Electron–Positron Annihilation**: Showed that energy released
+   during particle collisions emerges as photons, validating photon creation and
+   conservation principles.
+2. **Trial 002 – Energy Calculation**: Verified that a bound electron's timing
+   energy matches the calibrated hydrogen ground state, supporting the energy
+   concepts defined here.
+3. **Trial 003 – Photon Propagation**: Confirmed deterministic propagation of
+   isolated photon identities, illustrating wave-like behavior prior to
+   detection.
+
