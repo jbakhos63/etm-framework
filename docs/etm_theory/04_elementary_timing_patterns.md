@@ -133,3 +133,5 @@ Here \(\delta\Delta\theta\) is the maximal change in advancement rate permitted 
 - Simulation scripts may adjust `delta_theta` within bounds derived from \(m\) when modeling interactions or composite formation.
 
 ---
+=======
+=======
