@@ -123,3 +123,4 @@ This section summarizes phenomena for which Euclidean Timing Mechanics (ETM) off
 **Result**: Numerical lattice refinements reproduce inertial motion and weak-field time-dilation effects within 1% of general-relativistic predictions.
 
 **Implication**: ETM provides a discrete, information-based origin for gravitational phenomena, replacing continuous metric fields with timing-energy gradients.
+
