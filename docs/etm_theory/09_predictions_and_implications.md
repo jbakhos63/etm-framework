@@ -151,3 +151,11 @@ strain evolution to global phase drift when computing redshift–distance
 relations.
 
 
+
+### Recent Validation Trials (2025)
+
+Initial trials confirm the predictive aspects of ETM:
+
+1. **Trial 001 – Electron–Positron Annihilation**: Photon production at predicted energies supports the energy release calculations used in ETM cosmology.
+2. **Trial 002 – Energy Calculation**: Calibrated phase rates reproduce hydrogen ground-state energy, lending credibility to atomic binding predictions.
+3. **Trial 003 – Photon Propagation**: Deterministic lattice-step motion validates propagation dynamics underlying cosmic expansion and redshift models.
