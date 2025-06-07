@@ -156,17 +156,22 @@ etm_theory_foundation_outline
 - Theorem 6.7: Fine Structure Effects from Timing Rate Ratios
 - Theorem 6.8: Planck-Scale Effects from Fundamental Timing
 
-### 6.3 Force-Like Effects from Timing Coordination
-- Theorem 6.9: Electromagnetic-Like Effects from Echo Field Dynamics
-- Theorem 6.10: Weak Interaction-Like Effects from Pattern Reorganization
-- Theorem 6.11: Strong Binding-Like Effects from Nuclear Timing Coordination
-- Theorem 6.12: Gravitational-Like Effects from Large-Scale Timing Patterns
+### 6.3 Entropy in ETM
+- Theorem 6.9: Local Entropy Redistribution
+- Theorem 6.10: Global Entropy Conservation
+- Theorem 6.11: Cyclic Entropy Exchange
 
-### 6.4 Quantum-Like Phenomena from Information Processing
-- Theorem 6.13: Wave-Particle Duality from Timing Pattern Propagation
-- Theorem 6.14: Uncertainty-Like Relations from Discrete Timing Constraints
-- Theorem 6.15: Interference-Like Effects from Phase Coordination
-- Theorem 6.16: Entanglement-Like Effects from Synchronized Timing
+### 6.4 Force-Like Effects from Timing Coordination
+- Theorem 6.12: Electromagnetic-Like Effects from Echo Field Dynamics
+- Theorem 6.13: Weak Interaction-Like Effects from Pattern Reorganization
+- Theorem 6.14: Strong Binding-Like Effects from Nuclear Timing Coordination
+- Theorem 6.15: Gravitational-Like Effects from Large-Scale Timing Patterns
+
+### 6.5 Quantum-Like Phenomena from Information Processing
+- Theorem 6.16: Wave-Particle Duality from Timing Pattern Propagation
+- Theorem 6.17: Uncertainty-Like Relations from Discrete Timing Constraints
+- Theorem 6.18: Interference-Like Effects from Phase Coordination
+- Theorem 6.19: Entanglement-Like Effects from Synchronized Timing
 
 ## 7. Mathematical Formalism
 
