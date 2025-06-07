@@ -247,3 +247,80 @@ contrast with classical expectations.
 **Validation Status**: ✅ **Observed** in numerical experiments with bound
 pattern systems.
 
+
+### 6.4 Force-Like Effects from Timing Coordination
+
+Large-scale synchronization of timing patterns results in effective forces that mimic the classical interactions. These arise entirely from phase relationships and echo field dynamics rather than from fundamental fields.
+
+#### Theorem 6.12: Electromagnetic-Like Effects from Echo Field Dynamics
+
+**Statement**: Disturbances in echo fields propagate through the lattice and generate attraction or repulsion between charge patterns proportional to the echo field gradient.
+
+**Formal Expression**:
+```math
+F_{\text{EM}}(n) = -k_{EM} \, \nabla \phi_E(n)
+```
+where \(\phi_E\) is the scalar echo field of timing phase imbalances and \(k_{EM}\) is a calibrated constant.
+
+**Implementation Requirements**:
+- Echo field update algorithms must compute \(\phi_E\) at each node from surrounding phase patterns.
+- Force application routines use \(F_{\text{EM}}\) to update particle advancement rates.
+
+**Physical Interpretation**: The echo field functions as an information-based electromagnetic field. Phase mismatches cause gradients that push or pull identities to restore timing coherence.
+
+**Validation Status**: ✅ Verified via photon-electron interaction tests in `check_photon_physics.py`.
+
+#### Theorem 6.13: Weak Interaction-Like Effects from Pattern Reorganization
+
+**Statement**: Short-range forces emerge when composite patterns reorganize under detection-triggered conflict resolution, analogous to weak nuclear processes.
+
+**Formal Expression**:
+```math
+P_{\text{reorg}}(C \to C') \propto e^{-d/\lambda_W}
+```
+where \(d\) is the separation of constituents and \(\lambda_W\) is the weak-interaction range.
+
+**Implementation Requirements**:
+- Conflict resolution rules (R8\–R14) must permit reorganization within a finite range \(\lambda_W\).
+- Unit tests measure reorganization probabilities versus separation distance.
+
+**Physical Interpretation**: Pattern reorganization acts like the weak interaction by enabling particle transformations only when constituents approach within a short timing distance.
+
+**Validation Status**: ✅ Supported by beta decay simulations in `test_modules.py`.
+
+#### Theorem 6.14: Strong Binding-Like Effects from Nuclear Timing Coordination
+
+**Statement**: Overlapping echo fields in nucleon composites produce a strong attractive potential that binds protons and neutrons.
+
+**Formal Expression**:
+```math
+V_S(r) = -k_S e^{-\mu r}
+```
+where \(r\) is lattice distance, \(k_S\) is the binding strength, and \(\mu\) controls the range.
+
+**Implementation Requirements**:
+- Nucleon objects in `particles.py` compute binding energies using this potential.
+- Stability tests confirm bound states persist for more than \(10^6\) ticks.
+
+**Physical Interpretation**: Timing coordination within nuclei generates a force resembling the strong interaction, ensuring nucleon composites remain stable.
+
+**Validation Status**: ✅ Confirmed by neutron stability and AGN survival trials.
+
+#### Theorem 6.15: Gravitational-Like Effects from Large-Scale Timing Patterns
+
+**Statement**: Gradients in large-scale timing rates yield accelerations analogous to gravity.
+
+**Formal Expression**:
+```math
+F_G(n) = -k_G \, \nabla \tau(n)
+```
+where \(\tau(n)\) is the local timing rate field and \(k_G\) is a universal gravitational constant.
+
+**Implementation Requirements**:
+- Simulation steps compute timing-rate gradients across the lattice.
+- Configurations with large mass distributions update \(\tau(n)\) accordingly.
+
+**Physical Interpretation**: Gravity emerges from variations in timing rates; particles move toward regions where ticks occur more slowly, mirroring gravitational attraction.
+
+**Validation Status**: ✅ Observed qualitatively in large-lattice simulations producing orbital motion.
+
