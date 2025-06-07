@@ -275,7 +275,6 @@ class ETMEngine:
         # Energy bookkeeping for each tick
         self.current_tick_energy_before: float = 0.0
         self.current_tick_energy_after: float = 0.0
-
         # Initialize echo fields (preserved)
         self._initialize_echo_fields()
     

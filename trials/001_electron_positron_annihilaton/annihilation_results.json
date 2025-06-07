@@ -8,12 +8,12 @@
         3
       ],
       "tick": 2,
-      "trigger_id": "bc1bfed3",
+      "trigger_id": "5e86ae3b",
       "affected_ids": [
-        "e685b26c"
+        "5f7bfcd4"
       ],
       "energy_released": -168.0024,
-      "photon_id": "aea783ff",
+      "photon_id": "76487bed",
       "photon_energy": -168.0024
     }
   ],

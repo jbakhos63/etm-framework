@@ -15,7 +15,7 @@ def run_trial():
     # Configure engine
     config = ConfigurationFactory.validated_foundation_config("electron_positron_annihilation")
     config.max_ticks = 6
-    config.lattice_size = (7, 7, 7)
+    config.lattice_size = (7, 7, 7)n
     engine = ETMEngine(config)
 
     # Create recruiters across lattice so evaluation functions work
