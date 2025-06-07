@@ -194,3 +194,4 @@ Neutrino-type patterns carry the ancestry tag `ν` and propagate efficiently thr
 - Detection and interaction modules consult the ancestry tag `ν` to apply weak scattering rules.
 
 ---
+=======
