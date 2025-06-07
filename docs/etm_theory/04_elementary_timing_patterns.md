@@ -252,6 +252,9 @@ $$\theta_k(t+1) = (\theta_k(t) + \Delta\theta_k) \bmod 1.$$
 - Detection events are essential for reproducing measurement-dependent phenomena while maintaining deterministic propagation prior to detection.
 
 ---
+
+=======
+
 ### 4.5 Pattern Interactions
 
 In ETM the state of the lattice evolves exclusively through deterministic interactions among timing patterns. These interactions exchange timing information, redistribute energy, and often reconfigure the ancestry or orientation of the patterns involved. Three principal classes of interactions are defined below.
@@ -327,6 +330,7 @@ with the hybrid inheriting selected tags and stability metrics from its constitu
 - Long simulations monitor mutation history to evaluate transformation rates.
 
 ---
+
 ### 4.6 Stability and Survivability
 
 Stability metrics quantify how long a timing pattern persists under normal and extreme conditions. Survivability reflects the probability that a pattern remains intact when exposed to intense echo fields or large phase disturbances. ETM defines explicit measures to evaluate these aspects for each identity.
@@ -387,3 +391,4 @@ The value $\sigma_{ij}$ is typically returned by methods such as `PhotonTimingPa
 - The thresholds facilitate classification of forces within ETM without invoking traditional field potentials.
 
 ---
+=======
