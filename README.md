@@ -42,6 +42,8 @@ print('ETM Engine ready with validated parameters')
 
 ## 📁 Framework Architecture
 
+**Note that the before_modules directory conains outdated versions provided for context in how ETM was developed.**
+
 **Modular Design** - Clean separation of concerns for efficient development:
 
 ```
