@@ -132,6 +132,11 @@ class Identity:
     creation_tick: int = 0
     is_decay_product: bool = False
     parent_decay_event: Optional[str] = None
+
+    # NEW: Annihilation tracking
+    annihilation_pending: bool = False
+    pending_partner_id: Optional[str] = None
+    annihilation_initiated_tick: int = -1
     
     def update_phase(self):
         """Implement R2: Phase Advancement Rule - PRESERVED EXACTLY"""
@@ -265,6 +270,10 @@ class ETMEngine:
         
         # Results storage (preserved)
         self.results_history: List[Dict] = []
+
+        # NEW: pending annihilations and energy tracking
+        self.pending_annihilations: List[Tuple[Identity, Identity, Tuple[int, int, int], int]] = []
+        self.last_total_energy: float = 0.0
         
         # Initialize echo fields (preserved)
         self._initialize_echo_fields()
@@ -442,78 +451,111 @@ class ETMEngine:
         self.record_tick_results(return_results)
     
     def process_detection_events(self):
-        """Process all detection events for this tick including annihilation"""
+
+        """Process detection events including staged annihilation"""
 
         from .particles import ParticleFactory
 
-        # Reset list for this tick
+        # Reset detection list for this tick
         self.detection_events = []
 
-        # Map lattice positions to identities located there
+        # 1. Finalize pending annihilations after one tick delay
+        remaining_pending = []
+        for a, b, position, start_tick in self.pending_annihilations:
+            if self.tick - start_tick >= 1:
+                energy_a = a.calculate_particle_energy(self.center, self.echo_fields, self.config)
+                energy_b = b.calculate_particle_energy(self.center, self.echo_fields, self.config)
+                total_energy = energy_a + energy_b
+                photon_energy = total_energy / 2.0
+
+                photon1 = Identity(
+                    module_tag="PHOTON",
+                    ancestry="annihilation_product",
+                    theta=0.0,
+                    delta_theta=self.config.delta_theta_default,
+                    position=position,
+                    fundamental_particle=ParticleFactory.create_photon(photon_energy),
+                    creation_tick=self.tick,
+                    is_decay_product=True,
+                )
+                photon2 = Identity(
+                    module_tag="PHOTON",
+                    ancestry="annihilation_product",
+                    theta=0.0,
+                    delta_theta=self.config.delta_theta_default,
+                    position=position,
+                    fundamental_particle=ParticleFactory.create_photon(photon_energy),
+                    creation_tick=self.tick,
+                    is_decay_product=True,
+                )
+
+                if a in self.identities:
+                    self.identities.remove(a)
+                if b in self.identities:
+                    self.identities.remove(b)
+
+                self.identities.extend([photon1, photon2])
+
+                event = DetectionEvent(
+                    event_type=DetectionEventType.ENERGY_TRANSITION,
+                    position=position,
+                    tick=self.tick,
+                    triggering_particle=None,
+                    affected_identities=[a, b, photon1, photon2],
+                    mutation_results={
+                        "annihilation_complete": True,
+                        "released_energy": total_energy,
+                        "photon_ids": [photon1.unique_id, photon2.unique_id],
+                    },
+                )
+                a.annihilation_pending = False
+                b.annihilation_pending = False
+                self.detection_events.append(event)
+            else:
+                remaining_pending.append((a, b, position, start_tick))
+
+        self.pending_annihilations = remaining_pending
+
+        # 2. Detect new collisions leading to annihilation
+
         position_map: Dict[Tuple[int, int, int], List[Identity]] = {}
         for identity in self.identities:
             if identity.position is None:
                 continue
             position_map.setdefault(identity.position, []).append(identity)
-
-        # Check for matter/antimatter pairs occupying the same node
-        annihilations: List[Tuple[Identity, Identity, Tuple[int, int, int]]] = []
         for pos, ids in position_map.items():
             if len(ids) < 2:
                 continue
             for i in range(len(ids)):
                 for j in range(i + 1, len(ids)):
                     a, b = ids[i], ids[j]
-                    # Identify antiparticle pairs via unique_id references
                     pair_match = (
                         a.is_antiparticle and a.antiparticle_of == b.unique_id
                     ) or (
                         b.is_antiparticle and b.antiparticle_of == a.unique_id
                     )
-                    if pair_match:
-                        annihilations.append((a, b, pos))
+                    if pair_match and not a.annihilation_pending and not b.annihilation_pending:
+                        a.annihilation_pending = True
+                        b.annihilation_pending = True
+                        a.pending_partner_id = b.unique_id
+                        b.pending_partner_id = a.unique_id
+                        a.annihilation_initiated_tick = self.tick
+                        b.annihilation_initiated_tick = self.tick
+                        self.pending_annihilations.append((a, b, pos, self.tick))
+
+                        event = DetectionEvent(
+                            event_type=DetectionEventType.PARTICLE_COLLISION,
+                            position=pos,
+                            tick=self.tick,
+                            triggering_particle=None,
+                            affected_identities=[a, b],
+                            mutation_results={
+                                "annihilation_pending": True,
+                                "partner_ids": [a.unique_id, b.unique_id],
+                            },
+                        )
+                        self.detection_events.append(event)
                         break
-
-        for particle_a, particle_b, position in annihilations:
-            energy_a = particle_a.calculate_particle_energy(self.center, self.echo_fields, self.config)
-            energy_b = particle_b.calculate_particle_energy(self.center, self.echo_fields, self.config)
-            total_energy = energy_a + energy_b
-
-            photon_pattern = ParticleFactory.create_photon(total_energy)
-            photon_identity = Identity(
-                module_tag="PHOTON",
-                ancestry="annihilation_product",
-                theta=0.0,
-                delta_theta=self.config.delta_theta_default,
-                position=position,
-                fundamental_particle=photon_pattern,
-                creation_tick=self.tick,
-                is_decay_product=True,
-            )
-
-            # Remove annihilated particles
-            if particle_a in self.identities:
-                self.identities.remove(particle_a)
-            if particle_b in self.identities:
-                self.identities.remove(particle_b)
-
-            # Add photon identity
-            self.identities.append(photon_identity)
-
-            event = DetectionEvent(
-                event_type=DetectionEventType.PARTICLE_COLLISION,
-                position=position,
-                tick=self.tick,
-                triggering_particle=None,
-                affected_identities=[particle_a, particle_b, photon_identity],
-                mutation_results={
-                    "annihilation": True,
-                    "released_energy": total_energy,
-                    "photon_id": photon_identity.unique_id,
-                },
-            )
-
-            self.detection_events.append(event)
     
     def process_nucleon_physics(self):
         """Process nucleon internal structure dynamics - Placeholder for particles module"""
@@ -535,7 +577,10 @@ class ETMEngine:
             "coexistence_registry": {},
             "conflict_resolutions": [],
             "composite_particles": len(self.composite_particles),
-            "pattern_reorganizations": len(self.pattern_reorganization_events)
+            "pattern_reorganizations": len(self.pattern_reorganization_events),
+            "total_energy": 0.0,
+            "energy_change": 0.0,
+            "emitted_photons": []
         }
         
         # Convert coexistence registry tuple keys to strings for JSON compatibility
@@ -575,6 +620,24 @@ class ETMEngine:
                 "resolution_method": event.resolution_method.value if event.resolution_method else None,
                 "mutation_results": event.mutation_results,
             })
+
+        # Calculate total energy for bookkeeping
+        total_energy = 0.0
+        for identity in self.identities:
+            total_energy += identity.calculate_particle_energy(self.center, self.echo_fields, self.config)
+
+        tick_data["total_energy"] = total_energy
+        tick_data["energy_change"] = total_energy - self.last_total_energy
+
+        photons = []
+        for event in self.detection_events:
+            if "photon_ids" in event.mutation_results:
+                photons.extend(event.mutation_results["photon_ids"])
+            elif "photon_id" in event.mutation_results:
+                photons.append(event.mutation_results["photon_id"])
+
+        tick_data["emitted_photons"] = photons
+        self.last_total_energy = total_energy
 
         self.results_history.append(tick_data)
     
