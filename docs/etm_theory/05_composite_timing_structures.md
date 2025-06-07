@@ -273,4 +273,110 @@ where \(N\) denotes the central nucleon-type composite (or nucleus), \(P_{e,k}\)
 **Validation Status**: ✅ **Supported** by small-molecule simulations matching known bond energies within calibrated accuracy. Multi-electron atoms reproduce spectral line patterns consistent with quantum mechanical predictions.
 
 ---
-=======
+
+### 5.3 Composite Pattern Theory
+
+Composite pattern theory provides a unified description of how multiple timing patterns combine to form higher-order structures. The focus is on the principles that govern pattern aggregation, stability, and transformation. While specific configurations such as two-pattern systems or nucleon-type composites illustrate the concepts, the theory abstracts their shared properties into general axioms and rules.
+
+#### Definition 5.9: Composite Pattern
+
+**Statement**: A composite pattern \(C\) is an ordered pair
+```math
+C = (\mathcal{P}, \mathcal{R})
+```
+where \(\mathcal{P} = \{P_i\}_{i=1}^n\) is a finite set of timing patterns and \(\mathcal{R}\) is a recruiter network enforcing the phase windows for all patterns in \(\mathcal{P}\).
+
+**Mathematical Properties**:
+- **Finite Cardinality**: \(|\mathcal{P}| = n\) with \(n \ge 2\).
+- **Recruiter Coverage**: Each \(P_i\) is associated with at least one recruiter in \(\mathcal{R}\).
+- **Timing Consistency**: For every recruiter \(R_j\) coupled to \(P_i\), the phase difference satisfies \(|\theta_i - \theta_{R_j}| \le \Delta\theta_j\).
+
+**Implementation Notes**:
+- Composite patterns are represented in `CompositeParticlePattern` with lists of identities and recruiter objects.
+- Engine updates first evaluate recruiter constraints before advancing pattern phases.
+
+**Physical Interpretation**: A composite pattern captures the minimal information needed to specify a bound structure in ETM. It does not presuppose any particular geometry or constituent type.
+
+#### Definition 5.10: Pattern Identity Combination
+
+**Statement**: The identity of a composite pattern is the ordered tuple of the constituent identities plus a composite ancestry tag \(T_C\) summarizing the history of recruiter formation and pattern binding events.
+
+```math
+\text{id}(C) = (\text{id}(P_1),\dots,\text{id}(P_n); T_C)
+```
+
+**Mathematical Properties**:
+- **Tag Closure**: The ancestry tag of the composite is uniquely determined by the ancestry tags of its constituents and recruiter sequence.
+- **Charge and Baryon Accounting**: Global charge-like and baryon-like counts are additive over constituent tags.
+
+**Implementation Notes**:
+- `CompositeParticlePattern` stores a dictionary of ancestry tags for conservation tracking.
+- Tag manipulation utilities from `etm/particles.py` compose the composite ancestry tag.
+
+**Physical Interpretation**: Composite identity ensures that conserved quantities such as baryon number or effective charge propagate correctly during binding and decay processes.
+
+#### Definition 5.11: Composition Invariants
+
+**Statement**: Certain scalar quantities remain invariant under internal transformations of a composite pattern so long as the recruiter network persists. Let \(I_k(C)\) denote such invariants.
+
+**Examples**:
+1. **Total Timing Energy** \(I_1(C)\).
+2. **Baryon Number** \(I_2(C)\).
+3. **Net Phase Winding** \(I_3(C)\) across a closed loop of constituent patterns.
+
+**Implementation Notes**:
+- The engine evaluates these invariants at each tick; discrepancies trigger a violation event causing composite re-evaluation.
+- Mathematical expressions for the invariants are given in Chapter 7, Section 7.2.
+
+**Physical Interpretation**: Invariants provide the ETM analogue of conservation laws, dictating how composites interact and transform while respecting information balance.
+
+#### Definition 5.12: Symmetry Class of a Composite
+
+**Statement**: A composite pattern possesses a symmetry class \(S_C\) defined by the set of lattice isometries that map \(C\) onto itself while preserving recruiter assignments and phase relations.
+
+**Mathematical Properties**:
+- **Group Structure**: \(S_C\) forms a subgroup of the lattice symmetry group.
+- **Symmetry Breaking**: External interactions can reduce \(S_C\) but cannot create new symmetries without modifying the recruiter network.
+
+**Implementation Notes**:
+- Symmetry classes influence allowed transitions; the engine restricts pattern rearrangements that violate symmetry-preserving rules.
+
+**Physical Interpretation**: Symmetry classes generalize angular momentum and spin from quantum mechanics, encoding how lattice rotations or reflections leave the composite timing arrangement unchanged.
+
+#### Definition 5.13: Environment Coupling
+
+**Statement**: Environment coupling describes how a composite exchanges timing energy with surrounding lattice patterns via its recruiters. Coupling strength \(g_C\) depends on recruiter echo amplitude and external phase gradients.
+
+```math
+g_C = \sum_{R_i\in\mathcal{R}} A_i \, f(\nabla\theta_{ext,i})
+```
+where \(A_i\) is the echo amplitude of recruiter \(R_i\) and \(\nabla\theta_{ext,i}\) is the local phase gradient of the environment.
+
+**Implementation Notes**:
+- The engine computes environment coupling during interaction steps to determine absorption or emission events.
+- Recruiters with larger echo amplitude have proportionally greater coupling.
+
+**Physical Interpretation**: Environment coupling yields observable interactions such as photon absorption or scattering without invoking classical force carriers. It quantifies how composites exchange timing energy with their surroundings.
+
+#### Rule 5.14: Composite Stability
+
+A composite pattern remains stable so long as all recruiter phase windows are satisfied and environment coupling does not exceed a threshold \(g_{\text{crit}}\). Formally,
+```math
+\text{Stable}(C) \iff \big( |\theta_i - \theta_{R_j}| \le \Delta\theta_j \;\forall i,j \big) \land (g_C < g_{\text{crit}}).
+```
+
+**Implementation Notes**:
+- `ConfigurationFactory` sets \(g_{\text{crit}}\) according to calibrated parameters.
+- Diagnostics log stability violations to facilitate analysis of composite decay events.
+
+#### Rule 5.15: Composite Decomposition
+
+If the stability condition fails for any recruiter, the composite undergoes decomposition. Patterns either separate or reorganize into new composites according to the local recruiter configuration.
+
+**Implementation Notes**:
+- The engine invokes `CompositeParticlePattern.decompose()` when a stability violation is detected.
+- Resulting patterns inherit subsets of the original ancestry tag, ensuring information conservation.
+
+**Physical Interpretation**: Decomposition mirrors particle decay or dissociation in standard physics. Timing coordination fails, recruiters lose coherence, and constituents depart with their own phase evolution.
+
+---
