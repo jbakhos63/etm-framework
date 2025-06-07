@@ -4792,3 +4792,12 @@ def analyze_neutron_internal_baryon_structure(neutron_constituents):
 
 ---
 
+
+### Recent Validation Trials (2025)
+
+The following trials provide additional confirmation for the rules presented in this chapter:
+
+1. **Trial 001 – Electron–Positron Annihilation**: Verified that detection events generate photon identities and conserve timing-strain energy, confirming the information-based conflict resolution rules.
+2. **Trial 002 – Energy Calculation**: Demonstrated that direct energy measurements match calibrated ground-state values, supporting the energy accounting routines.
+3. **Trial 003 – Photon Propagation**: Confirmed deterministic one-step-per-tick motion for photon identities, validating phase advancement and identity motion handling.
+

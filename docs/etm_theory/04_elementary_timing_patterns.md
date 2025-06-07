@@ -392,3 +392,11 @@ The value $\sigma_{ij}$ is typically returned by methods such as `PhotonTimingPa
 
 ---
 =======
+
+### Recent Validation Trials (2025)
+
+The following trials provide additional confirmation for the elementary timing patterns described in this chapter:
+
+1. **Trial 001 – Electron–Positron Annihilation**: Verified that opposite-chirality patterns annihilate and release timing-strain energy as photons, confirming identity interaction rules.
+2. **Trial 002 – Energy Calculation**: Demonstrated that calibrated phase advancement rates reproduce expected energy levels, validating timing rate definitions.
+3. **Trial 003 – Photon Propagation**: Confirmed deterministic phase motion for photon identities, supporting the defined cycle frequency mechanics.
