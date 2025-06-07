@@ -234,7 +234,7 @@ Neutrino-type:     Δθ = 0.01  (100-tick period)
 
 **Physical Interpretation**: The phase advancement rate serves as the fundamental frequency characteristic of each timing pattern, determining both the identity's temporal signature and its interaction properties. Different Δθ values correspond to distinct particle types, with the discrete nature of time ensuring that phase relationships between identities evolve deterministically and reproducibly.
 
-**Validation Status**: ✅ **Empirically calibrated** through systematic studies correlating Δθ values with stable identity formation and successful atomic structure reproduction.
+**Validation Status**: ✅ **Empirically calibrated** through systematic studies correlating Δθ values with stable identity formation and successful atomic structure reproduction. **Trial 002** (energy calculation) confirmed that calibrated Δθ values reproduce expected ground-state energy within acceptable error margins.
 
 ---
 
@@ -370,7 +370,7 @@ StateSpace = {PENDING, ALLOWED, DENIED, COMPLETE, COEXISTING, FAILED}
 
 **Physical Interpretation**: Identities represent the discrete information-processing units that constitute physical reality in ETM. Unlike classical particles, identities are primarily informational entities whose spatial and temporal properties emerge from timing coordination requirements. The deterministic evolution of identities provides the computational substrate for all physical phenomena while maintaining complete predictability and reproducibility.
 
-**Validation Status**: ✅ **Fundamentally confirmed** through all computational experiments, with identity-based modeling successfully reproducing atomic structure, nuclear processes, and complex interactions while maintaining perfect determinism and reproducibility.
+**Validation Status**: ✅ **Fundamentally confirmed** through all computational experiments, with identity-based modeling successfully reproducing atomic structure, nuclear processes, and complex interactions while maintaining perfect determinism and reproducibility. Recent **Trial 003** (photon propagation) further verified deterministic identity motion across discrete ticks.
 
 ---
 
@@ -839,7 +839,7 @@ process_detection_event(D):
 
 **Physical Interpretation**: Detection events formalize the fundamental observation that information extraction processes influence physical behavior in discrete systems. Unlike continuous field theories where measurement merely reveals pre-existing states, ETM detection events actively trigger state changes and conflict resolution, establishing information processing as a fundamental physical mechanism rather than an external perturbation.
 
-**Validation Status**: ✅ **Paradigm-defining breakthrough** validated in Trial 070, where detection events successfully triggered symbolic conflict resolution while preserving all affected identities, confirming the information-based nature of apparent exclusion phenomena.
+**Validation Status**: ✅ **Paradigm-defining breakthrough** validated in Trial 070, where detection events successfully triggered symbolic conflict resolution while preserving all affected identities, confirming the information-based nature of apparent exclusion phenomena. **Trial 001** (electron–positron annihilation) additionally demonstrated energy-conserving photon creation triggered by collision detection.
 
 ---
 
@@ -1077,3 +1077,11 @@ manage_coexistent_recruitment(recruiter, coexisting_identities):
 **Physical Interpretation**: Recruiter entities represent the coordination structures that enable stable pattern formation and maintenance in ETM through rhythm locking and ancestry synchronization. These structures provide the mechanism by which distributed timing patterns can achieve collective coherence, enabling the formation of atoms, molecules, and larger-scale structures through coordinated recruitment rather than through fundamental force interactions.
 
 **Validation Status**: ✅ **Operationally essential** in all successful pattern formation scenarios, with recruiter-based coordination enabling stable hydrogen atom formation, composite particle organization, and complex multi-identity coordination across extended time periods.
+
+### Recent Validation Trials (2025)
+
+The following trials further confirm the definitions in this chapter and provide concrete data for continued refinement of ETM:
+
+1. **Trial 001 – Electron–Positron Annihilation**: Demonstrated detection-driven photon creation with energy release matching the calculated timing-strain energy of the annihilating pair.
+2. **Trial 002 – Energy Calculation**: Verified that calibrated phase advancement rates reproduce the expected ground-state energy of hydrogen within acceptable error.
+3. **Trial 003 – Photon Propagation**: Confirmed that photon identities advance exactly one lattice unit per tick, validating deterministic identity motion.
