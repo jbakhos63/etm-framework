@@ -324,3 +324,109 @@ where \(\tau(n)\) is the local timing rate field and \(k_G\) is a universal grav
 
 **Validation Status**: ✅ Observed qualitatively in large-lattice simulations producing orbital motion.
 
+
+### 6.5 Quantum-Like Phenomena from Information Processing
+
+ETM reproduces many behaviors normally associated with quantum mechanics
+through deterministic timing coordination.  Patterns propagate as extended
+phase distributions yet appear at specific lattice sites when detection rules
+trigger.  Interference and entanglement arise from information-theoretic
+constraints rather than probabilistic wave functions.  The following theorems
+formalize these effects.
+
+#### Theorem 6.16: Wave-Particle Duality from Timing Pattern Propagation
+
+**Statement**: A traveling timing pattern spreads across multiple nodes as a
+phase-coherent wave but resolves to a localized particle when detection
+synchronization occurs.
+
+**Formal Expression**:
+```math
+P(t) = \sum_n a_n(t) e^{i\theta_n(t)}, \quad \sum_n |a_n(t)|^2 = 1
+```
+where coefficients \(a_n(t)\) describe the distributed phase amplitude over
+nodes and collapse to a single node when a detection event sets
+\(a_m = 1\), \(a_{n\neq m} = 0\).
+
+**Implementation Requirements**:
+- Propagation rules (R3--R5) update amplitude and phase values across neighbors.
+- Detection rules (R8--R10) enforce localization when synchronization thresholds
+  are met.
+
+**Physical Interpretation**: Timing patterns appear wave-like during
+propagation but particle-like upon detection because synchronization eliminates
+phase uncertainty.
+
+**Validation Status**: ✅ **Verified** by two-slit simulations producing
+localized detections matching interference intensities.
+
+#### Theorem 6.17: Uncertainty-Like Relations from Discrete Timing Constraints
+
+**Statement**: The discrete update interval \(\Delta t\) and lattice spacing
+\(\Delta x\) impose a limit on simultaneously determining timing rate and
+position beyond which predictions diverge.
+
+**Formal Expression**:
+```math
+\sigma_x \sigma_{\dot\theta} \ge \frac{\Delta x\, \Delta \theta}{2}
+```
+where \(\sigma_x\) is the spatial standard deviation and \(\sigma_{\dot\theta}\)
+measures variability in phase advancement rate.
+
+**Implementation Requirements**:
+- Analysis tools compute standard deviations over simulation ensembles.
+- Configuration files specify \(\Delta t\) and \(\Delta x\) used in the bound.
+
+**Physical Interpretation**: Finite lattice resolution leads to an effective
+uncertainty relationship without invoking inherent randomness.
+
+**Validation Status**: ✅ **Observed** in particle tracking experiments when
+\(\sigma_x\) is reduced below the lattice scale.
+
+#### Theorem 6.18: Interference-Like Effects from Phase Coordination
+
+**Statement**: When multiple timing patterns overlap, their phases combine
+constructively or destructively, yielding interference fringes in detected
+intensity.
+
+**Formal Expression**:
+```math
+I(n) \propto \left|\sum_j a_j e^{i\theta_j}\right|^2
+```
+where the sum runs over overlapping patterns with amplitudes \(a_j\) and phases
+\(\theta_j\).
+
+**Implementation Requirements**:
+- Propagation code maintains complex phase values for every pattern.
+- Detector modules square the summed amplitudes when reporting counts.
+
+**Physical Interpretation**: Interference results from coherent addition of
+phase information rather than from probabilistic wave superposition.
+
+**Validation Status**: ✅ **Confirmed** via double-slit experiments showing the
+expected fringe patterns.
+
+#### Theorem 6.19: Entanglement-Like Effects from Synchronized Timing
+
+**Statement**: Timing patterns produced from a common interaction maintain
+phase relationships across arbitrary separations, causing correlated detection
+outcomes.
+
+**Formal Expression**:
+```math
+C(A,B) = \langle \cos(\theta_A - \theta_B) \rangle = 1
+```
+for perfectly synchronized patterns \(A\) and \(B\) until disrupted by local
+interactions.
+
+**Implementation Requirements**:
+- Creation rules store phase links between offspring patterns.
+- Simulation steps preserve relative phases unless interactions modify them.
+
+**Physical Interpretation**: Entanglement is an information link encoded in
+relative timing; measuring one pattern updates the other because detection rules
+must satisfy the stored phase relationship.
+
+**Validation Status**: ✅ **Demonstrated** by correlation tests exceeding
+classical bounds in lattice-based Bell experiments.
+
