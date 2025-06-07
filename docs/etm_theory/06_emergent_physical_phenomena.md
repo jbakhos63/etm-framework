@@ -429,3 +429,4 @@ must satisfy the stored phase relationship.
 
 **Validation Status**: ✅ **Demonstrated** by correlation tests exceeding
 classical bounds in lattice-based Bell experiments.
+
