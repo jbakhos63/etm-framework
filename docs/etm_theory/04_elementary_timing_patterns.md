@@ -77,3 +77,4 @@ For rational \(\Delta\theta=p/q\), the period is \(q\) ticks and \(f=p/q\) cycle
 
 ---
 
+=======
