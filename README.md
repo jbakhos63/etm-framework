@@ -39,6 +39,11 @@ engine = ETMEngine(config)
 print('ETM Engine ready with validated parameters')
 "
 ```
+# Execute all validation trials
+python -m etm.trials
+
+# Summarize trial results
+python -m etm.analysis
 
 ## 📁 Framework Architecture
 
@@ -141,7 +146,7 @@ default_conflict_resolution = SYMBOLIC_MUTATION  # Model B validated
 
 - **Version:** 2.3 Nucleon Enhanced  
 - **Status:** Production-ready modular framework
-- **Validation Trials:** 070-074 (Model B confirmed)
+- **Validation Trials:** 070-074 (Model B confirmed) & 001-003 (foundation tests 2025)
 - **Calibration Status:** 129,818x improvement in energy accuracy
 - **Current Phase:** Complete modular framework with all physics operational
 - **Last Updated:** June 2025 - Full modularization with photon physics restored
