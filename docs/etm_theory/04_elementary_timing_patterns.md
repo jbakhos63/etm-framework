@@ -133,5 +133,65 @@ Here \(\delta\Delta\theta\) is the maximal change in advancement rate permitted 
 - Simulation scripts may adjust `delta_theta` within bounds derived from \(m\) when modeling interactions or composite formation.
 
 ---
-=======
+
+### 4.3 Stable Individual Patterns
+
+Stable individual timing patterns exhibit persistent phase configurations and interaction histories that remain self-consistent over arbitrarily long tick intervals. Such patterns correspond to the electron-, proton-, and neutrino-type identities in ETM. Their stability arises from internal timing coordination that resists echo disturbances and phase disruptions.
+
+#### Definition 4.7: Electron-Type Pattern
+
+**Statement**: An electron-type pattern is a metastable timing entity characterized by a central timing node of rate \(0.7\) and surrounding orbital interface nodes of rate \(0.5\). It includes outer cloud nodes with rate \(0.3\) that mediate recruiter echo exchange. Let \(E\) denote the set of timing nodes
+\[
+  E = \{n_0,(n_1,n_2,n_3,n_4),(n_5,n_6)\}
+\]
+with corresponding rates \((0.7,0.5,0.5,0.5,0.5,0.3,0.3)\). Phase coherence across these nodes yields an electron-type pattern when the ancestry tag contains the symbol `e` and mass-like inertia satisfies
+\[
+  m_e \approx 1.0.
+\]
+
+**Properties**:
+- **Orbital compatibility**: The interface nodes enable phase locking with recruiter rings to form atomic orbitals.
+- **Metastable behavior**: Stability metrics in `ElectronTimingPattern.stability_metrics` evaluate to values between 0.85 and 0.92, allowing long-lived yet reconfigurable states.
+
+**Implementation Notes**:
+- `ParticleFactory.create_electron()` instantiates this pattern using `ElectronTimingPattern` in `etm/particles.py`.
+- Identity instances referencing an electron-type pattern set `fundamental_particle` accordingly and maintain the ancestry suffix `e`.
+
+---
+
+#### Definition 4.8: Proton-Type Pattern
+
+**Statement**: A proton-type pattern employs a multi-shell arrangement of timing nodes to achieve high stability. The enhanced proton pattern uses a nuclear core node of rate \(1.0\), eight primary shell nodes of rate \(0.95\), an intermediate shell of rate \(0.85\), and outer edge connectors of rate \(0.75\). Denote the full node set by
+\[
+  P = \{c, s_i, i_j, e_k\mid i=1\dots8, j=1\dots8, k=1\dots6\}
+\]
+with timing rates \(r(c)=1.0\), \(r(s_i)=0.95\), \(r(i_j)=0.85\), and \(r(e_k)=0.75\). This configuration yields an AGN-survival probability exceeding 95%.
+
+**Properties**:
+- **High inertia**: The core and primary shell confer large mass-like timing inertia, producing a stable baryonic identity.
+- **Cosmological viability**: `EnhancedProtonTimingPattern.calculate_agn_survival_probability` returns probabilities above 0.95 for strong echo environments.
+
+**Implementation Notes**:
+- `ParticleFactory.create_enhanced_proton()` constructs this pattern with stability metrics defined in `etm/particles.py`.
+- Proton-type identities append the ancestry symbol `p` and set `fundamental_particle` to an `EnhancedProtonTimingPattern` instance.
+
+---
+
+#### Definition 4.9: Neutrino-Type Pattern
+
+**Statement**: A neutrino-type pattern is a sparse timing entity with minimal interaction cross section. It contains a central node of rate \(0.1\) and two sparse interaction nodes of rate \(0.05\). Formally,
+\[
+  N = \{n_0,(n_1,n_2)\},\quad r(n_0)=0.1,\ r(n_1)=r(n_2)=0.05.
+\]
+Neutrino-type patterns carry the ancestry tag `ν` and propagate efficiently through recruiter networks without disrupting other identities.
+
+**Properties**:
+- **Matter transparency**: Stability metrics in `NeutrinoTimingPattern.stability_metrics` emphasize propagation efficiency and minimal echo disturbance.
+- **Interaction mediation**: Neutrinos participate in weak interactions only when `enable_weak_interactions` is true in the configuration.
+
+**Implementation Notes**:
+- `ParticleFactory.create_neutrino()` provides a default neutrino-type pattern.
+- Detection and interaction modules consult the ancestry tag `ν` to apply weak scattering rules.
+
+---
 =======
