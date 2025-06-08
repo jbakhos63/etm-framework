@@ -2,8 +2,7 @@
 
 This document outlines a step-by-step strategy for determining the ETM equivalents of several well-known physical constants. The approach focuses on building successive simulations that reveal how space and time emerge from node interactions and timing coordination.
 ### Fundamental ETM Dynamics Rule
-All motion, propagation, and effects must arise exclusively from ETM logic after initialization. Identities may have initial timing rates or velocities, but every subsequent change results solely from node-to-node timing disturbances and echo inheritance.
-
+All motion, propagation, and effects MUST take place only according to ETM logic, including the propagation of light. It is ok to start an identity like an electron with an initial velocity, but after the start, it must proceed disappearing from some nodes and returning in other nodes purely and exclusively from ETM logic, NOT from some arbitrarily defined velocity function, and the same goes for the propagation of light. In fact, every single change in the simulation must only occur due to ETM logic after the start. This must be a standing rule in all testing.
 
 ### Development Phases
 - **Phase 1 – Codex Validation**: Implement all stages using lattices up to about 30×30×30 to ensure functionality in this chat environment.
@@ -30,6 +29,7 @@ Simulate photon propagation across empty lattice regions and within various timi
 - **Validation**: Trial 004 (to be revised with ETM-driven motion) confirmed one-step-per-tick propagation across a (21,21,21) lattice, establishing the baseline ETM speed of light.
 - **Validation**: Trial 005 demonstrated photon deflection in a lattice with a linear echo-field gradient, confirming that environmental timing variations steer propagation purely through ETM logic.
 - **Validation**: Trial 006 measured electron--photon coupling using orbital interaction metrics, showing hydrogen photons satisfy the absorption criteria.
+- **Validation**: Trial 007 verified that the same metrics allow electrons to emit hydrogen photons, establishing bidirectional photon exchange rules.
 
 ### 2. Electron Orbitals and Photon Exchange
 Model a hydrogen atom where electrons transition between timing patterns while emitting or absorbing photons.
