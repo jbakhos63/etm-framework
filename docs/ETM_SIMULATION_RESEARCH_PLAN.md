@@ -63,6 +63,7 @@ Analyze the minimal timing and spacing intervals that arise naturally from ETM n
 - **Goal**: Map these intervals to Planck time and Planck length equivalents after calibrating other constants.
 - **Node Count**: Resolution at this scale may require extremely dense lattices—explore ~10^8 nodes if resources allow.
 - **Validation**: Trial 015 estimated the ETM tick duration by converting a hydrogen-photon frequency to seconds, providing a first Planck-time analogue.
+- **Validation**: Trial 016 calculated the lattice step length by multiplying this tick duration by the SI speed of light, yielding a preliminary Planck-length analogue.
 
 ## Practical Considerations
 - **Hardware Requirements**: Large-scale simulations (10^7–10^8 nodes) may exceed typical notebook capacity. Running them on a dedicated desktop with at least 32&nbsp;GB of RAM is advisable.
