@@ -52,6 +52,12 @@ Recent trials include:
 - **Trial 006** – orbital absorption strength of a hydrogen photon
 - **Trial 007** – eligibility of hydrogen-photon emission
 - **Trial 008** – electron energy gain from photon absorption
+- **Trial 009** – electron–positron attraction via echo gradients
+- **Trial 010** – convergence-time measurement for electric force
+- **Trial 011** – moving electron echo profile
+- **Trial 012** – magnetic deflection of a nearby electron
+- **Trial 013** – attraction between parallel moving electrons
+- **Trial 014** – preliminary fine structure constant estimate
 
 ## Research Plan
 The repository follows a two-phase development strategy:

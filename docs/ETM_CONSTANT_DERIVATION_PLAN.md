@@ -21,6 +21,7 @@ This document outlines a progressive set of simulations for defining Euclidean T
 ## 5. Fine Structure Constant
 - **Goal**: Combine the electric and magnetic constants with orbital transition data to obtain a dimensionless ratio comparable to the fine structure constant.
 - **Lattice Size**: ~10^7 nodes.
+- **Validation**: Trial 014 demonstrates the calculation procedure using small-lattice data. Future runs on larger grids will refine the estimate.
 
 ## 6. Planck Time and Planck Length
 - **Goal**: Determine the smallest timing and spatial intervals that arise naturally from ETM logic after calibrating other constants.
