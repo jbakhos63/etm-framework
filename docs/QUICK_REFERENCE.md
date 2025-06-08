@@ -32,4 +32,9 @@ Results are stored in JSON format within the trial folder and explained in `note
 ## Fundamental Rule
 All motion, propagation, and effects after initialization must emerge only from ETM logic—no explicit velocity functions or external forces are allowed.
 
-For detailed guidance see `docs/AI_DEVELOPER_GUIDE.md` and the full `ETM_SIMULATION_RESEARCH_PLAN.md`.
+For detailed guidance see `docs/AI_DEVELOPER_GUIDE.md`, the full `ETM_SIMULATION_RESEARCH_PLAN.md`, and `docs/ETM_CONSTANT_DERIVATION_PLAN.md`.
+
+### Development Phases
+1. **Codex Validation** – use lattices up to about 30×30×30 nodes.
+2. **Home Computer Scale-Up** – rerun on larger lattices (≥50³) for higher precision.
+

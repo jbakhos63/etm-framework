@@ -10,8 +10,8 @@ This trial implements the first stage of the *ETM Simulation Research Plan*: ver
 **Method**
 
 1. **Initialization** – The ETM engine is configured via `ConfigurationFactory.validated_foundation_config` with lattice size `(21, 21, 21)` and `max_ticks = 10`.
-2. **Photon creation** – A visible-light photon timing pattern is created and attached to an `Identity` positioned at the lattice center with velocity `(1, 0, 0)`.
-3. **Propagation** – The engine advances for ten ticks while recording the photon position each step.
+2. **Photon creation** – A visible-light photon timing pattern is created and attached to an `Identity` positioned near the lattice center.
+3. **Propagation** – A uniform echo gradient along the x‑axis steers the photon. At each tick the photon moves to the neighbor with the highest echo value, and global timing updates are applied.
 4. **Output** – Positions are written to `photon_speed_results.json` for analysis.
 
 The run script is `run_trial.py` within this folder.

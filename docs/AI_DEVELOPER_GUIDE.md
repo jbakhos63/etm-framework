@@ -5,6 +5,12 @@ This guide explains how to work with the Euclidean Timing Mechanics simulation l
 ## 1. Framework Overview
 ETM represents particles as timing patterns across a discrete lattice. Node interactions alter local tick rates, and all propagation arises from this timing logic. After initialization no velocity or force is imposed externally; motion results solely from the ETM update rules.
 
+Development proceeds in two phases:
+1. **Codex Validation** – use lattices up to about 30×30×30 nodes to verify each simulation in this repository.
+2. **Home Computer Scale-Up** – once stable, rerun the simulations on larger lattices (50³ or more) for extended periods to refine constant measurements.
+
+The file `docs/ETM_CONSTANT_DERIVATION_PLAN.md` details how these simulations map to fundamental constants.
+
 ## 2. Directory Layout
 ```
 etm/

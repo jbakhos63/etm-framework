@@ -1,6 +1,5 @@
 # ETM Simulation Research Plan
-
-This document outlines a step-by-step strategy for determining the ETM equivalents of several well-known physical constants. The approach focuses on building successive simulations that reveal how space and time emerge from node interactions and timing coordination.
+This document outlines a step-by-step strategy for determining the ETM equivalents of several well-known physical constants. The approach focuses on building successive simulations that reveal how space and time emerge from node interactions and timing coordination. A concise summary is provided in `ETM_CONSTANT_DERIVATION_PLAN.md`.
 ### Fundamental ETM Dynamics Rule
 All motion, propagation, and effects MUST take place only according to ETM logic, including the propagation of light. It is ok to start an identity like an electron with an initial velocity, but after the start, it must proceed disappearing from some nodes and returning in other nodes purely and exclusively from ETM logic, NOT from some arbitrarily defined velocity function, and the same goes for the propagation of light. In fact, every single change in the simulation must only occur due to ETM logic after the start. This must be a standing rule in all testing.
 
@@ -26,7 +25,7 @@ These values should be derived solely from ETM logic. Calibration between ETM un
 Simulate photon propagation across empty lattice regions and within various timing gradients. Measure the resulting travel times and deflection angles.
 - **Goal**: Quantify how node spacing, tick rate, and environmental interactions influence the effective speed of light.
 - **Node Count**: Start with lattices of ~10^4 nodes for simple propagation tests and scale up to ~10^6 nodes to examine subtle timing gradients.
-- **Validation**: Trial 004 (to be revised with ETM-driven motion) confirmed one-step-per-tick propagation across a (21,21,21) lattice, establishing the baseline ETM speed of light.
+- **Validation**: Trial 004 confirmed one-step-per-tick propagation across a (21,21,21) lattice using echo-driven motion, establishing the baseline ETM speed of light.
 - **Validation**: Trial 005 demonstrated photon deflection in a lattice with a linear echo-field gradient, confirming that environmental timing variations steer propagation purely through ETM logic.
 - **Validation**: Trial 006 measured electron--photon coupling using orbital interaction metrics, showing hydrogen photons satisfy the absorption criteria.
 - **Validation**: Trial 007 verified that the same metrics allow electrons to emit hydrogen photons, establishing bidirectional photon exchange rules.
