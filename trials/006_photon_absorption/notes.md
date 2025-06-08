@@ -24,3 +24,4 @@ Running `run_trial.py` yields an interaction strength above the absorption thres
 ```
 
 The electron timing pattern therefore can absorb a hydrogen photon according to ETM selection rules.  This confirms that orbital compatibility metrics successfully identify resonant photon energies without invoking continuous potential functions.
+\n### Latest Results (2025 Run)\nSee notes_results.json for output.

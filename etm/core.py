@@ -386,8 +386,23 @@ class ETMEngine:
         for echo_field in self.echo_fields.values():
             echo_field.apply_decay(self.config.decay_factor)
 
+    def apply_initial_velocities(self):
+        """Apply any preset velocities exactly once when identities are created"""
+        for identity in self.identities:
+            if identity.position is None:
+                continue
+            velocity = getattr(identity, "velocity", None)
+            if velocity and identity.tick_memory == 0:
+                new_pos = [identity.position[i] + velocity[i] for i in range(3)]
+                new_pos = [
+                    max(0, min(self.lattice_shape[i] - 1, new_pos[i]))
+                    for i in range(3)
+                ]
+                identity.position = tuple(new_pos)
+                identity.velocity = None
+
     def move_identities(self):
-        """Move identities according to optional velocity attribute"""
+        """(Deprecated) Move identities according to a persistent velocity"""
         for identity in self.identities:
             if identity.position is None:
                 continue
@@ -434,10 +449,12 @@ class ETMEngine:
         """Execute one complete ETM simulation tick - Enhanced with nucleon processes"""
         self.tick += 1
 
-        # 1-4. All existing steps preserved exactly
+        # 0. Apply any initial velocities exactly once
+        self.apply_initial_velocities()
+
+        # 1-3. All existing steps preserved exactly
         self.advance_phases()
         self.apply_echo_decay()
-        self.move_identities()
 
         # Record total timing-strain energy before any interactions this tick
         self.current_tick_energy_before = sum(

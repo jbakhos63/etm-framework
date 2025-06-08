@@ -36,3 +36,4 @@ The interaction strength exceeds the 0.2 emission threshold, indicating that a
 hydrogen-energy photon can indeed be emitted by the electron timing pattern.
 This confirms that ETM orbital compatibility metrics allow photon emission
 without invoking external potential functions.
+\n### Latest Results (2025 Run)\nSee notes_results.json for output.
