@@ -34,7 +34,7 @@ This document outlines a progressive set of simulations for defining Euclidean T
 Each stage refines the constants' precision. Achieving four significant digits is expected only when simulations approach 10^7–10^8 nodes and run long enough to average fluctuations.
 
 ## Current Approximate Values
-The following estimates stem from Trials 004–016. ETM units are mapped to SI using the hydrogen photon energy (13.6 eV) and the requirement that a photon moves one lattice step per tick.
+The following estimates stem from Trials 004–017. ETM units are mapped to SI using the hydrogen photon energy (13.6 eV) and the requirement that a photon moves one lattice step per tick.
 
 | Constant | ETM Value | Converted to SI | Accepted Value | Relative Error |
 |---|---|---|---|---|
