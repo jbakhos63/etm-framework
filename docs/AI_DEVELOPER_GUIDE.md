@@ -68,7 +68,9 @@ Recent trials illustrate core functionality:
 
 ## 7. Research Guidelines
 - Conform to the ETM Simulation Research Plan (`docs/ETM_SIMULATION_RESEARCH_PLAN.md`).
-- Maintain the rule that **all dynamics after initialization arise from ETM logic alone**.
+ - Maintain the rule that **all dynamics after initialization arise from ETM logic alone**.
+   Any `velocity` attribute is applied once at creation to set an initial displacement
+   and is then cleared so that subsequent movement results only from ETM return rules.
 - Record simulation environments and parameters so results can be reproduced.
 
 By following these practices, researchers can build upon the ETM framework while preserving prior validations.
