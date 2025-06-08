@@ -49,6 +49,7 @@ Introduce moving charges and analyze the timing disturbances produced by their m
 - **Node Count**: Similar to the electric force simulation, target around 10^7 nodes.
 - **Validation**: Trial 011 recorded echo profiles around a moving electron, laying the groundwork for quantifying magnetic effects.
 - **Validation**: Trial 012 measured the lateral deflection of a nearby electron caused solely by the timing gradient from a moving charge, providing the first magnetic-force interaction test.
+- **Validation**: Trial 013 demonstrated magnetic attraction between two parallel moving electrons, showing that echo-induced timing disturbances make their paths converge.
 
 ### 5. Fine Structure Constant
 Combine the results from electric and magnetic simulations with orbital transition data.

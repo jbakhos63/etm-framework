@@ -37,4 +37,3 @@ For detailed guidance see `docs/AI_DEVELOPER_GUIDE.md`, the full `ETM_SIMULATION
 ### Development Phases
 1. **Codex Validation** – use lattices up to about 30×30×30 nodes.
 2. **Home Computer Scale-Up** – rerun on larger lattices (≥50³) for higher precision.
-
