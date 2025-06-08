@@ -20,3 +20,4 @@ This trial advances **Stage 4 – Magnetic Interaction** of the *ETM Simulation
 ```
 
 The electrons moved toward each other, meeting at the same $y$ coordinate by tick 3 and remaining side by side thereafter. This demonstrates a magnetic-like attraction consistent with parallel currents in classical electromagnetism.
+\n### Latest Results (2025 Run)\nSee notes_results.json for output.

@@ -60,3 +60,4 @@ A photon identity is created with energy matching the timing strain released by
 the annihilation event, demonstrating integrated energy accounting within the
 ETM engine.
 \nThe engine now records total system energy before and after the tick, along with the energy carried by newly created photons. The values match within numerical precision, confirming conservation of timing-strain energy.
+\n### Latest Results (2025 Run)\nSee electron_positron_annihilation_results.json for output.

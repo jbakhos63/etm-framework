@@ -28,3 +28,4 @@ Running `run_trial.py` prints the list of positions visited by the photon. Examp
 
 The photon advances one lattice unit each tick until reaching the boundary, where
 it remains stationary due to lattice constraints.
+\n### Latest Results (2025 Run)\nSee photon_propagation_results.json for output.

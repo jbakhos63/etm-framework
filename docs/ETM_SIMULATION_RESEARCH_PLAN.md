@@ -75,3 +75,6 @@ Analyze the minimal timing and spacing intervals that arise naturally from ETM n
 ## Expected Precision
 Achieving four significant digits should be feasible with 10^7–10^8 nodes if simulations run long enough to average out fluctuations. The key is consistent calibration using the same photon and hydrogen benchmarks across experiments.
 
+
+### 2025 Validation Run
+All sixteen trials were rerun after implementing the single-use velocity policy. Each produced identical results to earlier runs, confirming that motion beyond initialization arises solely from ETM return logic.

@@ -17,3 +17,4 @@ Results appear below after running `run_trial.py`.
 
 ### Echo Profile Summary
 The recorded `magnetic_field_results.json` shows a gradually increasing echo intensity both above and below the moving electron as it propagates across the lattice. The symmetry indicates that motion along $x$ generates a lateral timing disturbance consistent with the onset of a magnetic-like field. Quantitative evaluation of this disturbance will guide future two-particle experiments aimed at deriving an ETM analogue of vacuum permeability.
+\n### Latest Results (2025 Run)\nSee notes_results.json for output.

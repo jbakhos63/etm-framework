@@ -72,3 +72,6 @@ See `docs/ETM_SIMULATION_RESEARCH_PLAN.md` and `docs/ETM_CONSTANT_DERIVATION_PLA
 - Document all simulation results in the `docs` and `trials` directories
 
 The ETM framework is released under the MIT license. Researchers may reproduce and extend the work provided that the underlying timing logic is maintained.
+
+### 2025 Trial Update
+All sixteen validation trials were rerun with the new single-use velocity logic. Results matched previous outputs, confirming ETM motion arises solely from timing returns.
