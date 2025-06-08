@@ -1,6 +1,6 @@
 # ETM Simulation Research Plan
-This document outlines a step-by-step strategy for determining the ETM equivalents of several well-known physical constants. The approach focuses on building successive simulations that reveal how space and time emerge from node interactions and timing coordination. A concise summary is provided in `ETM_CONSTANT_DERIVATION_PLAN.md`.
 
+This document outlines a step-by-step strategy for determining the ETM equivalents of several well-known physical constants. The approach focuses on building successive simulations that reveal how space and time emerge from node interactions and timing coordination. A concise summary is provided in `ETM_CONSTANT_DERIVATION_PLAN.md`.
 ### Fundamental ETM Dynamics Rule
 All motion, propagation, and effects MUST take place only according to ETM logic, including the propagation of light. It is ok to start an identity like an electron with an initial velocity, but after the start, it must proceed disappearing from some nodes and returning in other nodes purely and exclusively from ETM logic, NOT from some arbitrarily defined velocity function, and the same goes for the propagation of light. In fact, every single change in the simulation must only occur due to ETM logic after the start. This must be a standing rule in all testing.
 
@@ -62,6 +62,7 @@ Combine the results from electric and magnetic simulations with orbital transiti
 Analyze the minimal timing and spacing intervals that arise naturally from ETM node rules.
 - **Goal**: Map these intervals to Planck time and Planck length equivalents after calibrating other constants.
 - **Node Count**: Resolution at this scale may require extremely dense lattices—explore ~10^8 nodes if resources allow.
+- **Validation**: Trial 015 estimated the ETM tick duration by converting a hydrogen-photon frequency to seconds, providing a first Planck-time analogue.
 
 ## Practical Considerations
 - **Hardware Requirements**: Large-scale simulations (10^7–10^8 nodes) may exceed typical notebook capacity. Running them on a dedicated desktop with at least 32&nbsp;GB of RAM is advisable.
