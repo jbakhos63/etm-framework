@@ -29,6 +29,7 @@ Simulate photon propagation across empty lattice regions and within various timi
 - **Node Count**: Start with lattices of ~10^4 nodes for simple propagation tests and scale up to ~10^6 nodes to examine subtle timing gradients.
 - **Validation**: Trial 004 (to be revised with ETM-driven motion) confirmed one-step-per-tick propagation across a (21,21,21) lattice, establishing the baseline ETM speed of light.
 - **Validation**: Trial 005 demonstrated photon deflection in a lattice with a linear echo-field gradient, confirming that environmental timing variations steer propagation purely through ETM logic.
+- **Validation**: Trial 006 measured electron--photon coupling using orbital interaction metrics, showing hydrogen photons satisfy the absorption criteria.
 
 ### 2. Electron Orbitals and Photon Exchange
 Model a hydrogen atom where electrons transition between timing patterns while emitting or absorbing photons.
