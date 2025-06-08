@@ -41,6 +41,7 @@ Model a hydrogen atom where electrons transition between timing patterns while e
 Place an electron and positron at rest in a large lattice so that they interact solely through timing disturbances.
 - **Goal**: Measure the attractive force as a function of node separation to define an ETM analogue of the Coulomb constant.
 - **Node Count**: Lattice sizes of at least 10^7 nodes are recommended to minimize boundary effects.
+- **Validation**: Trial 009 demonstrated qualitative attraction between an electron and a positron on a 21×21×21 lattice using echo gradients, verifying that long-range timing disturbances steer motion without preset velocities.
 
 ### 4. Magnetic Interaction
 Introduce moving charges and analyze the timing disturbances produced by their motion.
