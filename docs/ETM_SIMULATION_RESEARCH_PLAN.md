@@ -48,6 +48,7 @@ Place an electron and positron at rest in a large lattice so that they interact 
 Introduce moving charges and analyze the timing disturbances produced by their motion.
 - **Goal**: Derive the magnetic component of the electromagnetic force, leading to an ETM form of vacuum permeability.
 - **Node Count**: Similar to the electric force simulation, target around 10^7 nodes.
+- **Validation**: Trial 011 recorded echo profiles around a moving electron, laying the groundwork for quantifying magnetic effects.
 
 ### 5. Fine Structure Constant
 Combine the results from electric and magnetic simulations with orbital transition data.
