@@ -4,7 +4,6 @@ This document outlines a step-by-step strategy for determining the ETM equivalen
 ### Fundamental ETM Dynamics Rule
 All motion, propagation, and effects MUST take place only according to ETM logic, including the propagation of light. It is ok to start an identity like an electron with an initial velocity, but after the start, it must proceed disappearing from some nodes and returning in other nodes purely and exclusively from ETM logic, NOT from some arbitrarily defined velocity function, and the same goes for the propagation of light. In fact, every single change in the simulation must only occur due to ETM logic after the start. This must be a standing rule in all testing.
 
-
 ### Development Phases
 - **Phase 1 – Codex Validation**: Implement all stages using lattices up to about 30×30×30 to ensure functionality in this chat environment.
 - **Phase 2 – Home Computer Scale-Up**: Once code is stable, run larger lattices (50³ or greater) on your personal machine for extended simulations.
