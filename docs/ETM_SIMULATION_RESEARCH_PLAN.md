@@ -1,6 +1,13 @@
 # ETM Simulation Research Plan
 
 This document outlines a step-by-step strategy for determining the ETM equivalents of several well-known physical constants. The approach focuses on building successive simulations that reveal how space and time emerge from node interactions and timing coordination.
+### Fundamental ETM Dynamics Rule
+All motion, propagation, and effects must arise exclusively from ETM logic after initialization. Identities may have initial timing rates or velocities, but every subsequent change results solely from node-to-node timing disturbances and echo inheritance.
+
+
+### Development Phases
+- **Phase 1 – Codex Validation**: Implement all stages using lattices up to about 30×30×30 to ensure functionality in this chat environment.
+- **Phase 2 – Home Computer Scale-Up**: Once code is stable, run larger lattices (50³ or greater) on your personal machine for extended simulations.
 
 ## Overview of Constants
 We aim to establish ETM analogues for the following:
@@ -20,6 +27,7 @@ These values should be derived solely from ETM logic. Calibration between ETM un
 Simulate photon propagation across empty lattice regions and within various timing gradients. Measure the resulting travel times and deflection angles.
 - **Goal**: Quantify how node spacing, tick rate, and environmental interactions influence the effective speed of light.
 - **Node Count**: Start with lattices of ~10^4 nodes for simple propagation tests and scale up to ~10^6 nodes to examine subtle timing gradients.
+- **Validation**: Trial 004 (to be revised with ETM-driven motion) confirmed one-step-per-tick propagation across a (21,21,21) lattice, establishing the baseline ETM speed of light.
 
 ### 2. Electron Orbitals and Photon Exchange
 Model a hydrogen atom where electrons transition between timing patterns while emitting or absorbing photons.
@@ -48,6 +56,7 @@ Analyze the minimal timing and spacing intervals that arise naturally from ETM n
 
 ## Practical Considerations
 - **Hardware Requirements**: Large-scale simulations (10^7–10^8 nodes) may exceed typical notebook capacity. Running them on a dedicated desktop with at least 32&nbsp;GB of RAM is advisable.
+- **Codex Environment**: Use lattices up to about 30×30×30 (~27,000 nodes) to guarantee smooth execution. All stages of this plan will first be implemented and validated at this scale before running larger simulations.
 - **Running on a Home Computer**: Create a lightweight script that loads the ETM engine with the desired lattice size and runs in the background. Use Python's multiprocessing to maintain responsiveness while the simulation progresses for several hours.
 - **Data Storage**: Direct results to log files or compressed binary formats to reduce disk usage.
 - **Adjustable Plan**: Begin with smaller lattices to validate the approach, then scale up gradually. Calibrate ETM units to SI using photon propagation in vacuum and hydrogen spectral lines, and refine constants as simulation size increases.
