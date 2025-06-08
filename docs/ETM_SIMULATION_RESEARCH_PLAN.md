@@ -30,6 +30,7 @@ Simulate photon propagation across empty lattice regions and within various timi
 - **Validation**: Trial 005 demonstrated photon deflection in a lattice with a linear echo-field gradient, confirming that environmental timing variations steer propagation purely through ETM logic.
 - **Validation**: Trial 006 measured electron--photon coupling using orbital interaction metrics, showing hydrogen photons satisfy the absorption criteria.
 - **Validation**: Trial 007 verified that the same metrics allow electrons to emit hydrogen photons, establishing bidirectional photon exchange rules.
+- **Validation**: Trial 008 quantified energy transfer during hydrogen-photon absorption, verifying the electron's energy increase matches the 13.6 eV photon.
 
 ### 2. Electron Orbitals and Photon Exchange
 Model a hydrogen atom where electrons transition between timing patterns while emitting or absorbing photons.
