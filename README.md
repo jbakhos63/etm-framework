@@ -64,7 +64,7 @@ The repository follows a two-phase development strategy:
 1. **Codex Validation** – implement each simulation using lattices up to about 30×30×30 nodes to ensure code correctness in this environment.
 2. **Home Computer Scale-Up** – run the same simulations on larger lattices (50³ or more) for extended durations to refine constants.
 
-See `docs/ETM_SIMULATION_RESEARCH_PLAN.md` and `docs/ETM_CONSTANT_DERIVATION_PLAN.md` for details. Both documents emphasize that after initialization **all motion and interactions must arise exclusively from ETM logic**.
+See `docs/ETM_SIMULATION_RESEARCH_PLAN.md` and `docs/ETM_CONSTANT_DERIVATION_PLAN.md` for details. Both documents emphasize that after initialization **all motion and interactions must arise exclusively from ETM logic**. Any velocity specified for an identity is used only once at creation to shift its starting position; further movement must result solely from ETM return rules.
 
 ## Development Guidelines
 - Preserve validated parameters in `etm/config.py`

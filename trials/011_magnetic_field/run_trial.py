@@ -38,7 +38,7 @@ def run_trial():
     for _ in range(config.max_ticks):
         # reinforce echo at electron position
         engine.echo_fields[electron.position].add_reinforcement(1.0)
-        # advance the ETM engine (moves electron via velocity)
+        # advance the ETM engine (initial velocity applied only once)
         engine.advance_tick()
 
         pos = electron.position

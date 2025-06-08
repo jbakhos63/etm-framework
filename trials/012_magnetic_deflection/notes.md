@@ -4,10 +4,10 @@ This trial continues **Stage 4 – Magnetic Interaction** of the *ETM Simulatio
 
 ## Plan
 - **Objective**: Demonstrate that a moving electron generates a lateral timing disturbance strong enough to alter the path of a neighbouring electron.
-- **Setup**: A `(21,21,21)` lattice with neutral recruiters everywhere. Electron A starts near the left boundary moving along the $x$‑axis. Electron B is placed two lattice units above its path with no preset velocity. All motion after initialization arises solely from echo gradients.
+- **Setup**: A `(21,21,21)` lattice with neutral recruiters everywhere. Electron A starts near the left boundary with velocity `(1,0,0)` applied only on the first tick so it begins moving along the $x$‑axis. Electron B is placed two lattice units above its path with no preset velocity. All motion after initialization arises solely from echo gradients.
 - **Method**:
   1. Reinforce the echo field at both electron positions each tick.
-  2. Advance the ETM engine. Electron A moves via its initial velocity; Electron B moves toward the neighbour with the largest echo from Electron A.
+  2. Advance the ETM engine. Electron A is displaced once by its initial velocity while Electron B moves toward the neighbour with the largest echo from Electron A.
   3. Record both trajectories in `magnetic_deflection_results.json`.
 
 ## Results

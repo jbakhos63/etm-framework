@@ -30,7 +30,7 @@ Results are stored in JSON format within the trial folder and explained in `note
 - 008 Electron energy change from absorption
 
 ## Fundamental Rule
-All motion, propagation, and effects after initialization must emerge only from ETM logic—no explicit velocity functions or external forces are allowed.
+All motion, propagation, and effects after initialization must emerge only from ETM logic—no explicit velocity functions or external forces are allowed. Any `velocity` set on an identity is applied only at the first tick to establish an initial displacement and is then cleared.
 
 For detailed guidance see `docs/AI_DEVELOPER_GUIDE.md`, the full `ETM_SIMULATION_RESEARCH_PLAN.md`, and `docs/ETM_CONSTANT_DERIVATION_PLAN.md`.
 

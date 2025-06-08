@@ -1,12 +1,12 @@
 # Photon Propagation Test
 
-This trial verifies that photon identities created by the engine propagate one
-lattice step per tick according to their velocity.
+This trial verifies that photon identities created by the engine shift position once at initialization when a velocity is specified. Subsequent ticks obey ETM return logic without any persistent velocity.
 
 ## Procedure
 
 1. Initialize the engine with the validated foundation configuration.
 2. Create a visible-light photon at the lattice center with velocity `(1, 0, 0)`.
+   This velocity is applied only on the first tick to displace the photon by one lattice unit.
 3. Run the simulation for four ticks, recording the photon's position each tick.
 4. Write the trajectory to `photon_propagation_results.json`.
 
