@@ -42,6 +42,7 @@ Place an electron and positron at rest in a large lattice so that they interact 
 - **Goal**: Measure the attractive force as a function of node separation to define an ETM analogue of the Coulomb constant.
 - **Node Count**: Lattice sizes of at least 10^7 nodes are recommended to minimize boundary effects.
 - **Validation**: Trial 009 demonstrated qualitative attraction between an electron and a positron on a 21×21×21 lattice using echo gradients, verifying that long-range timing disturbances steer motion without preset velocities.
+- **Validation**: Trial 010 measured convergence times for different initial separations, providing baseline data for estimating the ETM Coulomb constant.
 
 ### 4. Magnetic Interaction
 Introduce moving charges and analyze the timing disturbances produced by their motion.
