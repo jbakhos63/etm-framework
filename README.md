@@ -63,6 +63,7 @@ Recent trials include:
 - **Trial 018** – extended electron–positron annihilation baseline
 - **Trial 019** – extended energy calculation on a larger lattice
 - **Trial 020** – extended photon propagation baseline
+- **Trial 021** – extended photon speed baseline
 - **Trial 034** – extended electron repulsion baseline (short test run confirmed
   approach and repulsion)
 
@@ -82,4 +83,3 @@ The ETM framework is released under the MIT license. Researchers may reproduce a
 
 ### 2025 Trial Update
 All nineteen validation trials were rerun with the new single-use velocity logic. Results matched previous outputs, confirming ETM motion arises solely from timing returns.
-
