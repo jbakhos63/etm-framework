@@ -180,8 +180,12 @@ class ElectronTimingPattern(ParticleTimingPattern):
 
 @dataclass
 class NeutrinoTimingPattern(ParticleTimingPattern):
-    """Neutrino as interaction-mediating timing pattern"""
-    
+    """Neutrino timing pattern with simple flavor oscillation"""
+
+    flavor: str = "electron"
+    oscillation_period: int = 1000
+    flavor_cycle: Tuple[str, str, str] = ("electron", "muon", "tau")
+
     def __post_init__(self):
         self.particle_type = ParticleType.NEUTRINO
         self.stability_level = ParticleStabilityLevel.STABLE
@@ -198,6 +202,11 @@ class NeutrinoTimingPattern(ParticleTimingPattern):
             "propagation_efficiency": 0.99,
             "matter_transparency": 0.98
         }
+
+    def oscillate_flavor(self, tick: int) -> None:
+        """Update flavor based on current tick."""
+        index = (tick // self.oscillation_period) % len(self.flavor_cycle)
+        self.flavor = self.flavor_cycle[index]
 @dataclass
 class PhotonTimingPattern(ParticleTimingPattern):
     """Photon as electromagnetic timing disturbance propagating through space"""
@@ -550,9 +559,9 @@ class ParticleFactory:
         return ElectronTimingPattern()
     
     @staticmethod
-    def create_neutrino() -> NeutrinoTimingPattern:
-        """Create neutrino pattern"""
-        return NeutrinoTimingPattern()
+    def create_neutrino(flavor: str = "electron", oscillation_period: int = 1000) -> NeutrinoTimingPattern:
+        """Create neutrino pattern with specified flavor"""
+        return NeutrinoTimingPattern(flavor=flavor, oscillation_period=oscillation_period)
     
     @staticmethod
     def create_neutron() -> NeutronTimingPattern:
@@ -562,7 +571,7 @@ class ParticleFactory:
         # Initialize with constituent patterns
         proton = ParticleFactory.create_enhanced_proton()
         electron = ParticleFactory.create_electron()
-        neutrino = ParticleFactory.create_neutrino()
+        neutrino = ParticleFactory.create_neutrino("electron")
         
         neutron.initialize_constituents(proton, electron, neutrino)
         
@@ -604,7 +613,8 @@ def test_particles_module():
     # Test 3: Standard particles
     electron = ParticleFactory.create_electron()
     neutrino = ParticleFactory.create_neutrino()
-    print(f"✓ Standard particles: electron ({len(electron.pattern_nodes)} nodes), neutrino ({len(neutrino.pattern_nodes)} nodes)")
+    print(f"✓ Standard particles: electron ({len(electron.pattern_nodes)} nodes),"
+          f" neutrino [{neutrino.flavor}] ({len(neutrino.pattern_nodes)} nodes)")
     
     # Test 4: Neutron composite particle
     neutron = ParticleFactory.create_neutron()
