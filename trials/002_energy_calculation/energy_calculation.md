@@ -24,3 +24,4 @@ Running `run_trial.py` prints the calculated energy and writes a JSON summary.  
 ```
 
 The energy value can be compared against the theoretical target to evaluate calibration accuracy.
+\n### Latest Results (2025 Run)\nSee energy_calculation_results.json for output.
