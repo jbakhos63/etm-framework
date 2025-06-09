@@ -19,3 +19,4 @@ A JSON file reporting the photon frequency and the derived tick duration in seco
 ## Results
 
 The script computed a photon frequency of approximately $3.29\times10^{15}\,\text{Hz}$ and an ETM tick duration of $1.52\times10^{-16}\,\text{s}$. These values provide a baseline mapping between ETM ticks and SI seconds.
+\n### Latest Results (2025 Run)\nSee notes_results.json for output.

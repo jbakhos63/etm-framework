@@ -21,3 +21,4 @@ Results of `run_trial.py` are appended below after execution.
 ```
 
 The electron and positron move symmetrically toward each other and meet at the lattice center by tick 3. They then continue past one another because the local echo maxima shift once the particles cross. Despite the small size, this qualitative attraction confirms that echo‑field gradients alone can produce motion analogous to the electric force.
+\n### Latest Results (2025 Run)\nSee notes_results.json for output.
