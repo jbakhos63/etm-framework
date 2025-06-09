@@ -3386,6 +3386,9 @@ def calculate_kinetic_energy(identity):
     base_kinetic = identity.delta_theta * KINETIC_SCALE_FACTOR
     
     # Motion-dependent kinetic energy if identity has velocity
+    # A velocity may be specified only for initialization. It is applied once
+    # at the first tick and then cleared, so subsequent motion depends solely on
+    # return eligibility.
     if hasattr(identity, 'velocity') and identity.velocity:
         velocity_magnitude = calculate_velocity_magnitude(identity.velocity)
         motion_kinetic = 0.5 * EFFECTIVE_MASS_SCALE * velocity_magnitude**2
