@@ -91,6 +91,7 @@ start /B /LOW python trials/024_photon_emission_2/run_trial.py --ticks 500 --siz
 start /B /LOW python trials/025_electron_absorption_energy_2/run_trial.py
 start /B /LOW python trials/026_electric_attraction_2/run_trial.py --ticks 500 --size 51
 start /B /LOW python trials/027_electric_force_measurement_2/run_trial.py --ticks 500 --size 51
+start /B /LOW python trials/028_magnetic_field_2/run_trial.py --ticks 500 --size 51
 start /B /LOW python trials/034_electron_repulsion_2/run_trial.py --ticks 500 --size 51
 ```
 

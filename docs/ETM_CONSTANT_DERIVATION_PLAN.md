@@ -28,6 +28,7 @@ This document outlines a progressive set of simulations for defining Euclidean T
 ## 4. Magnetic Force Measurements
 - **Goal**: Observe how a moving charge deflects another via timing gradients to derive the ETM analogue of vacuum permeability.
 - **Lattice Size**: Similar to electric force studies, ~10^7 nodes.
+- **Validation**: Trial 028 repeated the magnetic field measurement on a larger lattice, providing improved data for the ETM magnetic constant.
 
 ## 5. Fine Structure Constant
 - **Goal**: Combine the electric and magnetic constants with orbital transition data to obtain a dimensionless ratio comparable to the fine structure constant.
@@ -45,7 +46,7 @@ This document outlines a progressive set of simulations for defining Euclidean T
 Each stage refines the constants' precision. Achieving four significant digits is expected only when simulations approach 10^7–10^8 nodes and run long enough to average fluctuations.
 
 ## Current Approximate Values
-The following estimates stem from Trials 004–027. ETM units are mapped to SI using the hydrogen photon energy (13.6 eV) and the requirement that a photon moves one lattice step per tick.
+The following estimates stem from Trials 004–028. ETM units are mapped to SI using the hydrogen photon energy (13.6 eV) and the requirement that a photon moves one lattice step per tick.
 
 | Constant | ETM Value | Converted to SI | Accepted Value | Relative Error |
 |---|---|---|---|---|

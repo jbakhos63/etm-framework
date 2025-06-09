@@ -38,6 +38,7 @@ Results are stored in JSON format within the trial folder and explained in `note
 - 025 Extended electron absorption energy
 - 026 Extended electric attraction
 - 027 Extended electric force measurement
+- 028 Extended magnetic field measurement
 - 034 Extended electron repulsion (500 ticks on 51³ lattice)
 
 ## Fundamental Rule
