@@ -21,6 +21,7 @@ This document outlines a progressive set of simulations for defining Euclidean T
 - **Validation**: Trial 023 repeated the photon absorption measurement, reinforcing ETM orbital coupling predictions.
 - **Validation**: Trial 024 repeated the photon emission measurement, verifying that emission and absorption share the same coupling rules.
 - **Validation**: Trial 025 repeated the electron absorption energy measurement on a larger lattice, confirming energy transfer scales precisely with photon energy.
+- **Validation**: Trial 026 extended the electron–positron attraction study to a 51×51×51 lattice, supplying longer-range data for the ETM Coulomb constant.
 - **Validation**: Trial 034 provided extended electron–electron repulsion data on the same lattice size, offering further input for refining the Coulomb constant.
 
 ## 4. Magnetic Force Measurements
@@ -43,7 +44,7 @@ This document outlines a progressive set of simulations for defining Euclidean T
 Each stage refines the constants' precision. Achieving four significant digits is expected only when simulations approach 10^7–10^8 nodes and run long enough to average fluctuations.
 
 ## Current Approximate Values
-The following estimates stem from Trials 004–025. ETM units are mapped to SI using the hydrogen photon energy (13.6 eV) and the requirement that a photon moves one lattice step per tick.
+The following estimates stem from Trials 004–026. ETM units are mapped to SI using the hydrogen photon energy (13.6 eV) and the requirement that a photon moves one lattice step per tick.
 
 | Constant | ETM Value | Converted to SI | Accepted Value | Relative Error |
 |---|---|---|---|---|
