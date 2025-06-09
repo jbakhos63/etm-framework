@@ -41,6 +41,7 @@ This document outlines a progressive set of simulations for defining Euclidean T
 ## 6. Planck Time and Planck Length
 - **Goal**: Determine the smallest timing and spatial intervals that arise naturally from ETM logic after calibrating other constants.
 - **Lattice Size**: Explore 10^8 nodes if resources allow.
+- **Validation**: Trial 032 repeated the tick-duration calculation using the extended Phase-2 configuration.
 
 ## Development Phases
 1. **Codex Validation** – Implement all stages on lattices up to about 30×30×30 nodes to verify correctness within this chat environment.
@@ -49,7 +50,7 @@ This document outlines a progressive set of simulations for defining Euclidean T
 Each stage refines the constants' precision. Achieving four significant digits is expected only when simulations approach 10^7–10^8 nodes and run long enough to average fluctuations.
 
 ## Current Approximate Values
-The following estimates stem from Trials 004–031. ETM units are mapped to SI using the hydrogen photon energy (13.6 eV) and the requirement that a photon moves one lattice step per tick.
+The following estimates stem from Trials 004–032. ETM units are mapped to SI using the hydrogen photon energy (13.6 eV) and the requirement that a photon moves one lattice step per tick.
 
 | Constant | ETM Value | Converted to SI | Accepted Value | Relative Error |
 |---|---|---|---|---|

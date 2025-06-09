@@ -95,6 +95,7 @@ start /B /LOW python trials/028_magnetic_field_2/run_trial.py --ticks 500 --size
 start /B /LOW python trials/029_magnetic_deflection_2/run_trial.py --ticks 500 --size 51
 start /B /LOW python trials/030_parallel_current_2/run_trial.py --ticks 500 --size 51
 start /B /LOW python trials/031_fine_structure_estimate_2/run_trial.py
+start /B /LOW python trials/032_planck_interval_estimate_2/run_trial.py
 start /B /LOW python trials/034_electron_repulsion_2/run_trial.py --ticks 500 --size 51
 ```
 
