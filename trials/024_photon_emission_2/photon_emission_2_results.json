@@ -1,4 +1,4 @@
 {
   "interaction_strength": 0.405,
-  "can_absorb": true
+  "can_emit": true
 }
