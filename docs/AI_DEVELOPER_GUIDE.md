@@ -68,7 +68,21 @@ Recent trials illustrate core functionality:
 
 ## 7. Research Guidelines
 - Conform to the ETM Simulation Research Plan (`docs/ETM_SIMULATION_RESEARCH_PLAN.md`).
-- Maintain the rule that **all dynamics after initialization arise from ETM logic alone**.
+ - Maintain the rule that **all dynamics after initialization arise from ETM logic alone**.
+   Any `velocity` attribute is applied once at creation to set an initial displacement
+   and is then cleared so that subsequent movement results only from ETM return rules.
 - Record simulation environments and parameters so results can be reproduced.
 
 By following these practices, researchers can build upon the ETM framework while preserving prior validations.
+
+## 8. Running Extended Simulations
+Phase 2 experiments may require hundreds of ticks on lattices larger than 50³.
+Each `run_trial.py` script accepts `--ticks` and `--size` arguments to control
+these parameters. On Windows you can launch a long run in the background with:
+
+```cmd
+start /B /LOW python trials/018_electron_positron_annihilaton_2/run_trial.py --ticks 500 --size 51
+start /B /LOW python trials/034_electron_repulsion_2/run_trial.py --ticks 500 --size 51
+```
+
+The `start /B /LOW` prefix keeps the process from monopolizing CPU resources so the machine remains responsive.
