@@ -74,3 +74,14 @@ Recent trials illustrate core functionality:
 - Record simulation environments and parameters so results can be reproduced.
 
 By following these practices, researchers can build upon the ETM framework while preserving prior validations.
+
+## 8. Running Extended Simulations
+Phase 2 experiments may require hundreds of ticks on lattices larger than 50³.
+Each `run_trial.py` script accepts `--ticks` and `--size` arguments to control
+these parameters. On Windows you can launch a long run in the background with:
+
+```cmd
+start /B /LOW python trials/018_electron_positron_annihilaton_2/run_trial.py --ticks 500 --size 51
+```
+
+The `start /B /LOW` prefix keeps the process from monopolizing CPU resources so the machine remains responsive.
