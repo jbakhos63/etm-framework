@@ -68,7 +68,35 @@ Recent trials illustrate core functionality:
 
 ## 7. Research Guidelines
 - Conform to the ETM Simulation Research Plan (`docs/ETM_SIMULATION_RESEARCH_PLAN.md`).
-- Maintain the rule that **all dynamics after initialization arise from ETM logic alone**.
+ - Maintain the rule that **all dynamics after initialization arise from ETM logic alone**.
+   Any `velocity` attribute is applied once at creation to set an initial displacement
+   and is then cleared so that subsequent movement results only from ETM return rules.
 - Record simulation environments and parameters so results can be reproduced.
 
 By following these practices, researchers can build upon the ETM framework while preserving prior validations.
+
+## 8. Running Extended Simulations
+Phase 2 experiments may require hundreds of ticks on lattices larger than 50³.
+Each `run_trial.py` script accepts `--ticks` and `--size` arguments to control
+these parameters. On Windows you can launch a long run in the background with:
+
+```cmd
+start /B /LOW python trials/018_electron_positron_annihilaton_2/run_trial.py --ticks 500 --size 51
+start /B /LOW python trials/019_energy_calculation_2/run_trial.py --ticks 500 --size 51
+start /B /LOW python trials/020_photon_propagation_2/run_trial.py --ticks 500 --size 51
+start /B /LOW python trials/021_photon_speed_2/run_trial.py --ticks 500 --size 51
+start /B /LOW python trials/022_photon_gradient_2/run_trial.py --ticks 500 --size 51
+start /B /LOW python trials/023_photon_absorption_2/run_trial.py --ticks 500 --size 51
+start /B /LOW python trials/024_photon_emission_2/run_trial.py --ticks 500 --size 51
+start /B /LOW python trials/025_electron_absorption_energy_2/run_trial.py
+start /B /LOW python trials/026_electric_attraction_2/run_trial.py --ticks 500 --size 51
+start /B /LOW python trials/027_electric_force_measurement_2/run_trial.py --ticks 500 --size 51
+start /B /LOW python trials/028_magnetic_field_2/run_trial.py --ticks 500 --size 51
+start /B /LOW python trials/029_magnetic_deflection_2/run_trial.py --ticks 500 --size 51
+start /B /LOW python trials/030_parallel_current_2/run_trial.py --ticks 500 --size 51
+start /B /LOW python trials/031_fine_structure_estimate_2/run_trial.py
+start /B /LOW python trials/032_planck_interval_estimate_2/run_trial.py
+start /B /LOW python trials/033_planck_length_estimate_2/run_trial.py
+start /B /LOW python trials/034_electron_repulsion_2/run_trial.py --ticks 500 --size 51
+```
+
