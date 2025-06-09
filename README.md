@@ -79,3 +79,4 @@ The ETM framework is released under the MIT license. Researchers may reproduce a
 
 ### 2025 Trial Update
 All eighteen validation trials were rerun with the new single-use velocity logic. Results matched previous outputs, confirming ETM motion arises solely from timing returns.
+
