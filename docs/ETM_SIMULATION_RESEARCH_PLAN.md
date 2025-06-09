@@ -53,6 +53,7 @@ Place an electron and positron at rest in a large lattice so that they interact 
 - **Validation**: Trial 024 repeated the photon emission test, demonstrating symmetry with the absorption criterion and bolstering confidence in ETM orbital rules.
 - **Validation**: Trial 025 repeated the electron absorption energy measurement on a larger lattice, verifying that the absorbed energy equals the photon energy regardless of boundary size.
 - **Validation**: Trial 026 extended the electron–positron attraction on a 51×51×51 lattice for hundreds of ticks, strengthening the data set for deriving the ETM Coulomb constant.
+- **Validation**: Trial 027 repeated the electric force measurement on a larger lattice, providing improved separation data for the ETM Coulomb constant.
 - **Validation**: Trial 034 repeated the electron repulsion experiment on a 51×51×51 lattice for hundreds of ticks. A short Codex run on a 21×21×21 grid confirmed repulsion with initial velocities applied once. The resulting trajectories will refine the Coulomb constant measurement.
 
 ### 4. Magnetic Interaction

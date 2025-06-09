@@ -37,6 +37,7 @@ Results are stored in JSON format within the trial folder and explained in `note
 - 024 Extended photon emission
 - 025 Extended electron absorption energy
 - 026 Extended electric attraction
+- 027 Extended electric force measurement
 - 034 Extended electron repulsion (500 ticks on 51³ lattice)
 
 ## Fundamental Rule
