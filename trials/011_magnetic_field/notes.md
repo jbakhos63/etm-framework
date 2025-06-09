@@ -4,7 +4,7 @@ This trial initiates **Stage 4 – Magnetic Interaction** of the *ETM Simulatio
 
 ## Plan
 - **Objective**: Record echo-field values around a moving electron to quantify the magnetic-like pattern of a travelling charge.
-- **Setup**: A `(21,21,21)` lattice with neutral recruiters at every node. An electron begins near the left boundary with velocity `(1,0,0)` so it drifts along the $x$‑axis. All reinforcement and motion after initialization follow ETM rules.
+- **Setup**: A `(21,21,21)` lattice with neutral recruiters at every node. An electron begins near the left boundary with velocity `(1,0,0)` applied only at the first tick to offset its starting position. All reinforcement and motion after initialization follow ETM rules.
 - **Method**:
   1. At each tick reinforce the echo field at the electron position and call `advance_tick` to update phases and move the particle.
   2. Record echo strengths one lattice step above and below the electron in the $y$ direction.
@@ -17,3 +17,4 @@ Results appear below after running `run_trial.py`.
 
 ### Echo Profile Summary
 The recorded `magnetic_field_results.json` shows a gradually increasing echo intensity both above and below the moving electron as it propagates across the lattice. The symmetry indicates that motion along $x$ generates a lateral timing disturbance consistent with the onset of a magnetic-like field. Quantitative evaluation of this disturbance will guide future two-particle experiments aimed at deriving an ETM analogue of vacuum permeability.
+\n### Latest Results (2025 Run)\nSee notes_results.json for output.
