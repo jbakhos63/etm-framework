@@ -41,6 +41,7 @@ Results are stored in JSON format within the trial folder and explained in `note
 All motion, propagation, and effects after initialization must emerge only from ETM logic—no explicit velocity functions or external forces are allowed. Any `velocity` set on an identity is applied only at the first tick to establish an initial displacement and is then cleared.
 
 For detailed guidance see `docs/AI_DEVELOPER_GUIDE.md`, the full `ETM_SIMULATION_RESEARCH_PLAN.md`, and `docs/ETM_CONSTANT_DERIVATION_PLAN.md`.
+Use the optional `--sleep` argument in any trial's run script to slow down each tick if a background run needs to stay responsive.
 
 ### Development Phases
 1. **Codex Validation** – use lattices up to about 30×30×30 nodes.
