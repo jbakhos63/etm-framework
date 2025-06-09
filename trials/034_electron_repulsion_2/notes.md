@@ -16,11 +16,12 @@ confirm that energy remains conserved over long runs.
 Run in the background on Windows using:
 
 ```
-start /B /LOW python run_trial.py --ticks 500 --size 51
+start /B /LOW python run_trial.py --ticks 500 --size 51 --sleep 0.05
 ```
 
 Make sure to install dependencies first with `pip install -r requirements.txt`.
-On a typical desktop this extended run may take several minutes.
+With the default `--sleep 0.05`, 500 ticks take roughly half a minute on a typical desktop.
+
 
 ## Results
 Add the JSON output from your long run below.

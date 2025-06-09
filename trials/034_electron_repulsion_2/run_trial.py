@@ -11,8 +11,7 @@ from etm.config import ConfigurationFactory
 from etm.core import ETMEngine, Identity, Recruiter
 from etm.particles import ParticleFactory
 
-
-def run_trial(max_ticks: int = 500, lattice_size=(51, 51, 51)):
+def run_trial(max_ticks: int = 500, lattice_size=(51, 51, 51), sleep_time: float = 0.01):
     config = ConfigurationFactory.validated_foundation_config("electron_repulsion")
     config.max_ticks = max_ticks
     config.lattice_size = lattice_size
@@ -68,7 +67,8 @@ def run_trial(max_ticks: int = 500, lattice_size=(51, 51, 51)):
         data["electron_b"].append(list(electron_b.position))
         if engine.tick % 50 == 0:
             print(f"Tick {engine.tick}/{config.max_ticks}")
-        time.sleep(0.01)
+        time.sleep(sleep_time)
+
 
     result_path = os.path.join(os.path.dirname(__file__), "electron_repulsion_2_results.json")
     with open(result_path, "w") as f:
@@ -81,5 +81,16 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Extended electron repulsion trial")
     parser.add_argument("--ticks", type=int, default=500, help="Maximum ticks to run")
     parser.add_argument("--size", type=int, default=51, help="Cubic lattice dimension")
+    parser.add_argument(
+        "--sleep",
+        type=float,
+        default=0.01,
+        help="Seconds to pause between ticks so long runs remain responsive",
+    )
     args = parser.parse_args()
-    run_trial(max_ticks=args.ticks, lattice_size=(args.size, args.size, args.size))
+    run_trial(
+        max_ticks=args.ticks,
+        lattice_size=(args.size, args.size, args.size),
+        sleep_time=args.sleep,
+    )
+

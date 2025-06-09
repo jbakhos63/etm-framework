@@ -44,7 +44,7 @@ To execute a trial run:
 ```bash
 python trials/004_photon_speed/run_trial.py
 ```
-Results are written as JSON and summarized in the accompanying `notes.md` file.
+Results are written as JSON and summarized in the accompanying `notes.md` file. Use the optional `--sleep` argument in each run script to pause between ticks and keep long runs from hogging CPU.
 
 Recent trials include:
 - **Trial 004** – baseline photon propagation across a 21×21×21 lattice
