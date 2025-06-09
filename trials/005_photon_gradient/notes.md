@@ -25,3 +25,4 @@ The photon trajectory recorded in `photon_gradient_results.json` shows a clear d
 ```
 
 The photon initially moves vertically upward while remaining near its starting $x$ coordinate until hitting the lattice boundary at $x=0$. It then continues upward along the boundary. This confirms that the echo gradient alone dictates its motion, satisfying the rule that all propagation arises solely from ETM logic after initialization.
+\n### Latest Results (2025 Run)\nSee notes_results.json for output.
