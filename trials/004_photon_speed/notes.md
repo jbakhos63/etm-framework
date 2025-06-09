@@ -28,3 +28,4 @@ Running `run_trial.py` produced the following trajectory stored in `photon_speed
 ```
 
 The photon advanced exactly one lattice unit along the x-axis each tick. With lattice spacing and tick duration taken as ETM units, this establishes the baseline **speed of light** in vacuum as one lattice step per tick. No deviation was observed over the 21×21×21 lattice, confirming that lattice size does not affect propagation speed at this scale.
+\n### Latest Results (2025 Run)\nSee notes_results.json for output.

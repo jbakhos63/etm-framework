@@ -44,7 +44,7 @@ To execute a trial run:
 ```bash
 python trials/004_photon_speed/run_trial.py
 ```
-Results are written as JSON and summarized in the accompanying `notes.md` file.
+Results are written as JSON and summarized in the accompanying `notes.md` file. Use the optional `--sleep` argument in each run script to pause between ticks and keep long runs from hogging CPU.
 
 Recent trials include:
 - **Trial 004** – baseline photon propagation across a 21×21×21 lattice
@@ -58,13 +58,18 @@ Recent trials include:
 - **Trial 012** – magnetic deflection of a nearby electron
 - **Trial 013** – attraction between parallel moving electrons
 - **Trial 014** – preliminary fine structure constant estimate
+- **Trial 015** – baseline Planck time analogue
+- **Trial 016** – baseline Planck length analogue
+- **Trial 017** – electron repulsion after an initial approach
+- **Trial 018** – extended electron–positron annihilation baseline
+- **Trial 034** – extended electron repulsion baseline
 
 ## Research Plan
 The repository follows a two-phase development strategy:
 1. **Codex Validation** – implement each simulation using lattices up to about 30×30×30 nodes to ensure code correctness in this environment.
 2. **Home Computer Scale-Up** – run the same simulations on larger lattices (50³ or more) for extended durations to refine constants.
 
-See `docs/ETM_SIMULATION_RESEARCH_PLAN.md` and `docs/ETM_CONSTANT_DERIVATION_PLAN.md` for details. Both documents emphasize that after initialization **all motion and interactions must arise exclusively from ETM logic**.
+See `docs/ETM_SIMULATION_RESEARCH_PLAN.md` and `docs/ETM_CONSTANT_DERIVATION_PLAN.md` for details. Both documents emphasize that after initialization **all motion and interactions must arise exclusively from ETM logic**. Any velocity specified for an identity is used only once at creation to shift its starting position; further movement must result solely from ETM return rules.
 
 ## Development Guidelines
 - Preserve validated parameters in `etm/config.py`
@@ -72,3 +77,6 @@ See `docs/ETM_SIMULATION_RESEARCH_PLAN.md` and `docs/ETM_CONSTANT_DERIVATION_PLA
 - Document all simulation results in the `docs` and `trials` directories
 
 The ETM framework is released under the MIT license. Researchers may reproduce and extend the work provided that the underlying timing logic is maintained.
+
+### 2025 Trial Update
+All eighteen validation trials were rerun with the new single-use velocity logic. Results matched previous outputs, confirming ETM motion arises solely from timing returns.

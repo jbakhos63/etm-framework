@@ -15,3 +15,4 @@ Running `run_trial.py` loads prior JSON results and performs the calculation. Th
 
 ## Results
 The script computed a preliminary value (see `fine_structure_results.json`) of `alpha_etm` = 0.0531.
+\n### Latest Results (2025 Run)\nSee notes_results.json for output.

@@ -31,3 +31,4 @@ Results are recorded in `absorption_energy_results.json` and summarized below.
 ```
 
 The electron's energy increased by exactly the photon's 13.6&nbsp;eV. This matches ETM's calibrated energy formula and confirms that photon absorption is quantized according to timing-rate increments. This result supports defining the ETM analogue of Planck's constant by equating discrete changes in `delta_theta` with photon energies.
+\n### Latest Results (2025 Run)\nSee notes_results.json for output.
