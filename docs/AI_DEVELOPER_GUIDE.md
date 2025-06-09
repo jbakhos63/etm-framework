@@ -84,4 +84,3 @@ these parameters. On Windows you can launch a long run in the background with:
 start /B /LOW python trials/018_electron_positron_annihilaton_2/run_trial.py --ticks 500 --size 51
 start /B /LOW python trials/034_electron_repulsion_2/run_trial.py --ticks 500 --size 51
 ```
-

@@ -14,7 +14,7 @@ This document outlines a progressive set of simulations for defining Euclidean T
 - **Goal**: Place an electron and positron at various separations and measure the attraction solely via echo-field gradients to define an ETM Coulomb constant.
 - **Lattice Size**: At least 10^7 nodes to minimize boundary effects.
 - **Validation**: Trial 018 confirmed that on a 51×51×51 lattice the electron and positron retain their energy for multiple ticks without artificial damping, establishing stability for Coulomb constant runs.
-**Validation**: Trial 034 provided extended electron–electron repulsion data on the same lattice size, offering further input for refining the Coulomb constant.
+- **Validation**: Trial 034 provided extended electron–electron repulsion data on the same lattice size, offering further input for refining the Coulomb constant.
 
 ## 4. Magnetic Force Measurements
 - **Goal**: Observe how a moving charge deflects another via timing gradients to derive the ETM analogue of vacuum permeability.
