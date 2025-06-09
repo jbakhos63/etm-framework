@@ -14,6 +14,7 @@ This document outlines a progressive set of simulations for defining Euclidean T
 - **Goal**: Place an electron and positron at various separations and measure the attraction solely via echo-field gradients to define an ETM Coulomb constant.
 - **Lattice Size**: At least 10^7 nodes to minimize boundary effects.
 - **Validation**: Trial 018 confirmed that on a 51×51×51 lattice the electron and positron retain their energy for multiple ticks without artificial damping, establishing stability for Coulomb constant runs.
+- **Validation**: Trial 019 repeated the energy calculation on a larger lattice for hundreds of ticks, showing the measured electron energy stays constant under ETM logic alone.
 - **Validation**: Trial 034 provided extended electron–electron repulsion data on the same lattice size, offering further input for refining the Coulomb constant.
 
 ## 4. Magnetic Force Measurements
@@ -36,7 +37,7 @@ This document outlines a progressive set of simulations for defining Euclidean T
 Each stage refines the constants' precision. Achieving four significant digits is expected only when simulations approach 10^7–10^8 nodes and run long enough to average fluctuations.
 
 ## Current Approximate Values
-The following estimates stem from Trials 004–018. ETM units are mapped to SI using the hydrogen photon energy (13.6 eV) and the requirement that a photon moves one lattice step per tick.
+The following estimates stem from Trials 004–019. ETM units are mapped to SI using the hydrogen photon energy (13.6 eV) and the requirement that a photon moves one lattice step per tick.
 
 | Constant | ETM Value | Converted to SI | Accepted Value | Relative Error |
 |---|---|---|---|---|
