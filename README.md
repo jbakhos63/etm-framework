@@ -72,6 +72,7 @@ Recent trials include:
 - **Trial 027** – extended electric force measurement
 - **Trial 028** – extended magnetic field measurement
 - **Trial 029** – extended magnetic deflection
+- **Trial 030** – extended parallel current attraction
 - **Trial 034** – extended electron repulsion baseline (short test run confirmed
   approach and repulsion)
 

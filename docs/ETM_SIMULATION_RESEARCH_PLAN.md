@@ -65,6 +65,7 @@ Introduce moving charges and analyze the timing disturbances produced by their m
 - **Validation**: Trial 013 demonstrated magnetic attraction between two parallel moving electrons, showing that echo-induced timing disturbances make their paths converge.
 - **Validation**: Trial 028 repeated the magnetic field measurement on a 51×51×51 lattice for hundreds of ticks, providing more detailed echo gradients for refining the ETM magnetic constant.
 - **Validation**: Trial 029 extended the magnetic deflection test to a 51×51×51 lattice, providing longer trajectories for estimating the ETM magnetic constant.
+- **Validation**: Trial 030 repeated the parallel current attraction run on a 51×51×51 lattice, supplying additional magnetic-force data.
 
 ### 5. Fine Structure Constant
 Combine the results from electric and magnetic simulations with orbital transition data.
