@@ -81,9 +81,6 @@ Each `run_trial.py` script accepts `--ticks` and `--size` arguments to control
 these parameters. On Windows you can launch a long run in the background with:
 
 ```cmd
-start /B /LOW python trials/018_electron_positron_annihilaton_2/run_trial.py --ticks 500 --size 51 --sleep 0.05
-start /B /LOW python trials/034_electron_repulsion_2/run_trial.py --ticks 500 --size 51 --sleep 0.05
+start /B /LOW python trials/018_electron_positron_annihilaton_2/run_trial.py --ticks 500 --size 51
+start /B /LOW python trials/034_electron_repulsion_2/run_trial.py --ticks 500 --size 51
 ```
-
-The `start /B /LOW` prefix keeps the process from monopolizing CPU resources so the machine remains responsive.  Use the optional `--sleep` argument to further slow each tick if needed.
-

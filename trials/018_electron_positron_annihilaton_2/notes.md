@@ -16,6 +16,7 @@ start /B /LOW python run_trial.py --ticks 500 --size 51
 ```
 
 This command launches the Python process with low priority so other tasks remain usable.
+On typical hardware the full run completes in a few seconds and prints a JSON summary.
 
 ## Results
 The 2025 run used the default 51×51×51 lattice and completed two ticks before

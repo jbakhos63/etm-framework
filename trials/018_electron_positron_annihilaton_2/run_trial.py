@@ -1,7 +1,6 @@
 import json
 import os
 import sys
-import time
 import argparse
 
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -56,7 +55,6 @@ def run_trial(max_ticks: int = 500, lattice_size=(51, 51, 51)):
                 break
         if events:
             break
-        time.sleep(0.01)  # yield CPU so the machine remains responsive
 
     tick_data = engine.results_history[-1] if engine.results_history else {}
     summary = {

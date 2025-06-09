@@ -81,4 +81,3 @@ Achieving four significant digits should be feasible with 10^7–10^8 nodes if s
 
 ### 2025 Validation Run
 All eighteen trials were rerun after implementing the single-use velocity policy. Each produced identical results to earlier runs, confirming that motion beyond initialization arises solely from ETM return logic.
-
