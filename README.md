@@ -62,6 +62,7 @@ Recent trials include:
 - **Trial 017** – electron repulsion after an initial approach
 - **Trial 018** – extended electron–positron annihilation baseline
 - **Trial 019** – extended energy calculation on a larger lattice
+- **Trial 020** – extended photon propagation baseline
 - **Trial 034** – extended electron repulsion baseline (short test run confirmed
   approach and repulsion)
 

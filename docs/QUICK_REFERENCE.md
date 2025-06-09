@@ -30,6 +30,7 @@ Results are stored in JSON format within the trial folder and explained in `note
 - 008 Electron energy change from absorption
 - 018 Extended electron–positron annihilation
 - 019 Extended energy calculation
+- 020 Extended photon propagation
 - 034 Extended electron repulsion (500 ticks on 51³ lattice)
 
 ## Fundamental Rule
