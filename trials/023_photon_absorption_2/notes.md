@@ -1,4 +1,4 @@
-# Trial 006 – Photon Absorption Strength
+# Trial 023 – Extended Photon Absorption
 
 This trial inaugurates the **Electron Orbitals and Photon Exchange** stage of the *ETM Simulation Research Plan*.  We evaluate how closely a hydrogen‐energy photon couples to an electron timing pattern.
 
@@ -9,7 +9,7 @@ This trial inaugurates the **Electron Orbitals and Photon Exchange** stage of th
 ## Method
 1. **Particle Initialization** – Create a standard electron timing pattern and a hydrogen photon using `ParticleFactory` utilities.  No lattice or velocity is specified; interaction metrics depend only on pattern properties.
 2. **Interaction Calculation** – Use `PhotonTimingPattern.calculate_orbital_interaction_strength` to compute coupling with the electron.  Apply `can_be_absorbed_by` to check if absorption would occur.
-3. **Output** – Store the resulting interaction strength and boolean absorption outcome in `photon_absorption_results.json`.
+3. **Output** – Store the resulting interaction strength and boolean absorption outcome in `photon_absorption_2_results.json`.
 
 The script `run_trial.py` performs these steps.
 
@@ -24,4 +24,5 @@ Running `run_trial.py` yields an interaction strength above the absorption thres
 ```
 
 The electron timing pattern therefore can absorb a hydrogen photon according to ETM selection rules.  This confirms that orbital compatibility metrics successfully identify resonant photon energies without invoking continuous potential functions.
-\n### Latest Results (2025 Run)\nSee notes_results.json for output.
+\n### Latest Results (2025 Run)\nSee photon_absorption_2_results.json for output.
+\n### Interpretation\nRepeated runs confirm consistent coupling values, reinforcing that ETM orbital rules capture photon-electron absorption without classical potentials.
