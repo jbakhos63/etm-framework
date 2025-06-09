@@ -7,6 +7,7 @@ All motion, propagation, and effects MUST take place only according to ETM logic
 ### Development Phases
 - **Phase 1 – Codex Validation**: Implement all stages using lattices up to about 30×30×30 to ensure functionality in this chat environment.
 - **Phase 2 – Home Computer Scale-Up**: Once code is stable, run larger lattices (50³ or greater) on your personal machine for extended simulations.
+- **Phase 3 – Extended Scale and Neutrino Exploration**: Trials 035–051 increase simulation size and duration, develop dedicated neutrino patterns, and test alternative timing rules while retaining pure ETM logic.
 
 ## Overview of Constants
 We aim to establish ETM analogues for the following:
@@ -96,3 +97,6 @@ Achieving four significant digits should be feasible with 10^7–10^8 nodes if s
 
 ### 2025 Validation Run
 All eighteen trials were rerun after implementing the single-use velocity policy. Each produced identical results to earlier runs, confirming that motion beyond initialization arises solely from ETM return logic.
+
+### Phase 3 Plan
+Phase 3 introduces trials 035–051. These runs explore lattices approaching 10^8 nodes and may last for thousands of ticks. Dedicated neutrino timing patterns and flavor oscillation logic will be tested alongside alternative echo-field update schemes. All simulations must continue to evolve strictly from ETM rules after initialization.
