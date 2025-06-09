@@ -45,7 +45,7 @@ Place an electron and positron at rest in a large lattice so that they interact 
 - **Validation**: Trial 010 measured convergence times for different initial separations, providing baseline data for estimating the ETM Coulomb constant.
 - **Validation**: Trial 017 observed that two electrons given a brief initial velocity toward each other are subsequently repelled purely by echo gradients.
 - **Validation**: Trial 018 repeated electron–positron annihilation on a 51×51×51 lattice for two ticks. No collision occurred and energy was conserved to machine precision, demonstrating stability for long runs.
-- **Next Step**: Trial 019 will repeat the electron repulsion experiment on a 51×51×51 lattice for hundreds of ticks to refine the Coulomb constant measurement.
+- **Next Step**: Trial 034 will repeat the electron repulsion experiment on a 51×51×51 lattice for hundreds of ticks to refine the Coulomb constant measurement.
 
 ### 4. Magnetic Interaction
 Introduce moving charges and analyze the timing disturbances produced by their motion.
