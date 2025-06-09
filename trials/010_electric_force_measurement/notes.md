@@ -31,3 +31,4 @@ Separation 8: 4 ticks
 ```
 
 The trajectories for each run are saved in `electric_force_results.json`. This monotonic relationship between starting distance and meeting time is consistent with an attractive interaction derived from timing-gradients. Quantitative force extraction will require larger lattices, but these baseline results confirm that the ETM framework produces distance-dependent attraction without preset velocities.
+\n### Latest Results (2025 Run)\nSee notes_results.json for output.
