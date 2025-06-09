@@ -24,3 +24,4 @@ The script computed these baseline values:
 - Lattice step length: 4.56×10^−8 m
 
 These values establish the first estimate of the ETM Planck length analogue.
+\n### Latest Results (2025 Run)\nSee notes_results.json for output.
