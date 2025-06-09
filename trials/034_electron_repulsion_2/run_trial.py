@@ -66,6 +66,8 @@ def run_trial(max_ticks: int = 500, lattice_size=(51, 51, 51)):
         engine.advance_tick()
         data["electron_a"].append(list(electron_a.position))
         data["electron_b"].append(list(electron_b.position))
+        if engine.tick % 50 == 0:
+            print(f"Tick {engine.tick}/{config.max_ticks}")
         time.sleep(0.01)
 
     result_path = os.path.join(os.path.dirname(__file__), "electron_repulsion_2_results.json")

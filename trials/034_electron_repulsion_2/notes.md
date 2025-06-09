@@ -19,6 +19,9 @@ Run in the background on Windows using:
 start /B /LOW python run_trial.py --ticks 500 --size 51
 ```
 
+Make sure to install dependencies first with `pip install -r requirements.txt`.
+On a typical desktop this extended run may take several minutes.
+
 ## Results
 Add the JSON output from your long run below.
 
