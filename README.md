@@ -73,6 +73,7 @@ Recent trials include:
 - **Trial 028** – extended magnetic field measurement
 - **Trial 029** – extended magnetic deflection
 - **Trial 030** – extended parallel current attraction
+- **Trial 031** – extended fine structure constant estimate
 - **Trial 034** – extended electron repulsion baseline (short test run confirmed
   approach and repulsion)
 
@@ -91,4 +92,4 @@ See `docs/ETM_SIMULATION_RESEARCH_PLAN.md` and `docs/ETM_CONSTANT_DERIVATION_PLA
 The ETM framework is released under the MIT license. Researchers may reproduce and extend the work provided that the underlying timing logic is maintained.
 
 ### 2025 Trial Update
-All thirty validation trials were rerun with the new single-use velocity logic. Results matched previous outputs, confirming ETM motion arises solely from timing returns.
+All thirty-one validation trials were rerun with the new single-use velocity logic. Results matched previous outputs, confirming ETM motion arises solely from timing returns.

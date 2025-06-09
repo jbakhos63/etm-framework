@@ -72,6 +72,7 @@ Combine the results from electric and magnetic simulations with orbital transiti
 - **Goal**: Establish a dimensionless ratio comparable to the fine structure constant.
 - **Node Count**: Use ~10^7 nodes to match precision from prior stages.
 - **Validation**: Trial 014 produced an initial estimate of the fine structure constant by combining the photon speed, hydrogen photon energy, and electron--positron attraction data. Larger lattices will refine this value.
+- **Validation**: Trial 031 repeated the fine structure calculation using the extended Phase-2 data set.
 
 ### 6. Planck Scale Analogues
 Analyze the minimal timing and spacing intervals that arise naturally from ETM node rules.
