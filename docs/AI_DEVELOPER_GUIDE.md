@@ -82,6 +82,7 @@ these parameters. On Windows you can launch a long run in the background with:
 
 ```cmd
 start /B /LOW python trials/018_electron_positron_annihilaton_2/run_trial.py --ticks 500 --size 51
+start /B /LOW python trials/019_electron_repulsion_2/run_trial.py --ticks 500 --size 51
 ```
 
 The `start /B /LOW` prefix keeps the process from monopolizing CPU resources so the machine remains responsive.

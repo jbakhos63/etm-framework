@@ -18,7 +18,19 @@ start /B /LOW python run_trial.py --ticks 500 --size 51
 This command launches the Python process with low priority so other tasks remain usable.
 
 ## Results
-Run the script and place the JSON output here.
+The 2025 run used the default 51×51×51 lattice and completed two ticks before
+terminating. No collision occurred and energy remained exactly
+conserved:
+
+```
+{
+  "events": [],
+  "history_length": 2,
+  "energy_before": 100.97537777777778,
+  "energy_after": 100.97537777777778
+}
+```
 
 ### Latest Results (2025 Run)
-See annihilation_2_results.json for output.
+See `annihilation_2_results.json` for the full output.
+
