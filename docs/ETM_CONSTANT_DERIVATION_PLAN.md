@@ -17,6 +17,7 @@ This document outlines a progressive set of simulations for defining Euclidean T
 - **Validation**: Trial 019 repeated the energy calculation on a larger lattice for hundreds of ticks, showing the measured electron energy stays constant under ETM logic alone.
 - **Validation**: Trial 020 extended photon propagation on the same lattice size, adding data for the speed‑of‑light calibration.
 - **Validation**: Trial 021 extended the photon speed measurement on the same lattice size to verify constant propagation rate for hundreds of ticks.
+- **Validation**: Trial 022 repeated the photon gradient deflection on the same lattice size, confirming drift along a timing gradient without persistent velocity.
 - **Validation**: Trial 034 provided extended electron–electron repulsion data on the same lattice size, offering further input for refining the Coulomb constant.
 
 ## 4. Magnetic Force Measurements
@@ -39,7 +40,7 @@ This document outlines a progressive set of simulations for defining Euclidean T
 Each stage refines the constants' precision. Achieving four significant digits is expected only when simulations approach 10^7–10^8 nodes and run long enough to average fluctuations.
 
 ## Current Approximate Values
-The following estimates stem from Trials 004–021. ETM units are mapped to SI using the hydrogen photon energy (13.6 eV) and the requirement that a photon moves one lattice step per tick.
+The following estimates stem from Trials 004–022. ETM units are mapped to SI using the hydrogen photon energy (13.6 eV) and the requirement that a photon moves one lattice step per tick.
 
 | Constant | ETM Value | Converted to SI | Accepted Value | Relative Error |
 |---|---|---|---|---|

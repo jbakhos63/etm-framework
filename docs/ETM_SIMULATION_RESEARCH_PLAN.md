@@ -48,6 +48,7 @@ Place an electron and positron at rest in a large lattice so that they interact 
 - **Validation**: Trial 019 repeated the energy calculation on a 51×51×51 lattice for hundreds of ticks, confirming that electron energy values remain constant over extended runs.
 - **Validation**: Trial 020 extended photon propagation on the same lattice size, ensuring that a photon continues moving under ETM logic after a single initial displacement.
 - **Validation**: Trial 021 extended the photon speed test on the same lattice size, confirming that a uniform echo gradient moves the photon exactly one step per tick without persistent velocity.
+- **Validation**: Trial 022 repeated the photon gradient test on the same lattice size, showing sustained deflection solely from the timing gradient.
 - **Validation**: Trial 034 repeated the electron repulsion experiment on a 51×51×51 lattice for hundreds of ticks. A short Codex run on a 21×21×21 grid confirmed repulsion with initial velocities applied once. The resulting trajectories will refine the Coulomb constant measurement.
 
 ### 4. Magnetic Interaction

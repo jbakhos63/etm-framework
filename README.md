@@ -64,6 +64,7 @@ Recent trials include:
 - **Trial 019** – extended energy calculation on a larger lattice
 - **Trial 020** – extended photon propagation baseline
 - **Trial 021** – extended photon speed baseline
+- **Trial 022** – extended photon gradient deflection
 - **Trial 034** – extended electron repulsion baseline (short test run confirmed
   approach and repulsion)
 
