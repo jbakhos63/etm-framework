@@ -1,6 +1,6 @@
 {
   "events": [],
-  "history_length": 2,
+  "history_length": 500,
   "energy_before": 100.97537777777778,
   "energy_after": 100.97537777777778,
   "energy_released_total": 0.0,
