@@ -43,6 +43,7 @@ Place an electron and positron at rest in a large lattice so that they interact 
 - **Node Count**: Lattice sizes of at least 10^7 nodes are recommended to minimize boundary effects.
 - **Validation**: Trial 009 demonstrated qualitative attraction between an electron and a positron on a 21×21×21 lattice using echo gradients, verifying that long-range timing disturbances steer motion without preset velocities.
 - **Validation**: Trial 010 measured convergence times for different initial separations, providing baseline data for estimating the ETM Coulomb constant.
+- **Validation**: Trial 017 observed that two electrons given a brief initial velocity toward each other are subsequently repelled purely by echo gradients.
 
 ### 4. Magnetic Interaction
 Introduce moving charges and analyze the timing disturbances produced by their motion.
@@ -75,3 +76,6 @@ Analyze the minimal timing and spacing intervals that arise naturally from ETM n
 ## Expected Precision
 Achieving four significant digits should be feasible with 10^7–10^8 nodes if simulations run long enough to average out fluctuations. The key is consistent calibration using the same photon and hydrogen benchmarks across experiments.
 
+
+### 2025 Validation Run
+All seventeen trials were rerun after implementing the single-use velocity policy. Each produced identical results to earlier runs, confirming that motion beyond initialization arises solely from ETM return logic.
