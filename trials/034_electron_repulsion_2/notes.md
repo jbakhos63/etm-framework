@@ -23,7 +23,18 @@ Make sure to install dependencies first with `pip install -r requirements.txt`.
 On a typical desktop the run finishes in well under a minute and prints a summary when complete.
 
 ## Results
-Add the JSON output from your long run below.
+The 2025 Codex test used a 21×21×21 lattice for two ticks to verify the script.
+Both electrons moved one step toward each other on the first tick and again on
+the second, demonstrating that the initial velocity is applied once and then
+motion proceeds via return logic. Longer runs on a 51×51×51 lattice should yield
+more precise repulsion curves.
+
+```
+{
+  "electron_a": [[1,10,10],[2,10,10],[3,10,10]],
+  "electron_b": [[19,10,10],[18,10,10],[17,10,10]]
+}
+```
 
 ### Latest Results (2025 Run)
-See `electron_repulsion_2_results.json` for details.
+See `electron_repulsion_2_results.json` for the full output.

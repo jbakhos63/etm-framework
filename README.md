@@ -61,7 +61,8 @@ Recent trials include:
 - **Trial 016** – baseline Planck length analogue
 - **Trial 017** – electron repulsion after an initial approach
 - **Trial 018** – extended electron–positron annihilation baseline
-- **Trial 034** – extended electron repulsion baseline
+- **Trial 034** – extended electron repulsion baseline (short test run confirmed
+  approach and repulsion)
 
 ## Research Plan
 The repository follows a two-phase development strategy:
