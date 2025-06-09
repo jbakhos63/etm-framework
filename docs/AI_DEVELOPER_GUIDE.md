@@ -86,6 +86,7 @@ start /B /LOW python trials/019_energy_calculation_2/run_trial.py --ticks 500 --
 start /B /LOW python trials/020_photon_propagation_2/run_trial.py --ticks 500 --size 51
 start /B /LOW python trials/021_photon_speed_2/run_trial.py --ticks 500 --size 51
 start /B /LOW python trials/022_photon_gradient_2/run_trial.py --ticks 500 --size 51
+start /B /LOW python trials/023_photon_absorption_2/run_trial.py --ticks 500 --size 51
 start /B /LOW python trials/034_electron_repulsion_2/run_trial.py --ticks 500 --size 51
 ```
 
