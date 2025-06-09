@@ -85,4 +85,3 @@ start /B /LOW python trials/018_electron_positron_annihilaton_2/run_trial.py --t
 start /B /LOW python trials/019_energy_calculation_2/run_trial.py --ticks 500 --size 51
 start /B /LOW python trials/034_electron_repulsion_2/run_trial.py --ticks 500 --size 51
 ```
-
