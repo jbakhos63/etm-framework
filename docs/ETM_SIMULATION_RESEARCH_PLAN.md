@@ -81,6 +81,7 @@ Analyze the minimal timing and spacing intervals that arise naturally from ETM n
 - **Validation**: Trial 015 estimated the ETM tick duration by converting a hydrogen-photon frequency to seconds, providing a first Planck-time analogue.
 - **Validation**: Trial 016 calculated the lattice step length by multiplying this tick duration by the SI speed of light, yielding a preliminary Planck-length analogue.
 - **Validation**: Trial 032 repeated the tick-duration calculation using the extended Phase-2 configuration.
+- **Validation**: Trial 033 repeated the step-length calculation with the extended configuration, confirming lattice-size independence.
 
 ## Practical Considerations
 - **Hardware Requirements**: Large-scale simulations (10^7–10^8 nodes) may exceed typical notebook capacity. Running them on a dedicated desktop with at least 32&nbsp;GB of RAM is advisable.
