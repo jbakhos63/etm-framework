@@ -10,7 +10,6 @@ from etm.config import ConfigurationFactory
 from etm.core import ETMEngine, Identity, Recruiter
 from etm.particles import ParticleFactory
 
-
 def run_trial(max_ticks: int = 500, lattice_size=(51, 51, 51)):
     config = ConfigurationFactory.validated_foundation_config("electron_repulsion")
     config.max_ticks = max_ticks
