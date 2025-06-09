@@ -86,3 +86,4 @@ start /B /LOW python trials/034_electron_repulsion_2/run_trial.py --ticks 500 --
 ```
 
 The `start /B /LOW` prefix keeps the process from monopolizing CPU resources so the machine remains responsive.  Use the optional `--sleep` argument to further slow each tick if needed.
+

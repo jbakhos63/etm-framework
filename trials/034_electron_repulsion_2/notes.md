@@ -22,6 +22,7 @@ start /B /LOW python run_trial.py --ticks 500 --size 51 --sleep 0.05
 Make sure to install dependencies first with `pip install -r requirements.txt`.
 With the default `--sleep 0.05`, 500 ticks take roughly half a minute on a typical desktop.
 
+
 ## Results
 Add the JSON output from your long run below.
 

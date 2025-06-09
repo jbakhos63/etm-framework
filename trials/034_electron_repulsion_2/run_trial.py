@@ -11,7 +11,6 @@ from etm.config import ConfigurationFactory
 from etm.core import ETMEngine, Identity, Recruiter
 from etm.particles import ParticleFactory
 
-
 def run_trial(max_ticks: int = 500, lattice_size=(51, 51, 51), sleep_time: float = 0.01):
     config = ConfigurationFactory.validated_foundation_config("electron_repulsion")
     config.max_ticks = max_ticks
@@ -70,6 +69,7 @@ def run_trial(max_ticks: int = 500, lattice_size=(51, 51, 51), sleep_time: float
             print(f"Tick {engine.tick}/{config.max_ticks}")
         time.sleep(sleep_time)
 
+
     result_path = os.path.join(os.path.dirname(__file__), "electron_repulsion_2_results.json")
     with open(result_path, "w") as f:
         json.dump(data, f, indent=2)
@@ -93,3 +93,4 @@ if __name__ == "__main__":
         lattice_size=(args.size, args.size, args.size),
         sleep_time=args.sleep,
     )
+
