@@ -53,6 +53,7 @@ Results are stored in JSON format within the trial folder and explained in `note
 - 040 Extended photon absorption (phase 3)
 - 041 Extended photon emission (phase 3)
 - 042 Extended electron absorption energy (phase 3)
+- 043 Extended electric attraction (phase 3)
 ## Fundamental Rule
 All motion, propagation, and effects after initialization must emerge only from ETM logic—no explicit velocity functions or external forces are allowed. Any `velocity` set on an identity is applied only at the first tick to establish an initial displacement and is then cleared.
 
