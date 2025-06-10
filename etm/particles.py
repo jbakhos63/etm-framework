@@ -155,20 +155,23 @@ class EnhancedProtonTimingPattern(ParticleTimingPattern):
 @dataclass
 class ElectronTimingPattern(ParticleTimingPattern):
     """Electron as orbital-compatible timing pattern"""
-    
+
+    scale: int = 1
+
     def __post_init__(self):
         self.particle_type = ParticleType.ELECTRON
         self.stability_level = ParticleStabilityLevel.METASTABLE
         self.core_timing_rate = 0.7
-        
+
+        s = self.scale
         self.pattern_nodes = [
             NodePattern((0, 0, 0), timing_rate=0.7, role="electron_core"),
-            NodePattern((1, 0, 0), timing_rate=0.5, role="orbital_interface"),
-            NodePattern((-1, 0, 0), timing_rate=0.5, role="orbital_interface"),
-            NodePattern((0, 1, 0), timing_rate=0.5, role="orbital_interface"),
-            NodePattern((0, -1, 0), timing_rate=0.5, role="orbital_interface"),
-            NodePattern((2, 0, 0), timing_rate=0.3, role="orbital_cloud"),
-            NodePattern((-2, 0, 0), timing_rate=0.3, role="orbital_cloud"),
+            NodePattern((1 * s, 0, 0), timing_rate=0.5, role="orbital_interface"),
+            NodePattern((-1 * s, 0, 0), timing_rate=0.5, role="orbital_interface"),
+            NodePattern((0, 1 * s, 0), timing_rate=0.5, role="orbital_interface"),
+            NodePattern((0, -1 * s, 0), timing_rate=0.5, role="orbital_interface"),
+            NodePattern((2 * s, 0, 0), timing_rate=0.3, role="orbital_cloud"),
+            NodePattern((-2 * s, 0, 0), timing_rate=0.3, role="orbital_cloud"),
         ]
         
         self.stability_metrics = {
@@ -554,9 +557,9 @@ class ParticleFactory:
         return EnhancedProtonTimingPattern()
     
     @staticmethod
-    def create_electron() -> ElectronTimingPattern:
-        """Create standard electron pattern"""
-        return ElectronTimingPattern()
+    def create_electron(scale: int = 1) -> ElectronTimingPattern:
+        """Create standard electron pattern with optional scale"""
+        return ElectronTimingPattern(scale=scale)
     
     @staticmethod
     def create_neutrino(flavor: str = "electron", oscillation_period: int = 1000) -> NeutrinoTimingPattern:

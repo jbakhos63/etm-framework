@@ -133,10 +133,12 @@ def test_particles_module():
     print(f"✓ Photon created: energy={photon.energy_content:.1f} eV")
 
     # Test photon-electron interaction (create electron first)
-    electron = ParticleFactory.create_electron()  # <-- ADD THIS LINE
+    electron = ParticleFactory.create_electron()
+    scaled_electron = ParticleFactory.create_electron(scale=2)
     interaction_strength = photon.calculate_orbital_interaction_strength(electron)
     can_absorb = photon.can_be_absorbed_by(electron)
     print(f"✓ Photon-electron interaction: {interaction_strength:.3f} strength, absorption: {can_absorb}")
+    print(f"✓ Scaled electron nodes: {len(scaled_electron.pattern_nodes)}")
 
     # Test different photon energies
     visible_photon = ParticleFactory.create_visible_photon()
