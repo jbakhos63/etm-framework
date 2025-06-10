@@ -169,7 +169,7 @@ class ETMConfig:
     pattern_reorganization_threshold: float = 0.8   # Threshold for spontaneous reorganization
     
     # NEW: Conservation law tolerances
-    energy_conservation_tolerance: float = 1e-3
+    energy_conservation_tolerance: float = 1e-4
     charge_conservation_tolerance: float = 1e-6
     lepton_number_tolerance: float = 1e-6
     baryon_number_tolerance: float = 1e-6

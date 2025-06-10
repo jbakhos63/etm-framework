@@ -78,44 +78,47 @@ class ParticleTimingPattern:
 @dataclass
 class EnhancedProtonTimingPattern(ParticleTimingPattern):
     """ENHANCED Proton with >95% AGN survival probability for cosmic element recycling"""
-    
+
+    scale: int = 1
+
     def __post_init__(self):
         self.particle_type = ParticleType.PROTON
         self.stability_level = ParticleStabilityLevel.STABLE
         self.core_timing_rate = 1.0  # Maximum stability
-        
+
         # ENHANCED MULTI-SHELL ARCHITECTURE for AGN survival
+        s = self.scale
         self.pattern_nodes = [
             # Enhanced nuclear core with redundancy
             NodePattern((0, 0, 0), timing_rate=1.0, role="enhanced_nuclear_core"),
             
             # Primary stabilization shell (8 nodes for optimal connectivity + AGN resilience)
-            NodePattern((1, 0, 0), timing_rate=0.95, role="primary_stabilizing_shell"),
-            NodePattern((-1, 0, 0), timing_rate=0.95, role="primary_stabilizing_shell"),
-            NodePattern((0, 1, 0), timing_rate=0.95, role="primary_stabilizing_shell"),
-            NodePattern((0, -1, 0), timing_rate=0.95, role="primary_stabilizing_shell"),
-            NodePattern((0, 0, 1), timing_rate=0.95, role="primary_stabilizing_shell"),
-            NodePattern((0, 0, -1), timing_rate=0.95, role="primary_stabilizing_shell"),
-            NodePattern((1, 1, 0), timing_rate=0.95, role="primary_stabilizing_shell"),
-            NodePattern((-1, -1, 0), timing_rate=0.95, role="primary_stabilizing_shell"),
+            NodePattern((1 * s, 0, 0), timing_rate=0.95, role="primary_stabilizing_shell"),
+            NodePattern((-1 * s, 0, 0), timing_rate=0.95, role="primary_stabilizing_shell"),
+            NodePattern((0, 1 * s, 0), timing_rate=0.95, role="primary_stabilizing_shell"),
+            NodePattern((0, -1 * s, 0), timing_rate=0.95, role="primary_stabilizing_shell"),
+            NodePattern((0, 0, 1 * s), timing_rate=0.95, role="primary_stabilizing_shell"),
+            NodePattern((0, 0, -1 * s), timing_rate=0.95, role="primary_stabilizing_shell"),
+            NodePattern((1 * s, 1 * s, 0), timing_rate=0.95, role="primary_stabilizing_shell"),
+            NodePattern((-1 * s, -1 * s, 0), timing_rate=0.95, role="primary_stabilizing_shell"),
             
             # NEW: Intermediate stabilization shell for gradual stress distribution
-            NodePattern((1, 0, 1), timing_rate=0.85, role="intermediate_stabilizing_shell"),
-            NodePattern((-1, 0, -1), timing_rate=0.85, role="intermediate_stabilizing_shell"),
-            NodePattern((0, 1, 1), timing_rate=0.85, role="intermediate_stabilizing_shell"),
-            NodePattern((0, -1, -1), timing_rate=0.85, role="intermediate_stabilizing_shell"),
-            NodePattern((1, 1, 1), timing_rate=0.85, role="intermediate_stabilizing_shell"),
-            NodePattern((-1, -1, -1), timing_rate=0.85, role="intermediate_stabilizing_shell"),
-            NodePattern((1, -1, 0), timing_rate=0.85, role="intermediate_stabilizing_shell"),
-            NodePattern((-1, 1, 0), timing_rate=0.85, role="intermediate_stabilizing_shell"),
+            NodePattern((1 * s, 0, 1 * s), timing_rate=0.85, role="intermediate_stabilizing_shell"),
+            NodePattern((-1 * s, 0, -1 * s), timing_rate=0.85, role="intermediate_stabilizing_shell"),
+            NodePattern((0, 1 * s, 1 * s), timing_rate=0.85, role="intermediate_stabilizing_shell"),
+            NodePattern((0, -1 * s, -1 * s), timing_rate=0.85, role="intermediate_stabilizing_shell"),
+            NodePattern((1 * s, 1 * s, 1 * s), timing_rate=0.85, role="intermediate_stabilizing_shell"),
+            NodePattern((-1 * s, -1 * s, -1 * s), timing_rate=0.85, role="intermediate_stabilizing_shell"),
+            NodePattern((1 * s, -1 * s, 0), timing_rate=0.85, role="intermediate_stabilizing_shell"),
+            NodePattern((-1 * s, 1 * s, 0), timing_rate=0.85, role="intermediate_stabilizing_shell"),
             
             # Enhanced edge connectors for field resilience
-            NodePattern((2, 0, 0), timing_rate=0.75, role="enhanced_edge_connector"),
-            NodePattern((-2, 0, 0), timing_rate=0.75, role="enhanced_edge_connector"),
-            NodePattern((0, 2, 0), timing_rate=0.75, role="enhanced_edge_connector"),
-            NodePattern((0, -2, 0), timing_rate=0.75, role="enhanced_edge_connector"),
-            NodePattern((2, 1, 0), timing_rate=0.75, role="enhanced_edge_connector"),
-            NodePattern((-2, -1, 0), timing_rate=0.75, role="enhanced_edge_connector"),
+            NodePattern((2 * s, 0, 0), timing_rate=0.75, role="enhanced_edge_connector"),
+            NodePattern((-2 * s, 0, 0), timing_rate=0.75, role="enhanced_edge_connector"),
+            NodePattern((0, 2 * s, 0), timing_rate=0.75, role="enhanced_edge_connector"),
+            NodePattern((0, -2 * s, 0), timing_rate=0.75, role="enhanced_edge_connector"),
+            NodePattern((2 * s, 1 * s, 0), timing_rate=0.75, role="enhanced_edge_connector"),
+            NodePattern((-2 * s, -1 * s, 0), timing_rate=0.75, role="enhanced_edge_connector"),
         ]
         
         # Enhanced stability metrics targeting >95% AGN survival
@@ -155,20 +158,23 @@ class EnhancedProtonTimingPattern(ParticleTimingPattern):
 @dataclass
 class ElectronTimingPattern(ParticleTimingPattern):
     """Electron as orbital-compatible timing pattern"""
-    
+
+    scale: int = 1
+
     def __post_init__(self):
         self.particle_type = ParticleType.ELECTRON
         self.stability_level = ParticleStabilityLevel.METASTABLE
         self.core_timing_rate = 0.7
-        
+
+        s = self.scale
         self.pattern_nodes = [
             NodePattern((0, 0, 0), timing_rate=0.7, role="electron_core"),
-            NodePattern((1, 0, 0), timing_rate=0.5, role="orbital_interface"),
-            NodePattern((-1, 0, 0), timing_rate=0.5, role="orbital_interface"),
-            NodePattern((0, 1, 0), timing_rate=0.5, role="orbital_interface"),
-            NodePattern((0, -1, 0), timing_rate=0.5, role="orbital_interface"),
-            NodePattern((2, 0, 0), timing_rate=0.3, role="orbital_cloud"),
-            NodePattern((-2, 0, 0), timing_rate=0.3, role="orbital_cloud"),
+            NodePattern((1 * s, 0, 0), timing_rate=0.5, role="orbital_interface"),
+            NodePattern((-1 * s, 0, 0), timing_rate=0.5, role="orbital_interface"),
+            NodePattern((0, 1 * s, 0), timing_rate=0.5, role="orbital_interface"),
+            NodePattern((0, -1 * s, 0), timing_rate=0.5, role="orbital_interface"),
+            NodePattern((2 * s, 0, 0), timing_rate=0.3, role="orbital_cloud"),
+            NodePattern((-2 * s, 0, 0), timing_rate=0.3, role="orbital_cloud"),
         ]
         
         self.stability_metrics = {
@@ -180,8 +186,12 @@ class ElectronTimingPattern(ParticleTimingPattern):
 
 @dataclass
 class NeutrinoTimingPattern(ParticleTimingPattern):
-    """Neutrino as interaction-mediating timing pattern"""
-    
+    """Neutrino timing pattern with simple flavor oscillation"""
+
+    flavor: str = "electron"
+    oscillation_period: int = 1000
+    flavor_cycle: Tuple[str, str, str] = ("electron", "muon", "tau")
+
     def __post_init__(self):
         self.particle_type = ParticleType.NEUTRINO
         self.stability_level = ParticleStabilityLevel.STABLE
@@ -198,6 +208,11 @@ class NeutrinoTimingPattern(ParticleTimingPattern):
             "propagation_efficiency": 0.99,
             "matter_transparency": 0.98
         }
+
+    def oscillate_flavor(self, tick: int) -> None:
+        """Update flavor based on current tick."""
+        index = (tick // self.oscillation_period) % len(self.flavor_cycle)
+        self.flavor = self.flavor_cycle[index]
 @dataclass
 class PhotonTimingPattern(ParticleTimingPattern):
     """Photon as electromagnetic timing disturbance propagating through space"""
@@ -285,7 +300,7 @@ class PhotonTimingPattern(ParticleTimingPattern):
     def can_be_emitted_by(self, electron_pattern: 'ElectronTimingPattern') -> bool:
         """Check if this photon can be emitted by the electron"""
         interaction_strength = self.calculate_orbital_interaction_strength(electron_pattern)
-        return interaction_strength > 0.2  # Lower threshold for emission
+        return interaction_strength > 0.3  # Match absorption threshold for symmetry
 # =============================================================================
 # COMPOSITE PARTICLE ARCHITECTURE - Your Nucleon Internal Structure Achievement
 # =============================================================================
@@ -540,29 +555,29 @@ class ParticleFactory:
     """Factory for creating validated particle patterns"""
     
     @staticmethod
-    def create_enhanced_proton() -> EnhancedProtonTimingPattern:
+    def create_enhanced_proton(scale: int = 1) -> EnhancedProtonTimingPattern:
         """Create enhanced proton with >95% AGN survival"""
-        return EnhancedProtonTimingPattern()
+        return EnhancedProtonTimingPattern(scale=scale)
     
     @staticmethod
-    def create_electron() -> ElectronTimingPattern:
-        """Create standard electron pattern"""
-        return ElectronTimingPattern()
+    def create_electron(scale: int = 1) -> ElectronTimingPattern:
+        """Create standard electron pattern with optional scale"""
+        return ElectronTimingPattern(scale=scale)
     
     @staticmethod
-    def create_neutrino() -> NeutrinoTimingPattern:
-        """Create neutrino pattern"""
-        return NeutrinoTimingPattern()
+    def create_neutrino(flavor: str = "electron", oscillation_period: int = 1000) -> NeutrinoTimingPattern:
+        """Create neutrino pattern with specified flavor"""
+        return NeutrinoTimingPattern(flavor=flavor, oscillation_period=oscillation_period)
     
     @staticmethod
-    def create_neutron() -> NeutronTimingPattern:
+    def create_neutron(proton_scale: int = 1, electron_scale: int = 1) -> NeutronTimingPattern:
         """Create neutron with internal structure"""
         neutron = NeutronTimingPattern()
-        
+
         # Initialize with constituent patterns
-        proton = ParticleFactory.create_enhanced_proton()
-        electron = ParticleFactory.create_electron()
-        neutrino = ParticleFactory.create_neutrino()
+        proton = ParticleFactory.create_enhanced_proton(scale=proton_scale)
+        electron = ParticleFactory.create_electron(scale=electron_scale)
+        neutrino = ParticleFactory.create_neutrino("electron")
         
         neutron.initialize_constituents(proton, electron, neutrino)
         
@@ -604,7 +619,8 @@ def test_particles_module():
     # Test 3: Standard particles
     electron = ParticleFactory.create_electron()
     neutrino = ParticleFactory.create_neutrino()
-    print(f"✓ Standard particles: electron ({len(electron.pattern_nodes)} nodes), neutrino ({len(neutrino.pattern_nodes)} nodes)")
+    print(f"✓ Standard particles: electron ({len(electron.pattern_nodes)} nodes),"
+          f" neutrino [{neutrino.flavor}] ({len(neutrino.pattern_nodes)} nodes)")
     
     # Test 4: Neutron composite particle
     neutron = ParticleFactory.create_neutron()

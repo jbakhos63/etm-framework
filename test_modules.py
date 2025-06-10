@@ -62,9 +62,15 @@ def test_core_module():
     # Test neighbors
     neighbors = engine.get_neighbors(*engine.center)
     print(f"✓ Neighbors: {len(neighbors)} for center")
-    
+
     # Test echo fields
     print(f"✓ Echo fields: {len(engine.echo_fields)} positions")
+
+    # Test linear echo gradient
+    engine.apply_linear_echo_gradient(axis=0)
+    grad_start = engine.echo_fields[(0, 0, 0)].rho_local
+    grad_next = engine.echo_fields[(1, 0, 0)].rho_local
+    print(f"✓ Echo gradient: {grad_start:.1f} → {grad_next:.1f}")
     
     return True
 
@@ -110,8 +116,10 @@ def test_particles_module():
     
     # Test enhanced proton
     proton = ParticleFactory.create_enhanced_proton()
+    scaled_proton = ParticleFactory.create_enhanced_proton(scale=2)
     agn_survival = proton.calculate_agn_survival_probability()
     print(f"✓ Enhanced proton: {agn_survival:.3f} AGN survival")
+    print(f"✓ Scaled proton nodes: {len(scaled_proton.pattern_nodes)}")
     
     # Test neutron composite  
     neutron = ParticleFactory.create_neutron()
@@ -127,10 +135,12 @@ def test_particles_module():
     print(f"✓ Photon created: energy={photon.energy_content:.1f} eV")
 
     # Test photon-electron interaction (create electron first)
-    electron = ParticleFactory.create_electron()  # <-- ADD THIS LINE
+    electron = ParticleFactory.create_electron()
+    scaled_electron = ParticleFactory.create_electron(scale=2)
     interaction_strength = photon.calculate_orbital_interaction_strength(electron)
     can_absorb = photon.can_be_absorbed_by(electron)
     print(f"✓ Photon-electron interaction: {interaction_strength:.3f} strength, absorption: {can_absorb}")
+    print(f"✓ Scaled electron nodes: {len(scaled_electron.pattern_nodes)}")
 
     # Test different photon energies
     visible_photon = ParticleFactory.create_visible_photon()

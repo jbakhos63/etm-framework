@@ -1477,6 +1477,21 @@ nuclear_coordination_coupling >> echo_field_coupling > reorganization_coupling >
 
 **Validation Status**: ✅ **Theoretically Established** through systematic coordination optimization analysis and **Computationally Confirmed** through echo field interaction studies demonstrating electromagnetic-like force emergence. Nuclear coordination studies show strong force-like binding effects emerging from short-range timing coordination optimization. Large-scale coordination effects exhibit gravitational-like scaling relationships with pattern mass and distance, confirming the unified coordination framework for force emergence.
 
+
+#### Axiom A17: Scale Invariance of Particle Patterns
+
+**Statement**: Uniformly scaling all node positions of a timing pattern by an integer factor preserves its dynamics when the lattice resolution increases proportionally. Particle behavior depends on relative geometry rather than absolute size.
+
+**Formal Expression**:
+```math
+\mathrm{scale}_k(P) = \{(k x_i, k y_i, k z_i) : (x_i, y_i, z_i) \in P\}
+P_k(t) \cong P(t)\quad \text{for integer } k>0
+```
+
+**Physical Interpretation**: Trial 046 demonstrated that doubling the electron pattern's spacing left its trajectory unchanged over initial ticks. This suggests ETM rules exhibit invariance under discrete scaling. Future trials will scan larger values of `k` to establish the minimal stable node count for each particle species.
+
+**Validation Status**: ✅ **Preliminary** – supported by Trial 046 with `k=2`. Additional resolution scans are planned.
+
 ---
 \n### Recent Validation Trials (2025)\n\nThe following trials provide additional confirmation for the axioms presented in this chapter:\n\n1. **Trial 001 – Electron–Positron Annihilation**: Verified that detection events convert timing-strain energy into photon identities while conserving total energy.\n2. **Trial 002 – Energy Calculation**: Demonstrated that calibrated phase advancement rates reproduce hydrogen ground-state energy, supporting energy quantization principles.\n3. **Trial 003 – Photon Propagation**: Confirmed deterministic one-step-per-tick motion for photon identities, consistent with discrete time evolution axioms.\n
 
