@@ -65,6 +65,7 @@ Place an electron and positron at rest in a large lattice so that they interact 
 - **Validation**: Trial 041 repeated the photon emission test with identical parameters. The interaction strength again reached 0.405 and emission was allowed, demonstrating symmetry with the absorption criterion.
 - **Validation**: Trial 042 extended the electron absorption-energy run. On a 51×51×51 lattice the electron gained 13.6 eV after absorbing a hydrogen photon, exactly matching the photon energy and showing boundary size does not affect energy transfer.
 - **Validation**: Trial 043 extended the electric attraction simulation. On a 51×51×51 lattice the electron and positron moved steadily toward each other for hundreds of ticks, confirming long-range Coulomb attraction purely from ETM echo gradients.
+- **Validation**: Trial 044 expanded the electric force measurement to a 51×51×51 lattice. Three separations showed convergence times increasing with initial distance, enriching the data for deriving the ETM Coulomb constant.
 
 ### 4. Magnetic Interaction
 Introduce moving charges and analyze the timing disturbances produced by their motion.
