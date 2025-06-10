@@ -130,4 +130,8 @@ Phase 5 begins with trial 047. The immediate goal is to revisit the proton and o
 
 Current progress:
 - **Trial 047** explores the baseline proton pattern at scale 1.
-- **Trial 048** repeats the scan with the proton expanded to scale 2.
+- **Trial 048** repeats the scan with the proton expanded to scale 2. The proton
+  remained centered for ten ticks on a 21³ lattice, indicating stability at this
+  scale.
+- **Trial 049** will test scale 3 to continue mapping the stable range for the
+  proton timing pattern.

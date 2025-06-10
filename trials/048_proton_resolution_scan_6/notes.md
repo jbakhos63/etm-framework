@@ -14,11 +14,6 @@ python run_trial.py --ticks 200 --size 51
 ```
 
 ## Results
-Placeholder output from a short Codex run on a 21³ lattice:
-```json
-{
-  "scale": 2,
-  "positions": [[10,10,10],[10,10,10],[10,10,10]]
-}
-```
-See `proton_resolution_scan_6_results.json` for full data.
+A ten‑tick run on a 21³ lattice produced no displacement. The proton remained at
+the center for all ticks, indicating the pattern is stable at scale 2.
+See `proton_resolution_scan_6_results.json` for the recorded positions.

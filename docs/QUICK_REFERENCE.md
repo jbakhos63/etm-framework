@@ -61,6 +61,7 @@ Results are stored in JSON format within the trial folder and explained in `note
   - Electron remained stable with `scale=2`; continue scanning scale factors to identify minimal stable node count
 - 047 Proton resolution scan (phase 5)
 - 048 Proton resolution scan (scale 2, phase 5)
+- 049 Proton resolution scan (scale 3, phase 5)
 
 ## Fundamental Rule
 All motion, propagation, and effects after initialization must emerge only from ETM logic—no explicit velocity functions or external forces are allowed. Any `velocity` set on an identity is applied only at the first tick to establish an initial displacement and is then cleared.
