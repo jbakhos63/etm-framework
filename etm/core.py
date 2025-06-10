@@ -284,6 +284,12 @@ class ETMEngine:
             for y in range(self.lattice_shape[1]):
                 for z in range(self.lattice_shape[2]):
                     self.echo_fields[(x, y, z)] = EchoField()
+
+    def apply_linear_echo_gradient(self, axis: int = 0, offset: float = 0.0, scale: float = 1.0) -> None:
+        """Set `rho_local` as a linear function along the specified axis."""
+        for pos in self.echo_fields:
+            coord = pos[axis]
+            self.echo_fields[pos].rho_local = offset + scale * coord
     
     def get_neighbors(self, x: int, y: int, z: int) -> List[Tuple[int, int, int]]:
         """Get neighbor positions based on VALIDATED 8-connectivity - PRESERVED EXACTLY"""
