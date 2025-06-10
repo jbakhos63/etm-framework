@@ -18,7 +18,10 @@ def run_trial(max_ticks: int = 200, lattice_size=(51, 51, 51), scale: int = 1):
     engine = ETMEngine(config)
 
     center = engine.center
-    p_pattern = ParticleFactory.create_proton(scale=scale)
+    # Use the validated enhanced proton pattern. There is currently no
+    # generic ``create_proton`` helper, so we call ``create_enhanced_proton``
+    # directly.
+    p_pattern = ParticleFactory.create_enhanced_proton(scale=scale)
     proton = Identity(
         module_tag="PROTON",
         ancestry="pos",
