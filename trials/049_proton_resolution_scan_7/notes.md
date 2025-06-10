@@ -14,6 +14,7 @@ python run_trial.py --ticks 200 --size 51
 ```
 
 ## Results
-A ten‑tick run on a 21³ lattice produced no displacement when the scale was two.
-This run will check whether the pattern remains stable at scale 3.
-See `proton_resolution_scan_7_results.json` for the recorded positions.
+A ten‑tick run on a 21³ lattice produced no displacement when the scale was set to
+three. The proton remained centered for all ticks, confirming stability at this
+larger pattern size. See `proton_resolution_scan_7_results.json` for the recorded
+positions.

@@ -133,5 +133,5 @@ Current progress:
 - **Trial 048** repeats the scan with the proton expanded to scale 2. The proton
   remained centered for ten ticks on a 21³ lattice, indicating stability at this
   scale.
-- **Trial 049** will test scale 3 to continue mapping the stable range for the
-  proton timing pattern.
+- **Trial 049** repeated the scan at scale 3. The proton stayed centered for ten
+  ticks on a 21³ lattice, demonstrating stability at this larger scale.
