@@ -7,7 +7,8 @@ All motion, propagation, and effects MUST take place only according to ETM logic
 ### Development Phases
 - **Phase 1 – Codex Validation**: Implement all stages using lattices up to about 30×30×30 to ensure functionality in this chat environment.
 - **Phase 2 – Home Computer Scale-Up**: Once code is stable, run larger lattices (50³ or greater) on your personal machine for extended simulations.
-- **Phase 3 – Extended Scale and Neutrino Exploration**: Trials 035–051 increase simulation size and duration, develop dedicated neutrino patterns, and test alternative timing rules while retaining pure ETM logic.
+- **Phase 3 – Extended Scale and Neutrino Exploration**: Trials 035–044 increased simulation size and tested neutrino patterns while retaining pure ETM logic.
+- **Phase 4 – Particle Resolution Studies**: Starting with trial 045, vary lattice resolution (≈51³ and above) to determine how many nodes best represent each particle. Roughly ten additional trials are planned to refine constants.
 
 ## Overview of Constants
 We aim to establish ETM analogues for the following:
@@ -109,6 +110,7 @@ Achieving four significant digits should be feasible with 10^7–10^8 nodes if s
 All eighteen trials were rerun after implementing the single-use velocity policy. Each produced identical results to earlier runs, confirming that motion beyond initialization arises solely from ETM return logic.
 
 ### Phase 3 Plan
-Phase 3 introduces trials 035–051. These runs explore lattices approaching 10^8 nodes and may last for thousands of ticks. Dedicated neutrino timing patterns and flavor oscillation logic will be tested alongside alternative echo-field update schemes. All simulations must continue to evolve strictly from ETM rules after initialization.
-The neutrino pattern now supports a simple oscillation method that cycles the
-flavor between electron, muon, and tau types based on the current tick.
+Phase 3 covered trials 035–044. These runs explored lattices approaching 10^8 nodes and tested neutrino timing patterns alongside alternative echo-field updates. All simulations continued to evolve strictly from ETM rules after initialization. The neutrino pattern now supports a simple oscillation method that cycles the flavor between electron, muon, and tau types based on the current tick.
+
+### Phase 4 Plan
+Phase 4 begins with trial 045. The priority is determining the lattice resolution needed for stable particle behavior. Simulations will vary overall lattice size while keeping particle definitions unchanged to see how many nodes best express each identity. About ten trials are anticipated before constants can be derived with four-digit precision.
