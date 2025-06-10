@@ -59,6 +59,7 @@ Place an electron and positron at rest in a large lattice so that they interact 
 - **Validation**: Trial 035 extended electron–positron annihilation for hundreds of ticks on a 51×51×51 lattice. No collision occurred and energy remained perfectly conserved, confirming stability at larger scales.
 - **Validation**: Trial 036 repeated the energy calculation on a 51×51×51 lattice for hundreds of ticks. The electron's energy stayed constant within 0.0001 eV, verifying the calibrated energy function at extended scale.
 - **Validation**: Trial 037 extended photon propagation on a 51×51×51 lattice for hundreds of ticks. The photon moved a single step and then remained stationary, confirming that pure ETM rules alone do not sustain propagation without an echo gradient.
+- **Validation**: Trial 038 extended the photon speed test on the same lattice size with a uniform echo gradient. The photon advanced one lattice step per tick for hundreds of ticks, demonstrating stable propagation under ETM logic.
 
 ### 4. Magnetic Interaction
 Introduce moving charges and analyze the timing disturbances produced by their motion.

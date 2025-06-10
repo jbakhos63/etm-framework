@@ -62,9 +62,15 @@ def test_core_module():
     # Test neighbors
     neighbors = engine.get_neighbors(*engine.center)
     print(f"✓ Neighbors: {len(neighbors)} for center")
-    
+
     # Test echo fields
     print(f"✓ Echo fields: {len(engine.echo_fields)} positions")
+
+    # Test linear echo gradient
+    engine.apply_linear_echo_gradient(axis=0)
+    grad_start = engine.echo_fields[(0, 0, 0)].rho_local
+    grad_next = engine.echo_fields[(1, 0, 0)].rho_local
+    print(f"✓ Echo gradient: {grad_start:.1f} → {grad_next:.1f}")
     
     return True
 

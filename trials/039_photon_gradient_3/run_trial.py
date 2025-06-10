@@ -18,11 +18,9 @@ def run_trial(max_ticks: int = 500, lattice_size=(51, 51, 51)):
     engine = ETMEngine(config)
 
     center = engine.center
+    engine.apply_linear_echo_gradient(axis=1, offset=-center[1])
     for pos in engine.echo_fields:
-        y = pos[1]
         engine.recruiters[pos] = Recruiter(theta_recruiter=0.0, ancestry_recruiter="neutral")
-        engine.echo_fields[pos].rho_local = y - center[1]
-
     photon_pattern = ParticleFactory.create_visible_photon()
     photon = Identity(
         module_tag="PHOTON",
