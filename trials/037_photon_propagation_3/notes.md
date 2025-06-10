@@ -29,7 +29,16 @@ Running `run_trial.py` prints the list of positions visited by the photon. Examp
 The photon advances according to ETM logic. In the short Codex run the trajectory remained constant after the first step due to the small lattice. Extended runs will reveal the full propagation pattern.
 
 ### Latest Results (2025 Run)
-See `photon_propagation_3_results.json` for output.
+The Codex regression run used a 21×21×21 lattice for two ticks. The photon moved
+one step and then remained stationary due to boundary reflections:
+
+```json
+{
+  "positions": [[10,10,10], [11,10,10], [11,10,10]]
+}
+```
+
+See `photon_propagation_3_results.json` for the full output.
 
 Run in the background on Windows with:
 
