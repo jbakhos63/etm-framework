@@ -56,6 +56,7 @@ Place an electron and positron at rest in a large lattice so that they interact 
 - **Validation**: Trial 026 extended the electron–positron attraction on a 51×51×51 lattice for hundreds of ticks, strengthening the data set for deriving the ETM Coulomb constant.
 - **Validation**: Trial 027 repeated the electric force measurement on a larger lattice, providing improved separation data for the ETM Coulomb constant.
 - **Validation**: Trial 034 repeated the electron repulsion experiment on a 51×51×51 lattice for hundreds of ticks. A short Codex run on a 21×21×21 grid confirmed repulsion with initial velocities applied once. The resulting trajectories will refine the Coulomb constant measurement.
+- **Validation**: Trial 035 extended electron–positron annihilation for hundreds of ticks on a 51×51×51 lattice. No collision occurred and energy remained perfectly conserved, confirming stability at larger scales.
 
 ### 4. Magnetic Interaction
 Introduce moving charges and analyze the timing disturbances produced by their motion.
@@ -100,3 +101,5 @@ All eighteen trials were rerun after implementing the single-use velocity policy
 
 ### Phase 3 Plan
 Phase 3 introduces trials 035–051. These runs explore lattices approaching 10^8 nodes and may last for thousands of ticks. Dedicated neutrino timing patterns and flavor oscillation logic will be tested alongside alternative echo-field update schemes. All simulations must continue to evolve strictly from ETM rules after initialization.
+The neutrino pattern now supports a simple oscillation method that cycles the
+flavor between electron, muon, and tau types based on the current tick.

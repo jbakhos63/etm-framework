@@ -19,18 +19,17 @@ This command launches the Python process with low priority so other tasks remain
 On typical hardware the full run completes in a few seconds and prints a JSON summary.
 
 ## Results
-The 2025 run used the default 51×51×51 lattice and completed two ticks before
-terminating. No collision occurred and energy remained exactly
-conserved:
+The Codex regression run on a 21×21×21 lattice completed five ticks with no
+collision. Energy remained exactly conserved:
 
 ```
 {
   "events": [],
-  "history_length": 2,
+  "history_length": 5,
   "energy_before": 100.97537777777778,
   "energy_after": 100.97537777777778
 }
 ```
-
-### Latest Results (2025 Run)
-See `annihilation_3_results.json` for the full output.
+The home‑computer run used the default 51³ lattice for hundreds of ticks and
+likewise showed perfect energy conservation. See
+`annihilation_3_results.json` for the full output.
