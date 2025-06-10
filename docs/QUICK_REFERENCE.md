@@ -45,6 +45,13 @@ Results are stored in JSON format within the trial folder and explained in `note
 - 032 Extended Planck interval estimate
 - 033 Extended Planck length estimate
 - 034 Extended electron repulsion (500 ticks on 51³ lattice)
+- 035 Extended electron–positron annihilation (phase 3)
+- 036 Extended energy calculation (phase 3)
+- 037 Extended photon propagation (phase 3)
+- 038 Extended photon speed (phase 3)
+- 039 Extended photon gradient (phase 3)
+- 040 Extended photon absorption (phase 3)
+- 041 Extended photon emission (phase 3)
 ## Fundamental Rule
 All motion, propagation, and effects after initialization must emerge only from ETM logic—no explicit velocity functions or external forces are allowed. Any `velocity` set on an identity is applied only at the first tick to establish an initial displacement and is then cleared.
 

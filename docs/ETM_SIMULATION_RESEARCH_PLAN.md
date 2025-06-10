@@ -7,6 +7,7 @@ All motion, propagation, and effects MUST take place only according to ETM logic
 ### Development Phases
 - **Phase 1 – Codex Validation**: Implement all stages using lattices up to about 30×30×30 to ensure functionality in this chat environment.
 - **Phase 2 – Home Computer Scale-Up**: Once code is stable, run larger lattices (50³ or greater) on your personal machine for extended simulations.
+- **Phase 3 – Extended Scale and Neutrino Exploration**: Trials 035–051 increase simulation size and duration, develop dedicated neutrino patterns, and test alternative timing rules while retaining pure ETM logic.
 
 ## Overview of Constants
 We aim to establish ETM analogues for the following:
@@ -55,6 +56,14 @@ Place an electron and positron at rest in a large lattice so that they interact 
 - **Validation**: Trial 026 extended the electron–positron attraction on a 51×51×51 lattice for hundreds of ticks, strengthening the data set for deriving the ETM Coulomb constant.
 - **Validation**: Trial 027 repeated the electric force measurement on a larger lattice, providing improved separation data for the ETM Coulomb constant.
 - **Validation**: Trial 034 repeated the electron repulsion experiment on a 51×51×51 lattice for hundreds of ticks. A short Codex run on a 21×21×21 grid confirmed repulsion with initial velocities applied once. The resulting trajectories will refine the Coulomb constant measurement.
+- **Validation**: Trial 035 extended electron–positron annihilation for hundreds of ticks on a 51×51×51 lattice. No collision occurred and energy remained perfectly conserved, confirming stability at larger scales.
+- **Validation**: Trial 036 repeated the energy calculation on a 51×51×51 lattice for hundreds of ticks. The electron's energy stayed constant within 0.0001 eV, verifying the calibrated energy function at extended scale.
+- **Validation**: Trial 037 extended photon propagation on a 51×51×51 lattice for hundreds of ticks. The photon moved a single step and then remained stationary, confirming that pure ETM rules alone do not sustain propagation without an echo gradient.
+- **Validation**: Trial 038 extended the photon speed test on the same lattice size with a uniform echo gradient. The photon advanced one lattice step per tick for hundreds of ticks, demonstrating stable propagation under ETM logic.
+- **Validation**: Trial 039 repeated the photon gradient test on a 51×51×51 lattice. With a linear echo-field gradient applied through the new helper method, the photon drifted steadily along the gradient for hundreds of ticks, confirming stable deflection solely from timing rules.
+
+- **Validation**: Trial 040 extended the photon absorption check on the same lattice size. A hydrogen photon coupled to the electron timing pattern with strength ~0.405, exceeding the absorption threshold and confirming the orbital rules at larger scale.
+- **Validation**: Trial 041 repeated the photon emission test with identical parameters. The interaction strength again reached 0.405 and emission was allowed, demonstrating symmetry with the absorption criterion.
 
 ### 4. Magnetic Interaction
 Introduce moving charges and analyze the timing disturbances produced by their motion.
@@ -96,3 +105,8 @@ Achieving four significant digits should be feasible with 10^7–10^8 nodes if s
 
 ### 2025 Validation Run
 All eighteen trials were rerun after implementing the single-use velocity policy. Each produced identical results to earlier runs, confirming that motion beyond initialization arises solely from ETM return logic.
+
+### Phase 3 Plan
+Phase 3 introduces trials 035–051. These runs explore lattices approaching 10^8 nodes and may last for thousands of ticks. Dedicated neutrino timing patterns and flavor oscillation logic will be tested alongside alternative echo-field update schemes. All simulations must continue to evolve strictly from ETM rules after initialization.
+The neutrino pattern now supports a simple oscillation method that cycles the
+flavor between electron, muon, and tau types based on the current tick.
