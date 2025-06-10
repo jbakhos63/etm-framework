@@ -116,8 +116,10 @@ def test_particles_module():
     
     # Test enhanced proton
     proton = ParticleFactory.create_enhanced_proton()
+    scaled_proton = ParticleFactory.create_enhanced_proton(scale=2)
     agn_survival = proton.calculate_agn_survival_probability()
     print(f"✓ Enhanced proton: {agn_survival:.3f} AGN survival")
+    print(f"✓ Scaled proton nodes: {len(scaled_proton.pattern_nodes)}")
     
     # Test neutron composite  
     neutron = ParticleFactory.create_neutron()

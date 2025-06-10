@@ -80,6 +80,7 @@ Introduce moving charges and analyze the timing disturbances produced by their m
 - **Validation**: Trial 030 repeated the parallel current attraction run on a 51×51×51 lattice, supplying additional magnetic-force data.
 - **Validation**: Trial 045 began the particle-resolution studies on a 51×51×51 lattice. A moving electron produced a symmetric echo profile while advancing one step per tick, confirming magnetic-field rules at higher resolution.
 - **Validation**: Trial 046 scanned electron patterns with different node scales. Early results show the electron remains stationary for small tick counts when the scale is doubled, suggesting stability is preserved as resolution increases.
+- **Validation**: Trial 046 scanned electron patterns with different node scales. Early results show the electron remains stationary for small tick counts when the scale is doubled, suggesting stability is preserved as resolution increases. Upcoming trials will vary the scale further to determine the minimum node count required for stable motion and interactions.
 
 ### 5. Fine Structure Constant
 Combine the results from electric and magnetic simulations with orbital transition data.
@@ -118,3 +119,5 @@ Phase 3 covered trials 035–044. These runs explored lattices approaching 10^8 
 Phase 4 begins with trial 045. The priority is determining the lattice resolution needed for stable particle behavior. Simulations will vary overall lattice size while keeping particle definitions unchanged to see how many nodes best express each identity. About ten trials are anticipated before constants can be derived with four-digit precision.
 
 During this phase we will also test scaling factors for the particle patterns themselves. By adjusting how many lattice nodes compose each identity, we hope to discover the minimum node count that still reproduces stable motion and interactions. Resolution studies will compare different lattice sizes and particle scales to isolate which combination most closely matches known physical behavior without importing external theory.
+
+Early results from trial 046 confirm that doubling the electron pattern scale retains stability on short runs. Going forward each trial will prioritize scanning particle scales—particularly electrons and protons—while incrementally increasing lattice resolution toward the target 51×51×51 and beyond.

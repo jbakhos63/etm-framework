@@ -57,6 +57,8 @@ Results are stored in JSON format within the trial folder and explained in `note
 - 044 Extended electric force measurement (phase 3)
 - 045 Magnetic field measurement (phase 4)
 - 046 Electron resolution scan (phase 4)
+- 046 Electron resolution scan (phase 4)
+  - Electron remained stable with `scale=2`; continue scanning scale factors to identify minimal stable node count
 
 ## Fundamental Rule
 All motion, propagation, and effects after initialization must emerge only from ETM logic—no explicit velocity functions or external forces are allowed. Any `velocity` set on an identity is applied only at the first tick to establish an initial displacement and is then cleared.
@@ -69,3 +71,4 @@ Use the optional `--sleep` argument in any trial's run script to slow down each 
 2. **Home Computer Scale-Up** – rerun on larger lattices (≥50³) for higher precision.
 3. **Extended Scale and Neutrino Exploration** – large lattices with neutrino patterns (phase 3).
 4. **Particle Resolution Studies** – vary lattice size to determine how many nodes best express each particle (phase 4).
+   Priority: scan particle scale factors alongside lattice resolution to establish the minimal stable node count for each identity.
