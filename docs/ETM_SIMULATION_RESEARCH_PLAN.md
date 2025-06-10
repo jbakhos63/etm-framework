@@ -61,7 +61,6 @@ Place an electron and positron at rest in a large lattice so that they interact 
 - **Validation**: Trial 037 extended photon propagation on a 51×51×51 lattice for hundreds of ticks. The photon moved a single step and then remained stationary, confirming that pure ETM rules alone do not sustain propagation without an echo gradient.
 - **Validation**: Trial 038 extended the photon speed test on the same lattice size with a uniform echo gradient. The photon advanced one lattice step per tick for hundreds of ticks, demonstrating stable propagation under ETM logic.
 - **Validation**: Trial 039 repeated the photon gradient test on a 51×51×51 lattice. With a linear echo-field gradient applied through the new helper method, the photon drifted steadily along the gradient for hundreds of ticks, confirming stable deflection solely from timing rules.
-
 - **Validation**: Trial 040 extended the photon absorption check on the same lattice size. A hydrogen photon coupled to the electron timing pattern with strength ~0.405, exceeding the absorption threshold and confirming the orbital rules at larger scale.
 - **Validation**: Trial 041 repeated the photon emission test with identical parameters. The interaction strength again reached 0.405 and emission was allowed, demonstrating symmetry with the absorption criterion.
 - **Validation**: Trial 042 extended the electron absorption-energy run. On a 51×51×51 lattice the electron gained 13.6 eV after absorbing a hydrogen photon, exactly matching the photon energy and showing boundary size does not affect energy transfer.
