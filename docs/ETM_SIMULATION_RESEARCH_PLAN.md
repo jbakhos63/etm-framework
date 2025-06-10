@@ -4,6 +4,9 @@ This document outlines a step-by-step strategy for determining the ETM equivalen
 ### Fundamental ETM Dynamics Rule
 All motion, propagation, and effects MUST take place only according to ETM logic, including the propagation of light. It is ok to start an identity like an electron with an initial velocity, but after the start, it must proceed disappearing from some nodes and returning in other nodes purely and exclusively from ETM logic, NOT from some arbitrarily defined velocity function, and the same goes for the propagation of light. In fact, every single change in the simulation must only occur due to ETM logic after the start. This must be a standing rule in all testing.
 
+### Backwards Compatibility Policy
+Particle definitions are expected to evolve as ETM logic is refined. Backwards compatibility therefore means that the **same categories of experiments** must still execute successfully when the code and particle patterns are updated. When any rule or definition changes, rerun prior validated trials to ensure they still pass—even though the internal particle designs may have changed. Earlier results remain valid if reproduced under the new logic without requiring identical timing patterns.
+
 ### Development Phases
 - **Phase 1 – Codex Validation**: Implement all stages using lattices up to about 30×30×30 to ensure functionality in this chat environment.
 - **Phase 2 – Home Computer Scale-Up**: Once code is stable, run larger lattices (50³ or greater) on your personal machine for extended simulations.
@@ -116,8 +119,19 @@ All eighteen trials were rerun after implementing the single-use velocity policy
 Phase 3 covered trials 035–044. These runs explored lattices approaching 10^8 nodes and tested neutrino timing patterns alongside alternative echo-field updates. All simulations continued to evolve strictly from ETM rules after initialization. The neutrino pattern now supports a simple oscillation method that cycles the flavor between electron, muon, and tau types based on the current tick.
 
 ### Phase 4 Plan
-Phase 4 begins with trial 045. The priority is determining the lattice resolution needed for stable particle behavior. Simulations will vary overall lattice size while keeping particle definitions unchanged to see how many nodes best express each identity. About ten trials are anticipated before constants can be derived with four-digit precision.
+Phase 4 begins with trial 045. The priority is determining the lattice resolution needed for stable particle behavior. Simulations will vary overall lattice size while refining particle definitions to see how many nodes best express each identity. Earlier successful trials must still pass after these updates, providing backward compatibility even when the particle patterns change. About ten trials are anticipated before constants can be derived with four-digit precision.
 
 During this phase we will also test scaling factors for the particle patterns themselves. By adjusting how many lattice nodes compose each identity, we hope to discover the minimum node count that still reproduces stable motion and interactions. Resolution studies will compare different lattice sizes and particle scales to isolate which combination most closely matches known physical behavior without importing external theory.
 
 Early results from trial 046 confirm that doubling the electron pattern scale retains stability on short runs. Going forward each trial will prioritize scanning particle scales—particularly electrons and protons—while incrementally increasing lattice resolution toward the target 51×51×51 and beyond.
+
+### Phase 5 Plan
+Phase 5 begins with trial 047. The immediate goal is to revisit the proton and other composite particles to determine their optimal node counts and timing patterns. Definitions of the proton, neutron, and the charged leptons will be refined based on simulation results. Each change to the particle patterns must be accompanied by rerunning earlier successful trials to verify backward compatibility. Once stable definitions are achieved we will resume deriving the ETM analogues of the physical constants using the updated models.
+
+Current progress:
+- **Trial 047** explores the baseline proton pattern at scale 1.
+- **Trial 048** repeats the scan with the proton expanded to scale 2. The proton
+  remained centered for ten ticks on a 21³ lattice, indicating stability at this
+  scale.
+- **Trial 049** will test scale 3 to continue mapping the stable range for the
+  proton timing pattern.

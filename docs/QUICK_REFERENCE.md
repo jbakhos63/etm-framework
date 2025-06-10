@@ -59,9 +59,14 @@ Results are stored in JSON format within the trial folder and explained in `note
 - 046 Electron resolution scan (phase 4)
 - 046 Electron resolution scan (phase 4)
   - Electron remained stable with `scale=2`; continue scanning scale factors to identify minimal stable node count
+- 047 Proton resolution scan (phase 5)
+- 048 Proton resolution scan (scale 2, phase 5)
+- 049 Proton resolution scan (scale 3, phase 5)
 
 ## Fundamental Rule
 All motion, propagation, and effects after initialization must emerge only from ETM logic—no explicit velocity functions or external forces are allowed. Any `velocity` set on an identity is applied only at the first tick to establish an initial displacement and is then cleared.
+
+When particle definitions or rules are refined, rerun earlier successful trials. Backward compatibility is satisfied if those experiments still succeed even though the particle patterns may have changed.
 
 For detailed guidance see `docs/AI_DEVELOPER_GUIDE.md`, the full `ETM_SIMULATION_RESEARCH_PLAN.md`, and `docs/ETM_CONSTANT_DERIVATION_PLAN.md`.
 Use the optional `--sleep` argument in any trial's run script to slow down each tick if a background run needs to stay responsive.
@@ -72,3 +77,4 @@ Use the optional `--sleep` argument in any trial's run script to slow down each 
 3. **Extended Scale and Neutrino Exploration** – large lattices with neutrino patterns (phase 3).
 4. **Particle Resolution Studies** – vary lattice size to determine how many nodes best express each particle (phase 4).
    Priority: scan particle scale factors alongside lattice resolution to establish the minimal stable node count for each identity.
+5. **Composite Particle Review** – beginning with trial 47, refine proton and neutron patterns while rerunning earlier trials to verify backward compatibility.

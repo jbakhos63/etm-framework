@@ -5,9 +5,12 @@ This guide explains how to work with the Euclidean Timing Mechanics simulation l
 ## 1. Framework Overview
 ETM represents particles as timing patterns across a discrete lattice. Node interactions alter local tick rates, and all propagation arises from this timing logic. After initialization no velocity or force is imposed externally; motion results solely from the ETM update rules.
 
-Development proceeds in two phases:
+Development proceeds in several phases:
 1. **Codex Validation** – use lattices up to about 30×30×30 nodes to verify each simulation in this repository.
 2. **Home Computer Scale-Up** – once stable, rerun the simulations on larger lattices (50³ or more) for extended periods to refine constant measurements.
+3. **Extended Scale and Neutrino Exploration** – probe lattices approaching 10⁸ nodes while testing neutrino timing patterns.
+4. **Particle Resolution Studies** – vary lattice resolution and adjust particle definitions to identify minimal stable node counts.
+5. **Composite Particle Review** – starting with trial 47, revisit protons and other composites while ensuring backward compatibility by re-running earlier trials.
 
 The file `docs/ETM_CONSTANT_DERIVATION_PLAN.md` details how these simulations map to fundamental constants.
 
@@ -75,7 +78,10 @@ Recent trials illustrate core functionality:
 
 By following these practices, researchers can build upon the ETM framework while preserving prior validations.
 
-## 8. Running Extended Simulations
+## 8. Backward Compatibility
+Particle timing patterns will evolve as the theory improves. When definitions change, rerun all previously successful trials. Backward compatibility is achieved if those experiments still produce their expected outcomes, even though the internal particle patterns may differ from earlier versions.
+
+## 9. Running Extended Simulations
 Phase 2 experiments may require hundreds of ticks on lattices larger than 50³.
 Each `run_trial.py` script accepts `--ticks` and `--size` arguments to control
 these parameters. On Windows you can launch a long run in the background with:
