@@ -21,7 +21,6 @@ def run_trial(max_ticks: int = 500, lattice_size=(51, 51, 51)):
     engine.apply_linear_echo_gradient(axis=1, offset=-center[1])
     for pos in engine.echo_fields:
         engine.recruiters[pos] = Recruiter(theta_recruiter=0.0, ancestry_recruiter="neutral")
-
     photon_pattern = ParticleFactory.create_visible_photon()
     photon = Identity(
         module_tag="PHOTON",
