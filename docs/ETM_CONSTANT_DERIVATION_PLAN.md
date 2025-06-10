@@ -47,6 +47,9 @@ This document outlines a progressive set of simulations for defining Euclidean T
 ## Development Phases
 1. **Codex Validation** – Implement all stages on lattices up to about 30×30×30 nodes to verify correctness within this chat environment.
 2. **Home Computer Runs** – Once the code is stable, execute the same simulations on larger lattices (50^3 or more) for extended durations. Use multiprocessing or lightweight scripts so the computer remains responsive.
+3. **Extended Scale and Neutrino Exploration** – explore lattices approaching 10⁸ nodes while testing neutrino patterns.
+4. **Particle Resolution Studies** – vary lattice resolution and refine particle definitions.
+5. **Composite Particle Review** – revisit proton and neutron designs starting with trial 47, ensuring earlier trials remain valid.
 
 Each stage refines the constants' precision. Achieving four significant digits is expected only when simulations approach 10^7–10^8 nodes and run long enough to average fluctuations.
 
