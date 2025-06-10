@@ -127,3 +127,7 @@ Early results from trial 046 confirm that doubling the electron pattern scale r
 
 ### Phase 5 Plan
 Phase 5 begins with trial 047. The immediate goal is to revisit the proton and other composite particles to determine their optimal node counts and timing patterns. Definitions of the proton, neutron, and the charged leptons will be refined based on simulation results. Each change to the particle patterns must be accompanied by rerunning earlier successful trials to verify backward compatibility. Once stable definitions are achieved we will resume deriving the ETM analogues of the physical constants using the updated models.
+
+Current progress:
+- **Trial 047** explores the baseline proton pattern at scale 1.
+- **Trial 048** repeats the scan with the proton expanded to scale 2.
