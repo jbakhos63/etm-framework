@@ -38,6 +38,9 @@ python test_modules.py
 ```
 Expected output is `ALL TESTS PASSED!` confirming that the configuration, core engine, particles, and integration tests run correctly.
 
+### Backward Compatibility
+As ETM logic improves the particle timing patterns may be redefined. Earlier trials must still run successfully under the updated code. Backward compatibility therefore refers to preserving the **behavior** of validated experiments, not freezing the internal definitions of particles.
+
 ## Running Validation Trials
 Each numbered folder in `trials/` contains scripts and documentation for a specific simulation.
 To execute a trial run:
@@ -80,9 +83,12 @@ Recent trials include:
   approach and repulsion)
 
 ## Research Plan
-The repository follows a two-phase development strategy:
+The repository follows a staged development strategy:
 1. **Codex Validation** – implement each simulation using lattices up to about 30×30×30 nodes to ensure code correctness in this environment.
 2. **Home Computer Scale-Up** – run the same simulations on larger lattices (50³ or more) for extended durations to refine constants.
+3. **Extended Scale and Neutrino Exploration** – explore lattices approaching 10⁸ nodes while testing neutrino timing patterns.
+4. **Particle Resolution Studies** – vary lattice resolution and refine particle definitions to determine minimal stable node counts.
+5. **Composite Particle Review** – beginning with trial 047, revisit protons and other composites to optimize their timing patterns and verify backward compatibility.
 
 See `docs/ETM_SIMULATION_RESEARCH_PLAN.md` and `docs/ETM_CONSTANT_DERIVATION_PLAN.md` for details. Both documents emphasize that after initialization **all motion and interactions must arise exclusively from ETM logic**. Any velocity specified for an identity is used only once at creation to shift its starting position; further movement must result solely from ETM return rules.
 
@@ -90,6 +96,7 @@ See `docs/ETM_SIMULATION_RESEARCH_PLAN.md` and `docs/ETM_CONSTANT_DERIVATION_PLA
 - Preserve validated parameters in `etm/config.py`
 - Add new features in modular form with accompanying tests
 - Document all simulation results in the `docs` and `trials` directories
+- When particle definitions or rules change, rerun earlier successful trials to confirm backward compatibility.
 
 The ETM framework is released under the MIT license. Researchers may reproduce and extend the work provided that the underlying timing logic is maintained.
 
