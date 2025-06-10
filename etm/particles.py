@@ -294,7 +294,7 @@ class PhotonTimingPattern(ParticleTimingPattern):
     def can_be_emitted_by(self, electron_pattern: 'ElectronTimingPattern') -> bool:
         """Check if this photon can be emitted by the electron"""
         interaction_strength = self.calculate_orbital_interaction_strength(electron_pattern)
-        return interaction_strength > 0.2  # Lower threshold for emission
+        return interaction_strength > 0.3  # Match absorption threshold for symmetry
 # =============================================================================
 # COMPOSITE PARTICLE ARCHITECTURE - Your Nucleon Internal Structure Achievement
 # =============================================================================
