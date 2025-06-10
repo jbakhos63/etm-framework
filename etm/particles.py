@@ -155,20 +155,23 @@ class EnhancedProtonTimingPattern(ParticleTimingPattern):
 @dataclass
 class ElectronTimingPattern(ParticleTimingPattern):
     """Electron as orbital-compatible timing pattern"""
-    
+
+    scale: int = 1
+
     def __post_init__(self):
         self.particle_type = ParticleType.ELECTRON
         self.stability_level = ParticleStabilityLevel.METASTABLE
         self.core_timing_rate = 0.7
-        
+
+        s = self.scale
         self.pattern_nodes = [
             NodePattern((0, 0, 0), timing_rate=0.7, role="electron_core"),
-            NodePattern((1, 0, 0), timing_rate=0.5, role="orbital_interface"),
-            NodePattern((-1, 0, 0), timing_rate=0.5, role="orbital_interface"),
-            NodePattern((0, 1, 0), timing_rate=0.5, role="orbital_interface"),
-            NodePattern((0, -1, 0), timing_rate=0.5, role="orbital_interface"),
-            NodePattern((2, 0, 0), timing_rate=0.3, role="orbital_cloud"),
-            NodePattern((-2, 0, 0), timing_rate=0.3, role="orbital_cloud"),
+            NodePattern((1 * s, 0, 0), timing_rate=0.5, role="orbital_interface"),
+            NodePattern((-1 * s, 0, 0), timing_rate=0.5, role="orbital_interface"),
+            NodePattern((0, 1 * s, 0), timing_rate=0.5, role="orbital_interface"),
+            NodePattern((0, -1 * s, 0), timing_rate=0.5, role="orbital_interface"),
+            NodePattern((2 * s, 0, 0), timing_rate=0.3, role="orbital_cloud"),
+            NodePattern((-2 * s, 0, 0), timing_rate=0.3, role="orbital_cloud"),
         ]
         
         self.stability_metrics = {
@@ -180,8 +183,12 @@ class ElectronTimingPattern(ParticleTimingPattern):
 
 @dataclass
 class NeutrinoTimingPattern(ParticleTimingPattern):
-    """Neutrino as interaction-mediating timing pattern"""
-    
+    """Neutrino timing pattern with simple flavor oscillation"""
+
+    flavor: str = "electron"
+    oscillation_period: int = 1000
+    flavor_cycle: Tuple[str, str, str] = ("electron", "muon", "tau")
+
     def __post_init__(self):
         self.particle_type = ParticleType.NEUTRINO
         self.stability_level = ParticleStabilityLevel.STABLE
@@ -198,6 +205,11 @@ class NeutrinoTimingPattern(ParticleTimingPattern):
             "propagation_efficiency": 0.99,
             "matter_transparency": 0.98
         }
+
+    def oscillate_flavor(self, tick: int) -> None:
+        """Update flavor based on current tick."""
+        index = (tick // self.oscillation_period) % len(self.flavor_cycle)
+        self.flavor = self.flavor_cycle[index]
 @dataclass
 class PhotonTimingPattern(ParticleTimingPattern):
     """Photon as electromagnetic timing disturbance propagating through space"""
@@ -285,7 +297,7 @@ class PhotonTimingPattern(ParticleTimingPattern):
     def can_be_emitted_by(self, electron_pattern: 'ElectronTimingPattern') -> bool:
         """Check if this photon can be emitted by the electron"""
         interaction_strength = self.calculate_orbital_interaction_strength(electron_pattern)
-        return interaction_strength > 0.2  # Lower threshold for emission
+        return interaction_strength > 0.3  # Match absorption threshold for symmetry
 # =============================================================================
 # COMPOSITE PARTICLE ARCHITECTURE - Your Nucleon Internal Structure Achievement
 # =============================================================================
@@ -545,14 +557,14 @@ class ParticleFactory:
         return EnhancedProtonTimingPattern()
     
     @staticmethod
-    def create_electron() -> ElectronTimingPattern:
-        """Create standard electron pattern"""
-        return ElectronTimingPattern()
+    def create_electron(scale: int = 1) -> ElectronTimingPattern:
+        """Create standard electron pattern with optional scale"""
+        return ElectronTimingPattern(scale=scale)
     
     @staticmethod
-    def create_neutrino() -> NeutrinoTimingPattern:
-        """Create neutrino pattern"""
-        return NeutrinoTimingPattern()
+    def create_neutrino(flavor: str = "electron", oscillation_period: int = 1000) -> NeutrinoTimingPattern:
+        """Create neutrino pattern with specified flavor"""
+        return NeutrinoTimingPattern(flavor=flavor, oscillation_period=oscillation_period)
     
     @staticmethod
     def create_neutron() -> NeutronTimingPattern:
@@ -562,7 +574,7 @@ class ParticleFactory:
         # Initialize with constituent patterns
         proton = ParticleFactory.create_enhanced_proton()
         electron = ParticleFactory.create_electron()
-        neutrino = ParticleFactory.create_neutrino()
+        neutrino = ParticleFactory.create_neutrino("electron")
         
         neutron.initialize_constituents(proton, electron, neutrino)
         
@@ -604,7 +616,8 @@ def test_particles_module():
     # Test 3: Standard particles
     electron = ParticleFactory.create_electron()
     neutrino = ParticleFactory.create_neutrino()
-    print(f"✓ Standard particles: electron ({len(electron.pattern_nodes)} nodes), neutrino ({len(neutrino.pattern_nodes)} nodes)")
+    print(f"✓ Standard particles: electron ({len(electron.pattern_nodes)} nodes),"
+          f" neutrino [{neutrino.flavor}] ({len(neutrino.pattern_nodes)} nodes)")
     
     # Test 4: Neutron composite particle
     neutron = ParticleFactory.create_neutron()
